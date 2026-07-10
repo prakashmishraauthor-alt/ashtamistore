@@ -315,7 +315,77 @@ color:var(--primary);
 
 }
 
+nav ul{
 
+display:flex;
+
+align-items:center;
+
+list-style:none;
+
+gap:35px;
+
+}
+
+nav ul li{
+
+position:relative;
+
+}
+
+.dropdown-menu{
+
+position:absolute;
+
+top:100%;
+
+left:0;
+
+background:#fff;
+
+width:240px;
+
+padding:15px 0;
+
+border-radius:12px;
+
+box-shadow:0 15px 35px rgba(0,0,0,.1);
+
+display:none;
+
+z-index:1000;
+
+}
+
+.dropdown:hover .dropdown-menu{
+
+display:block;
+
+}
+
+.dropdown-menu li{
+
+width:100%;
+
+}
+
+.dropdown-menu li a{
+
+display:block;
+
+padding:12px 22px;
+
+transition:.3s;
+
+}
+
+.dropdown-menu li a:hover{
+
+background:#faf8f4;
+
+padding-left:28px;
+
+}
 /*====================
 HERO
 =====================*/
@@ -1171,13 +1241,83 @@ ASHTAMI
 
 <ul>
 
-<li><a href="#">Home</a></li>
+<li><a href="index.html">Home</a></li>
 
-<li><a href="#">Collections</a></li>
+<li class="dropdown">
 
-<li><a href="#">About</a></li>
+<a href="#">
 
-<li><a href="#">Contact</a></li>
+Collections
+
+<i class="fa-solid fa-chevron-down"></i>
+
+</a>
+
+<ul class="dropdown-menu">
+
+<li>
+
+<a href="category.html">
+
+Sweets & Savouries
+
+</a>
+
+</li>
+
+<li>
+
+<a href="printed-gifts.html">
+
+Printed Gift Items
+
+</a>
+
+</li>
+
+<li>
+
+<a href="jewellery.html">
+
+Jewellery
+
+</a>
+
+</li>
+
+</ul>
+
+</li>
+
+<li>
+
+<a href="about.html">
+
+Our Story
+
+</a>
+
+</li>
+
+<li>
+
+<a href="contact.html">
+
+Contact
+
+</a>
+
+</li>
+
+<li>
+
+<a href="cart.html">
+
+<i class="fa-solid fa-cart-shopping"></i>
+
+</a>
+
+</li>
 
 </ul>
 
@@ -1297,9 +1437,11 @@ Traditional recipes prepared with premium ingredients and homemade care.
 
 </p>
 
-<a href="#" class="btn btn-primary">
+<a href="category.html" class="btn btn-primary">
 
-Explore
+Explore Collection
+
+</a>
 
 </a>
 
@@ -1328,9 +1470,9 @@ Personalised gifts designed to make every celebration more memorable.
 
 </p>
 
-<a href="#" class="btn btn-primary">
+<a href="printed-gifts.html" class="btn btn-primary">
 
-Explore
+Explore Collection
 
 </a>
 
@@ -1359,9 +1501,11 @@ Elegant handcrafted jewellery inspired by timeless Indian traditions.
 
 </p>
 
-<a href="#" class="btn btn-primary">
+<a href="jewellery.html" class="btn btn-primary">
 
-Explore
+Explore Collection
+
+</a>
 
 </a>
 
@@ -1385,7 +1529,11 @@ SIGNATURE PRODUCTS
 <div class="section-title">
 
 <h2>Our Signature Delicacies</h2>
+<a href="product-sonth.html" class="btn btn-primary">
 
+View Details
+
+</a>
 <p>
 
 Prepared using authentic recipes, premium ingredients and homemade care. These traditional favourites have been loved for generations.
@@ -1468,7 +1616,11 @@ View Details
 
 </a>
 
-<a href="#" class="btn btn-secondary">
+<a href="product-sonth.html" class="btn btn-primary">
+
+View Details
+
+</a>
 
 Order via WhatsApp
 
@@ -1556,9 +1708,11 @@ View Details
 
 </a>
 
-<a href="#" class="btn btn-secondary">
+<a href="product-til.html" class="btn btn-primary">
 
-Order via WhatsApp
+View Details
+
+</a>
 
 </a>
 
