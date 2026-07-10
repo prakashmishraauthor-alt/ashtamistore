@@ -20,7 +20,603 @@
 
 <link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+<div class="top-bar">
 
+Traditional Taste, Style and Smile Delivered
+
+</div>
+  <style>.reverse-grid{
+
+display:grid;
+
+grid-template-columns:1fr 1fr;
+
+gap:70px;
+
+align-items:center;
+
+}
+
+.reverse-grid .product-info{
+
+order:1;
+
+}
+
+.reverse-grid .product-image{
+
+order:2;
+
+}
+    .coming-soon{
+
+background:#faf8f4;
+
+padding:100px 0;
+
+}
+
+.coming-grid{
+
+display:grid;
+
+grid-template-columns:repeat(3,1fr);
+
+gap:35px;
+
+margin-top:50px;
+
+}
+
+.coming-card{
+
+background:#fff;
+
+padding:50px 30px;
+
+text-align:center;
+
+border-radius:20px;
+
+box-shadow:0 15px 35px rgba(0,0,0,.08);
+
+transition:.35s;
+
+}
+
+.coming-card:hover{
+
+transform:translateY(-10px);
+
+}
+
+.coming-card i{
+
+font-size:48px;
+
+color:var(--accent);
+
+margin-bottom:25px;
+
+}
+    .premium-cta{
+
+background:linear-gradient(rgba(42,31,24,.88),rgba(42,31,24,.88)),
+url("../images/banner/cta-bg.jpg");
+
+background-size:cover;
+
+background-position:center;
+
+padding:120px 20px;
+
+text-align:center;
+
+color:#fff;
+
+}
+
+.premium-cta h2{
+
+color:#fff;
+
+font-size:52px;
+
+margin-bottom:20px;
+
+}
+
+.premium-cta p{
+
+max-width:700px;
+
+margin:auto auto 35px;
+
+font-size:18px;
+
+}
+  </style>
+  
 </head>
 
 <body>
+<header>
+
+<div class="container navbar">
+
+<div class="logo">
+
+ASHTAMI
+
+</div>
+
+<nav>
+
+<ul>
+
+<li><a href="index.html">Home</a></li>
+
+<li><a href="#">Collections</a></li>
+
+<li><a href="about.html">About</a></li>
+
+<li><a href="contact.html">Contact</a></li>
+
+<li>
+
+<a href="cart.html">
+
+<i class="fa-solid fa-cart-shopping"></i>
+
+</a>
+
+</li>
+
+</ul>
+
+</nav>
+
+</div>
+
+</header>
+<section class="category-banner">
+
+<div class="container">
+
+<h1>Sweets & Savouries</h1>
+
+<p>
+
+Traditional recipes crafted with premium ingredients,
+bringing authentic homemade goodness to every celebration.
+
+</p>
+
+<br>
+
+<a href="#products" class="btn btn-secondary">
+
+Explore Products
+
+</a>
+
+</div>
+
+</section>
+<section class="breadcrumb">
+
+<div class="container">
+
+<a href="index.html">
+
+Home
+
+</a>
+
+>
+
+Collections
+
+>
+
+<strong>
+
+Sweets & Savouries
+
+</strong>
+
+</div>
+
+</section>
+<section class="category-intro">
+
+<div class="container">
+
+<h2>
+
+Authentic Homemade Delicacies
+
+</h2>
+
+<p>
+
+Every sweet at Ashtami is lovingly prepared in small batches using carefully selected ingredients and traditional family recipes.
+
+Our sweets celebrate India's rich culinary heritage while maintaining exceptional quality, freshness and hygiene.
+
+</p>
+
+</div>
+
+</section>
+<section class="product-showcase" id="products">
+
+<div class="container">
+
+<div class="product-showcase-grid">
+
+<div class="product-image">
+
+<img src="images/products/sonth-ladoo.jpg">
+
+</div>
+
+<div class="product-info">
+
+<span class="product-badge">
+
+WINTER SPECIAL
+
+</span>
+
+<h2>
+
+Sonth Ladoo
+
+</h2>
+
+<p>
+
+Prepared using dried ginger, edible gum (gond), premium dry fruits and pure ghee.
+
+Rich in protein and deeply rooted in traditional Indian wellness.
+
+</p>
+
+<ul>
+
+<li><i class="fa-solid fa-check"></i> Homemade</li>
+
+<li><i class="fa-solid fa-check"></i> Premium Ingredients</li>
+
+<li><i class="fa-solid fa-check"></i> Rich in Protein</li>
+
+<li><i class="fa-solid fa-check"></i> Hygienically Prepared</li>
+
+</ul>
+
+<div class="pricing">
+
+<div>
+
+<strong>
+
+Sugar
+
+</strong>
+
+₹1000 / Kg
+
+</div>
+
+<div>
+
+<strong>
+
+Jaggery
+
+</strong>
+
+₹1100 / Kg
+
+</div>
+
+</div>
+
+<div class="product-buttons">
+
+<a href="product.html"
+
+class="btn btn-primary">
+
+View Details
+
+</a>
+
+<button class="btn btn-secondary">
+
+<i class="fa-solid fa-cart-plus"></i>
+
+Add to Cart
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+<!-- ===========================
+TIL LADOO
+============================ -->
+
+<section class="product-showcase reverse">
+
+<div class="container">
+
+<div class="product-showcase-grid reverse-grid">
+
+<div class="product-info">
+
+<span class="product-badge">
+
+BEST SELLER
+
+</span>
+
+<h2>
+
+Til Ladoo
+
+</h2>
+
+<p>
+
+Prepared from roasted sesame seeds and natural jaggery, Til Ladoo is a nutritious traditional sweet rich in calcium, iron and healthy fats.
+
+Perfect for winter, festivals and everyday wellness.
+
+</p>
+
+<ul>
+
+<li><i class="fa-solid fa-check"></i> Rich in Calcium</li>
+
+<li><i class="fa-solid fa-check"></i> Natural Protein Source</li>
+
+<li><i class="fa-solid fa-check"></i> Homemade</li>
+
+<li><i class="fa-solid fa-check"></i> Freshly Prepared</li>
+
+</ul>
+
+<div class="pricing">
+
+<div>
+
+<strong>500 g</strong>
+
+₹300
+
+</div>
+
+<div>
+
+<strong>1 Kg</strong>
+
+₹600
+
+</div>
+
+</div>
+
+<div class="product-buttons">
+
+<a href="product.html" class="btn btn-primary">
+
+View Details
+
+</a>
+
+<button class="btn btn-secondary">
+
+<i class="fa-solid fa-cart-plus"></i>
+
+Add to Cart
+
+</button>
+
+</div>
+
+</div>
+
+<div class="product-image">
+
+<img src="images/products/til-ladoo.jpg" alt="Til Ladoo">
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+<!-- ===========================
+COMING SOON
+============================ -->
+
+<section class="coming-soon">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>
+
+More Traditional Delicacies Coming Soon
+
+</h2>
+
+<p>
+
+We're constantly expanding our homemade collection.
+
+Stay connected for exciting new flavours and festive specials.
+
+</p>
+
+</div>
+
+<div class="coming-grid">
+
+<div class="coming-card">
+
+<i class="fa-solid fa-cookie-bite"></i>
+
+<h3>Festival Special Sweets</h3>
+
+</div>
+
+<div class="coming-card">
+
+<i class="fa-solid fa-cake-candles"></i>
+
+<h3>Gift Hampers</h3>
+
+</div>
+
+<div class="coming-card">
+
+<i class="fa-solid fa-heart"></i>
+
+<h3>Healthy Homemade Snacks</h3>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+<!-- ===========================
+WHY OUR SWEETS
+============================ -->
+
+<section class="why-sweets">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>
+
+Why Our Sweets?
+
+</h2>
+
+</div>
+
+<div class="why-grid">
+
+<div class="why-card">
+
+🏡
+
+<h3>Homemade</h3>
+
+</div>
+
+<div class="why-card">
+
+🌿
+
+<h3>Premium Ingredients</h3>
+
+</div>
+
+<div class="why-card">
+
+🥣
+
+<h3>Traditional Recipes</h3>
+
+</div>
+
+<div class="why-card">
+
+🧼
+
+<h3>Hygienically Prepared</h3>
+
+</div>
+
+<div class="why-card">
+
+📦
+
+<h3>Fresh Packaging</h3>
+
+</div>
+
+<div class="why-card">
+
+🚚
+
+<h3>Pan India Delivery</h3>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+<!-- ===========================
+CTA
+============================ -->
+
+<section class="premium-cta">
+
+<div class="container">
+
+<h2>
+
+Bring Home the Taste of Tradition
+
+</h2>
+
+<p>
+
+Freshly prepared homemade sweets made with care, delivered with love.
+
+</p>
+
+<div class="hero-buttons">
+
+<a href="cart.html"
+
+class="btn btn-primary">
+
+Shop Now
+
+</a>
+
+<a href="#"
+
+class="btn btn-secondary">
+
+<i class="fa-brands fa-whatsapp"></i>
+
+Order on WhatsApp
+
+</a>
+
+</div>
+
+</div>
+
+</section>
