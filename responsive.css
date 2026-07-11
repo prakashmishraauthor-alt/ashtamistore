@@ -1,0 +1,536 @@
+/*==================================================
+GLOBAL RESPONSIVE CSS
+Applies to every page
+==================================================*/
+
+*{
+    box-sizing:border-box;
+}
+
+img{
+    max-width:100%;
+    height:auto;
+    display:block;
+}
+
+.container{
+    width:100%;
+    max-width:1200px;
+    margin:auto;
+    padding:0 20px;
+}
+
+/*=========================
+Large Tablets
+=========================*/
+
+@media(max-width:992px){
+
+.container{
+    padding:0 18px;
+}
+
+section{
+    padding:70px 0 !important;
+}
+
+h1{
+    font-size:44px !important;
+}
+
+h2{
+    font-size:34px !important;
+}
+
+h3{
+    font-size:24px !important;
+}
+
+p{
+    font-size:16px !important;
+    line-height:1.8;
+}
+
+.btn{
+    width:100%;
+    text-align:center;
+}
+
+.hero-buttons,
+.product-buttons{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+}
+
+/*=========================
+Mobile
+=========================*/
+
+@media(max-width:768px){
+
+.container{
+    padding:0 15px;
+}
+
+section{
+    padding:60px 0 !important;
+}
+
+h1{
+    font-size:34px !important;
+    line-height:1.3;
+}
+
+h2{
+    font-size:28px !important;
+}
+
+h3{
+    font-size:22px !important;
+}
+
+p{
+    font-size:15px !important;
+}
+
+.btn{
+    width:100%;
+    padding:15px 20px;
+}
+
+img{
+    border-radius:16px;
+}
+
+}
+/*==================================================
+NAVBAR
+==================================================*/
+
+@media(max-width:992px){
+
+.navbar{
+    flex-direction:column;
+    gap:20px;
+    text-align:center;
+}
+
+nav ul{
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:18px;
+}
+
+.logo{
+    font-size:34px;
+}
+
+.top-bar{
+    font-size:14px;
+    padding:10px;
+}
+
+}
+
+/*==================================================
+HERO SECTION
+==================================================*/
+
+@media(max-width:768px){
+
+.hero{
+    min-height:auto;
+    padding:90px 20px;
+}
+
+.hero h1{
+    font-size:36px !important;
+    line-height:1.3;
+}
+
+.hero p{
+    font-size:16px !important;
+    margin:20px auto;
+}
+
+.hero-buttons{
+    width:100%;
+}
+
+.hero-buttons .btn{
+    width:100%;
+}
+
+}
+
+/*==================================================
+CATEGORY & PRODUCT GRIDS
+==================================================*/
+
+@media(max-width:992px){
+
+.product-showcase-grid,
+.reverse-grid,
+.feature-grid,
+.category-grid,
+.products-grid,
+.about-grid,
+.story-grid,
+.mission-grid,
+.values-grid,
+.contact-grid,
+.footer-grid{
+
+grid-template-columns:1fr !important;
+
+gap:40px;
+
+}
+
+.product-image,
+.about-image,
+.contact-map{
+
+order:1;
+
+}
+
+.product-info,
+.about-content,
+.contact-form{
+
+order:2;
+
+}
+
+}
+
+/*==================================================
+CARDS
+==================================================*/
+
+@media(max-width:768px){
+
+.coming-grid,
+.why-grid,
+.services-grid,
+.testimonial-grid{
+
+grid-template-columns:1fr !important;
+
+gap:25px;
+
+}
+
+.coming-card,
+.why-card,
+.service-card,
+.testimonial-card{
+
+padding:30px 25px;
+
+}
+
+}
+/*==================================================
+CART PAGE
+==================================================*/
+
+@media(max-width:992px){
+
+.cart-wrapper{
+    display:grid;
+    grid-template-columns:1fr !important;
+    gap:40px;
+}
+
+.cart-card{
+    display:flex;
+    flex-direction:column;
+    text-align:center;
+    gap:20px;
+    padding:25px;
+}
+
+.cart-image{
+    margin:auto;
+}
+
+.quantity-box{
+    justify-content:center;
+}
+
+.item-total,
+.remove-item{
+    text-align:center;
+}
+
+.order-summary{
+    position:static !important;
+    width:100%;
+}
+
+}
+
+/*==================================================
+CHECKOUT PAGE
+==================================================*/
+
+@media(max-width:992px){
+
+.checkout-wrapper{
+    display:grid;
+    grid-template-columns:1fr !important;
+    gap:40px;
+}
+
+.checkout-form,
+.checkout-summary{
+    width:100%;
+}
+
+}
+
+@media(max-width:768px){
+
+.checkout-form input,
+.checkout-form select,
+.checkout-form textarea{
+
+width:100%;
+font-size:16px;
+padding:14px;
+
+}
+
+.checkout-summary{
+
+margin-top:20px;
+
+}
+
+}
+
+/*==================================================
+FORMS
+==================================================*/
+
+@media(max-width:768px){
+
+input,
+select,
+textarea{
+
+width:100%;
+font-size:16px;
+padding:14px;
+
+}
+
+label{
+
+font-size:15px;
+
+}
+
+}
+
+/*==================================================
+FOOTER
+==================================================*/
+
+@media(max-width:768px){
+
+.footer-grid{
+
+display:grid;
+grid-template-columns:1fr !important;
+gap:35px;
+text-align:center;
+
+}
+
+.footer-social{
+
+justify-content:center;
+
+}
+
+.footer-links{
+
+padding:0;
+
+}
+
+.footer-links li{
+
+margin-bottom:10px;
+
+}
+
+}
+
+/*==================================================
+TABLETS
+==================================================*/
+
+@media(min-width:769px) and (max-width:1024px){
+
+.container{
+
+padding:0 25px;
+
+}
+
+.hero h1{
+
+font-size:48px !important;
+
+}
+
+.product-showcase-grid,
+.reverse-grid{
+
+gap:45px;
+
+}
+
+}
+
+/*==================================================
+SMALL PHONES
+==================================================*/
+
+@media(max-width:480px){
+
+.container{
+
+padding:0 12px;
+
+}
+
+h1{
+
+font-size:30px !important;
+
+}
+
+h2{
+
+font-size:24px !important;
+
+}
+
+h3{
+
+font-size:20px !important;
+
+}
+
+p{
+
+font-size:14px !important;
+line-height:1.7;
+
+}
+
+.top-bar{
+
+font-size:12px;
+
+}
+
+.logo{
+
+font-size:28px;
+
+}
+
+nav ul{
+
+flex-direction:column;
+gap:12px;
+
+}
+
+.btn{
+
+padding:14px;
+font-size:15px;
+
+}
+
+.product-badge{
+
+font-size:12px;
+padding:6px 14px;
+
+}
+
+.pricing{
+
+flex-direction:column;
+
+}
+
+.cart-card{
+
+padding:18px;
+
+}
+
+.quantity-box button{
+
+width:36px;
+height:36px;
+
+}
+
+.order-summary{
+
+padding:20px;
+
+}
+
+.checkout-form{
+
+padding:20px;
+
+}
+
+}
+
+/*==================================================
+VERY SMALL DEVICES
+==================================================*/
+
+@media(max-width:360px){
+
+h1{
+
+font-size:26px !important;
+
+}
+
+.hero{
+
+padding:70px 15px;
+
+}
+
+.btn{
+
+font-size:14px;
+
+}
+
+.logo{
+
+font-size:24px;
+
+}
+
+}
