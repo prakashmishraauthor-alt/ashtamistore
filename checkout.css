@@ -1,0 +1,249 @@
+/*==================================================
+PAGE BANNER
+==================================================*/
+
+.page-banner{
+    background:linear-gradient(rgba(42,31,24,.82),rgba(42,31,24,.82));
+    padding:100px 20px;
+    text-align:center;
+    color:#fff;
+}
+
+.page-banner h1{
+    color:#fff;
+    font-size:58px;
+    margin-bottom:15px;
+}
+
+.page-banner p{
+    max-width:700px;
+    margin:auto;
+    font-size:18px;
+}
+
+
+/*==================================================
+BREADCRUMB
+==================================================*/
+
+.breadcrumb{
+    background:#faf8f4;
+    padding:18px 0;
+}
+
+.breadcrumb .container{
+    display:flex;
+    gap:10px;
+    align-items:center;
+}
+
+.breadcrumb strong{
+    color:var(--accent);
+}
+
+
+/*==================================================
+CART
+==================================================*/
+
+.cart-section{
+    padding:90px 0;
+}
+
+.cart-wrapper{
+    display:grid;
+    grid-template-columns:2fr 1fr;
+    gap:40px;
+}
+
+
+/*==================================================
+PRODUCT CARD
+==================================================*/
+
+.cart-card{
+    display:grid;
+    grid-template-columns:120px 1fr auto auto auto;
+    gap:25px;
+    align-items:center;
+    background:#fff;
+    padding:25px;
+    margin-bottom:25px;
+    border-radius:18px;
+    box-shadow:0 12px 28px rgba(0,0,0,.08);
+}
+
+.cart-image img{
+    width:100%;
+    border-radius:12px;
+}
+
+.cart-details h3{
+    margin-bottom:10px;
+}
+
+.cart-details p{
+    color:#777;
+    margin-bottom:15px;
+}
+
+.cart-price{
+    font-size:22px;
+    font-weight:700;
+    color:var(--primary);
+}
+
+
+/*==================================================
+QUANTITY
+==================================================*/
+
+.quantity-box{
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+
+.quantity-box button{
+    width:36px;
+    height:36px;
+    border:none;
+    background:var(--accent);
+    color:#fff;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:18px;
+}
+
+.quantity-box input{
+    width:60px;
+    text-align:center;
+    padding:8px;
+    border:1px solid #ddd;
+    border-radius:8px;
+}
+
+
+/*==================================================
+TOTAL
+==================================================*/
+
+.item-total{
+    font-size:22px;
+    font-weight:700;
+    color:var(--primary);
+}
+
+
+/*==================================================
+DELETE
+==================================================*/
+
+.remove-item{
+    color:#c0392b;
+    cursor:pointer;
+    font-size:22px;
+    transition:.3s;
+}
+
+.remove-item:hover{
+    transform:scale(1.15);
+}
+
+
+/*==================================================
+ORDER SUMMARY
+==================================================*/
+
+.order-summary{
+    background:#faf8f4;
+    padding:35px;
+    border-radius:20px;
+    box-shadow:0 12px 28px rgba(0,0,0,.08);
+    position:sticky;
+    top:120px;
+}
+
+.order-summary h2{
+    margin-bottom:30px;
+}
+
+.summary-row{
+    display:flex;
+    justify-content:space-between;
+    margin:18px 0;
+}
+
+.summary-row.total{
+    font-size:22px;
+    font-weight:700;
+}
+
+.coupon{
+    width:100%;
+    padding:15px;
+    margin:25px 0;
+    border:1px solid #ddd;
+    border-radius:10px;
+}
+
+.checkout-btn,
+.continue-btn{
+    width:100%;
+    margin-top:15px;
+}
+
+
+/*==================================================
+TRUST
+==================================================*/
+
+.secure-box{
+    margin-top:35px;
+    border-top:1px solid #ddd;
+    padding-top:25px;
+}
+
+.secure-box p{
+    margin-bottom:15px;
+}
+
+.secure-box i{
+    color:var(--accent);
+    margin-right:10px;
+}
+
+
+/*==================================================
+RESPONSIVE
+==================================================*/
+
+@media(max-width:992px){
+
+.cart-wrapper{
+    grid-template-columns:1fr;
+}
+
+.cart-card{
+    grid-template-columns:1fr;
+    text-align:center;
+}
+
+.quantity-box{
+    justify-content:center;
+}
+
+.order-summary{
+    position:relative;
+    top:0;
+}
+
+}
+
+@media(max-width:768px){
+
+.page-banner h1{
+    font-size:40px;
+}
+
+}
