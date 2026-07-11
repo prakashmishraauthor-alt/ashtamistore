@@ -1207,6 +1207,525 @@ margin-bottom:12px;
 color:var(--primary);
 
 }
+  /*==================================================
+HOME PAGE RESPONSIVE
+APPEND AT THE END OF INDEX.HTML CSS
+==================================================*/
+
+
+/*==============================
+TABLETS
+==============================*/
+
+@media (max-width:992px){
+
+.container{
+    width:100%;
+    padding:0 25px;
+}
+
+.navbar{
+    flex-direction:column;
+    gap:18px;
+}
+
+nav ul{
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:18px;
+}
+
+.hero{
+    min-height:auto;
+    padding:90px 25px;
+}
+
+.hero h1{
+    font-size:52px;
+    line-height:1.2;
+}
+
+.hero p{
+    max-width:700px;
+    margin:20px auto 35px;
+}
+
+.hero-buttons{
+    justify-content:center;
+}
+
+.products-grid,
+.category-grid,
+.features-grid,
+.testimonial-grid,
+.footer-grid{
+    grid-template-columns:repeat(2,1fr);
+    gap:30px;
+}
+
+section{
+    padding:80px 0;
+}
+
+}
+
+
+/*==============================
+MOBILE
+==============================*/
+
+@media (max-width:768px){
+
+.container{
+    padding:0 18px;
+}
+
+.top-bar{
+    font-size:13px;
+    padding:10px;
+    text-align:center;
+}
+
+.navbar{
+    flex-direction:column;
+    text-align:center;
+    gap:20px;
+}
+
+.logo{
+    font-size:34px;
+}
+
+nav ul{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:15px;
+}
+
+.hero{
+
+padding:80px 20px;
+min-height:auto;
+
+}
+
+.hero h1{
+
+font-size:40px;
+line-height:1.3;
+
+}
+
+.hero p{
+
+font-size:17px;
+
+}
+
+.hero-buttons{
+
+display:flex;
+flex-direction:column;
+gap:15px;
+
+}
+
+.hero-buttons .btn{
+
+width:100%;
+
+}
+
+section{
+
+padding:70px 0;
+
+}
+
+.products-grid,
+.category-grid,
+.features-grid,
+.testimonial-grid,
+.footer-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.product-card,
+.category-card,
+.feature-card,
+.testimonial-card{
+
+padding:25px;
+
+}
+
+.product-image img{
+
+width:100%;
+
+}
+
+}
+  /*==================================================
+HOME PAGE RESPONSIVE - PART 2
+==================================================*/
+
+
+/*==============================
+PRODUCT CARDS
+==============================*/
+
+@media (max-width:768px){
+
+.product-card{
+
+border-radius:18px;
+overflow:hidden;
+
+}
+
+.product-card img{
+
+width:100%;
+height:auto;
+display:block;
+
+}
+
+.product-content{
+
+padding:20px;
+
+}
+
+.product-content h3{
+
+font-size:24px;
+margin-bottom:12px;
+
+}
+
+.product-content p{
+
+font-size:15px;
+line-height:1.8;
+
+}
+
+.product-price{
+
+font-size:24px;
+
+}
+
+.product-buttons{
+
+display:flex;
+flex-direction:column;
+gap:12px;
+margin-top:20px;
+
+}
+
+.product-buttons .btn{
+
+width:100%;
+
+}
+
+}
+
+
+/*==============================
+FEATURE CARDS
+==============================*/
+
+@media (max-width:768px){
+
+.feature-card{
+
+padding:30px 20px;
+
+}
+
+.feature-card i{
+
+font-size:42px;
+margin-bottom:20px;
+
+}
+
+.feature-card h3{
+
+font-size:24px;
+
+}
+
+}
+
+
+/*==============================
+CATEGORY SECTION
+==============================*/
+
+@media (max-width:768px){
+
+.category-card{
+
+padding:25px;
+
+}
+
+.category-card h3{
+
+font-size:24px;
+
+}
+
+.category-card img{
+
+width:100%;
+border-radius:16px;
+
+}
+
+}
+
+
+/*==============================
+CTA SECTION
+==============================*/
+
+@media (max-width:768px){
+
+.cta,
+.cta-section{
+
+padding:70px 20px;
+text-align:center;
+
+}
+
+.cta h2,
+.cta-section h2{
+
+font-size:34px;
+line-height:1.3;
+
+}
+
+.cta p,
+.cta-section p{
+
+font-size:16px;
+max-width:100%;
+
+}
+
+.cta .btn,
+.cta-section .btn{
+
+width:100%;
+margin-top:20px;
+
+}
+
+}
+
+
+/*==============================
+FOOTER
+==============================*/
+
+@media (max-width:768px){
+
+footer{
+
+text-align:center;
+
+}
+
+.footer-grid{
+
+display:grid;
+grid-template-columns:1fr;
+gap:35px;
+
+}
+
+.footer-column{
+
+margin-bottom:10px;
+
+}
+
+.footer-column h3{
+
+margin-bottom:18px;
+
+}
+
+.footer-column ul{
+
+padding:0;
+list-style:none;
+
+}
+
+.footer-column ul li{
+
+margin-bottom:10px;
+
+}
+
+.footer-social{
+
+justify-content:center;
+display:flex;
+gap:15px;
+
+}
+
+.footer-bottom{
+
+text-align:center;
+
+}
+
+}
+
+
+/*==============================
+SMALL PHONES
+==============================*/
+
+@media (max-width:480px){
+
+.container{
+
+padding:0 15px;
+
+}
+
+.hero{
+
+padding:70px 15px;
+
+}
+
+.hero h1{
+
+font-size:32px;
+
+}
+
+.hero p{
+
+font-size:15px;
+
+}
+
+.logo{
+
+font-size:28px;
+
+}
+
+nav ul{
+
+flex-direction:column;
+gap:12px;
+
+}
+
+.btn{
+
+padding:14px 18px;
+font-size:15px;
+
+}
+
+.product-content{
+
+padding:18px;
+
+}
+
+.product-content h3{
+
+font-size:22px;
+
+}
+
+.product-price{
+
+font-size:22px;
+
+}
+
+.feature-card,
+.category-card{
+
+padding:22px 18px;
+
+}
+
+.cta h2{
+
+font-size:28px;
+
+}
+
+section{
+
+padding:60px 0;
+
+}
+
+}
+
+
+/*==============================
+VERY SMALL DEVICES
+==============================*/
+
+@media (max-width:360px){
+
+.hero h1{
+
+font-size:28px;
+
+}
+
+.hero{
+
+padding:60px 12px;
+
+}
+
+.logo{
+
+font-size:24px;
+
+}
+
+.btn{
+
+font-size:14px;
+padding:12px;
+
+}
+
+.top-bar{
+
+font-size:11px;
+
+}
+
+}
 </style>
  
 </head>
