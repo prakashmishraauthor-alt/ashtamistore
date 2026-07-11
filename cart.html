@@ -151,108 +151,7 @@ LEFT : CART ITEMS
 
 <div class="cart-items">
 
-<!-- Product 1 -->
-
-<div class="cart-card">
-
-<div class="cart-image">
-
-<img src="images/products/sonth-ladoo.jpg" alt="Sonth Ladoo">
-
-</div>
-
-<div class="cart-details">
-
-<h3>Sonth Ladoo</h3>
-
-<p>
-
-Sugar Variant • 1 Kg
-
-</p>
-
-<div class="cart-price">
-
-₹1000
-
-</div>
-
-</div>
-
-<div class="quantity-box">
-
-<button>-</button>
-
-<input type="number" value="1">
-
-<button>+</button>
-
-</div>
-
-<div class="item-total">
-
-₹1000
-
-</div>
-
-<div class="remove-item">
-
-<i class="fa-solid fa-trash"></i>
-
-</div>
-
-</div>
-
-
-<!-- Product 2 -->
-
-<div class="cart-card">
-
-<div class="cart-image">
-
-<img src="images/products/til-ladoo.jpg" alt="Til Ladoo">
-
-</div>
-
-<div class="cart-details">
-
-<h3>Til Ladoo</h3>
-
-<p>
-
-500 g Pack
-
-</p>
-
-<div class="cart-price">
-
-₹300
-
-</div>
-
-</div>
-
-<div class="quantity-box">
-
-<button>-</button>
-
-<input type="number" value="2">
-
-<button>+</button>
-
-</div>
-
-<div class="item-total">
-
-₹600
-
-</div>
-
-<div class="remove-item">
-
-<i class="fa-solid fa-trash"></i>
-
-</div>
+    <div id="cartItems"></div>
 
 </div>
 
@@ -273,7 +172,7 @@ Order Summary
 
 <span>Subtotal</span>
 
-<span>₹1600</span>
+<span id="subtotal">₹0</span>
 
 </div>
 
@@ -299,7 +198,7 @@ Order Summary
 
 <span>Total</span>
 
-<span>₹1600</span>
+<span id="grandTotal">₹0</span>
 
 </div>
 
@@ -308,11 +207,11 @@ type="text"
 placeholder="Coupon Code"
 class="coupon">
 
-<button class="btn btn-primary checkout-btn">
+<a href="checkout.html" class="btn btn-primary checkout-btn">
 
 Proceed to Checkout
 
-</button>
+</a>
 
 <a href="category.html"
 class="btn btn-secondary continue-btn">
@@ -356,3 +255,6 @@ Freshly Homemade
 </div>
 
 </section>
+      <script src="script.js"></script>
+</body>
+</html>
