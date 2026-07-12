@@ -587,7 +587,83 @@ display:block;
 padding:14px 40px;
 
 font-size:15px;
+/*====================================
+HAMBURGER OVERRIDE
+====================================*/
 
+@media (max-width:1024px){
+
+.menu-toggle{
+
+display:block !important;
+
+font-size:30px;
+
+color:#fff;
+
+cursor:pointer;
+
+z-index:9999;
+
+}
+
+nav{
+
+position:absolute;
+
+top:100%;
+
+left:0;
+
+width:100%;
+
+background:#222;
+
+display:none;
+
+z-index:999;
+
+}
+
+nav.show-menu{
+
+display:block;
+
+}
+
+nav ul{
+
+display:flex;
+
+flex-direction:column;
+
+padding:20px 0;
+
+gap:0;
+
+}
+
+nav ul li{
+
+width:100%;
+
+}
+
+nav ul li a{
+
+display:block;
+
+padding:16px;
+
+text-align:center;
+
+color:#fff;
+
+border-bottom:1px solid rgba(255,255,255,.1);
+
+}
+
+}
 text-align:left;
 
 }
