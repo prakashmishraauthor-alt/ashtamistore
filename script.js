@@ -300,40 +300,16 @@ function calculateTotal() {
 AUTO LOAD
 ==================================================*/
 
-document.addEventListener("DOMContentLoaded", function(){
+document.addEventListener("DOMContentLoaded", function () {
 
     updateCartCount();
-/*=========================
-HAMBURGER MENU
-=========================*/
 
-/*==========================
-RESPONSIVE NAVBAR
-==========================*/
-
-const menuBtn = document.querySelector(".menu-toggle");
-const nav = document.querySelector("nav");
-
-menuBtn.addEventListener("click",function(){
-
-  const nav = document.querySelector("nav");
-});
-
-
-const dropdown = document.querySelector(".dropdown");
-
-dropdown.addEventListener("click",function(e){
-
-    if(window.innerWidth <= 1024){
-
-        e.preventDefault();
-
-        dropdown.classList.toggle("show-dropdown");
-
-    }
+    loadCart();
 
 });
-    /*==================================================
+
+
+/*==================================================
 ASHTAMI STORE
 RESPONSIVE NAVBAR
 ==================================================*/
@@ -351,9 +327,9 @@ document.addEventListener("DOMContentLoaded", function () {
     HAMBURGER MENU
     ==========================*/
 
-    if(menuToggle){
+    if (menuToggle && nav) {
 
-        menuToggle.addEventListener("click", function(e){
+        menuToggle.addEventListener("click", function (e) {
 
             e.stopPropagation();
 
@@ -368,11 +344,11 @@ document.addEventListener("DOMContentLoaded", function () {
     MOBILE DROPDOWN
     ==========================*/
 
-    if(dropdownToggle){
+    if (dropdown && dropdownToggle) {
 
-        dropdownToggle.addEventListener("click", function(e){
+        dropdownToggle.addEventListener("click", function (e) {
 
-            if(window.innerWidth <= 992){
+            if (window.innerWidth <= 992) {
 
                 e.preventDefault();
 
@@ -388,18 +364,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /*==========================
-    CLOSE MENU WHEN LINK CLICKED
+    CLOSE MENU AFTER CLICK
     ==========================*/
 
-    document.querySelectorAll("nav a").forEach(function(link){
+    document.querySelectorAll("nav a").forEach(function (link) {
 
-        link.addEventListener("click", function(){
+        link.addEventListener("click", function () {
 
-            if(window.innerWidth <= 992){
+            if (window.innerWidth <= 992) {
 
-                nav.classList.remove("show-menu");
+                if (nav) nav.classList.remove("show-menu");
 
-                dropdown.classList.remove("show-dropdown");
+                if (dropdown) dropdown.classList.remove("show-dropdown");
 
             }
 
@@ -412,19 +388,22 @@ document.addEventListener("DOMContentLoaded", function () {
     CLICK OUTSIDE
     ==========================*/
 
-    document.addEventListener("click", function(e){
+    document.addEventListener("click", function (e) {
 
-        if(
-
+        if (
+            nav &&
+            menuToggle &&
             !nav.contains(e.target) &&
-
             !menuToggle.contains(e.target)
-
-        ){
+        ) {
 
             nav.classList.remove("show-menu");
 
-            dropdown.classList.remove("show-dropdown");
+            if (dropdown) {
+
+                dropdown.classList.remove("show-dropdown");
+
+            }
 
         }
 
@@ -435,13 +414,13 @@ document.addEventListener("DOMContentLoaded", function () {
     RESET ON DESKTOP
     ==========================*/
 
-    window.addEventListener("resize", function(){
+    window.addEventListener("resize", function () {
 
-        if(window.innerWidth > 992){
+        if (window.innerWidth > 992) {
 
-            nav.classList.remove("show-menu");
+            if (nav) nav.classList.remove("show-menu");
 
-            dropdown.classList.remove("show-dropdown");
+            if (dropdown) dropdown.classList.remove("show-dropdown");
 
         }
 
