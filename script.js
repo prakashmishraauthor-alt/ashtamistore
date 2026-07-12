@@ -303,6 +303,120 @@ AUTO LOAD
 document.addEventListener("DOMContentLoaded", function(){
 
     updateCartCount();
+    /*==================================
+MOBILE NAVIGATION
+==================================*/
+
+const menuToggle = document.querySelector(".menu-toggle");
+const nav = document.querySelector("nav");
+const dropdown = document.querySelector(".dropdown");
+
+if(menuToggle){
+
+    menuToggle.addEventListener("click",function(){
+
+        nav.classList.toggle("active");
+
+        this.classList.toggle("active");
+
+    });
+
+}
+
+
+/*==================================
+MOBILE DROPDOWN
+==================================*/
+
+if(dropdown){
+
+    const dropdownLink = dropdown.querySelector("a");
+
+    dropdownLink.addEventListener("click",function(e){
+
+        if(window.innerWidth <= 1024){
+
+            e.preventDefault();
+
+            dropdown.classList.toggle("active");
+
+        }
+
+    });
+
+}
+
+
+/*==================================
+CLOSE MENU AFTER CLICKING LINK
+==================================*/
+
+document.querySelectorAll("nav ul li a").forEach(link=>{
+
+    link.addEventListener("click",function(){
+
+        if(!this.closest(".dropdown")){
+
+            nav.classList.remove("active");
+
+            menuToggle.classList.remove("active");
+
+            if(dropdown){
+
+                dropdown.classList.remove("active");
+
+            }
+
+        }
+
+    });
+
+});
+
+
+/*==================================
+CLOSE MENU ON SCROLL
+==================================*/
+
+window.addEventListener("scroll",function(){
+
+    nav.classList.remove("active");
+
+    menuToggle.classList.remove("active");
+
+    if(dropdown){
+
+        dropdown.classList.remove("active");
+
+    }
+
+});
+
+
+/*==================================
+CLOSE MENU WHEN CLICKING OUTSIDE
+==================================*/
+
+document.addEventListener("click",function(e){
+
+    if(
+        !nav.contains(e.target) &&
+        !menuToggle.contains(e.target)
+    ){
+
+        nav.classList.remove("active");
+
+        menuToggle.classList.remove("active");
+
+        if(dropdown){
+
+            dropdown.classList.remove("active");
+
+        }
+
+    }
+
+});
 
     loadCart();
 
