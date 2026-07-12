@@ -210,6 +210,9 @@ DESKTOP DROPDOWN
 
 }
 
+/*==================================
+HAMBURGER
+==================================*/
 
 /*==================================
 HAMBURGER
@@ -219,6 +222,12 @@ HAMBURGER
 
     display:none;
 
+    width:44px;
+    height:44px;
+
+    align-items:center;
+    justify-content:center;
+
     font-size:28px;
 
     color:var(--dark);
@@ -226,6 +235,8 @@ HAMBURGER
     cursor:pointer;
 
     transition:.3s;
+
+    z-index:10001;
 
 }
 
