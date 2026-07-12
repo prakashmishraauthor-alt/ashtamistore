@@ -1,0 +1,1291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>About Us | Ashtami Store</title>
+
+<meta name="description"
+content="Discover the story behind Ashtami Store. Learn how our passion for traditional homemade sweets, personalised gifts and handcrafted creations brings warmth, creativity and happiness into everyday life.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
+rel="stylesheet">
+
+<link rel="stylesheet" href="responsive.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+<style>
+
+/*==================================
+
+ABOUT PAGE
+
+===================================*/
+
+
+/*==================================
+RESET
+===================================*/
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+
+font-family:'Poppins',sans-serif;
+
+background:#faf8f4;
+
+color:#333;
+
+line-height:1.8;
+
+overflow-x:hidden;
+
+}
+
+img{
+
+max-width:100%;
+
+display:block;
+
+}
+
+a{
+
+text-decoration:none;
+
+color:inherit;
+
+}
+
+ul{
+
+list-style:none;
+
+}
+
+
+/*==================================
+COLORS
+===================================*/
+
+:root{
+
+--primary:#0D5C4F;
+
+--secondary:#D4AF37;
+
+--accent:#A22C29;
+
+--dark:#222;
+
+--light:#ffffff;
+
+--background:#faf8f4;
+
+--grey:#666;
+
+--lightgrey:#f3f3f3;
+
+}
+
+
+/*==================================
+COMMON
+===================================*/
+
+.container{
+
+width:min(1200px,90%);
+
+margin:auto;
+
+}
+
+section{
+
+padding:90px 0;
+
+}
+
+.section-title{
+
+text-align:center;
+
+margin-bottom:60px;
+
+}
+
+.section-title h2{
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:48px;
+
+color:var(--dark);
+
+margin-bottom:15px;
+
+}
+
+.section-title p{
+
+max-width:700px;
+
+margin:auto;
+
+color:var(--grey);
+
+}
+
+.btn{
+
+display:inline-block;
+
+padding:15px 35px;
+
+border-radius:50px;
+
+font-weight:600;
+
+transition:.3s;
+
+}
+
+.btn-primary{
+
+background:var(--primary);
+
+color:#fff;
+
+}
+
+.btn-primary:hover{
+
+background:#08473d;
+
+transform:translateY(-3px);
+
+}
+
+
+/*==================================
+TOP BAR
+===================================*/
+
+.top-bar{
+
+background:var(--primary);
+
+color:#fff;
+
+text-align:center;
+
+padding:10px;
+
+font-size:14px;
+
+letter-spacing:.5px;
+
+}
+
+
+/*==================================
+HEADER
+===================================*/
+
+header{
+
+background:#222;
+
+position:sticky;
+
+top:0;
+
+z-index:999;
+
+box-shadow:0 10px 30px rgba(0,0,0,.15);
+
+}
+
+.navbar{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+padding:20px 0;
+
+}
+
+.logo{
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:34px;
+
+font-weight:700;
+
+color:#fff;
+
+letter-spacing:2px;
+
+}
+
+nav ul{
+
+display:flex;
+
+gap:35px;
+
+align-items:center;
+
+}
+
+nav a{
+
+color:#fff;
+
+font-weight:500;
+
+transition:.3s;
+
+}
+
+nav a:hover{
+
+color:var(--secondary);
+
+}
+
+.cart-icon{
+
+position:relative;
+
+font-size:20px;
+
+}
+
+.cart-count{
+
+position:absolute;
+
+top:-10px;
+
+right:-12px;
+
+background:var(--accent);
+
+color:#fff;
+
+width:20px;
+
+height:20px;
+
+border-radius:50%;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+font-size:11px;
+
+}
+
+
+/*==================================
+PAGE HERO
+===================================*/
+
+.about-hero{
+
+background:linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.65)),
+url("Hero.png") center/cover;
+
+color:#fff;
+
+text-align:center;
+
+padding:140px 20px;
+
+}
+
+.about-hero h1{
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:70px;
+
+margin-bottom:25px;
+
+color:#fff;
+
+}
+
+.about-hero p{
+
+max-width:760px;
+
+margin:auto;
+
+font-size:20px;
+
+margin-bottom:40px;
+
+color:#f5f5f5;
+
+line-height:1.9;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="top-bar">
+
+Crafting Tradition • Creating Memories • Delivering Happiness
+
+</div>
+
+<header>
+
+<div class="container navbar">
+
+<div class="logo">
+
+ASHTAMI STORE
+
+</div>
+
+<nav>
+
+<ul>
+
+<li><a href="index.html">Home</a></li>
+
+<li><a href="category.html">Collections</a></li>
+
+<li><a href="about.html">About</a></li>
+
+<li><a href="contact.html">Contact</a></li>
+
+<li>
+
+<a href="cart.html" class="cart-icon">
+
+<i class="fa-solid fa-cart-shopping"></i>
+
+<span class="cart-count">0</span>
+
+</a>
+
+</li>
+
+</ul>
+
+</nav>
+
+</div>
+
+</header>
+
+
+<!--==================================
+ABOUT HERO
+===================================-->
+
+<section class="about-hero">
+
+<div class="container">
+
+<h1>
+
+Crafting Tradition,<br>
+
+Creating Memories.
+
+</h1>
+
+<p>
+
+Every creation at Ashtami begins with a simple belief — the most meaningful
+things in life are made with care, shared with love, and remembered for years
+to come. From authentic homemade sweets to personalised gifts and handcrafted
+creations, we celebrate the warmth of family, creativity and Indian tradition.
+
+</p>
+
+<a href="category.html" class="btn btn-primary">
+
+Explore Our Collections
+
+</a>
+
+</div>
+
+</section>
+<!--==================================
+OUR JOURNEY
+===================================-->
+
+<section class="our-journey">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>
+
+Every Beautiful Journey Begins with a Simple Dream
+
+</h2>
+
+<p>
+
+A journey inspired by tradition, creativity and the simple joy of making people smile.
+
+</p>
+
+</div>
+
+<div class="journey-grid">
+
+<div class="journey-image">
+
+<img src="Hero.png"
+alt="Ashtami Story">
+
+</div>
+
+<div class="journey-content">
+
+<h3>
+
+A Dream Rooted in Tradition
+
+</h3>
+
+<p>
+
+Ashtami Store was born from a heartfelt dream—to preserve the warmth of homemade traditions while bringing meaningful handcrafted creations into people's lives. In today's fast-moving world, many traditional recipes and handmade products have slowly been replaced by mass production. We wanted to keep alive the authentic flavours, personal touch and timeless values that have always been part of Indian homes.
+
+</p>
+
+<p>
+
+What began as a small family initiative has grown into a brand dedicated to quality, creativity and trust. Every sweet, every personalised gift and every handcrafted creation reflects the same love and attention that we would give while preparing something for our own family.
+
+</p>
+
+<p>
+
+For us, every order is more than a transaction—it is an opportunity to become a part of someone's celebration, festival, family gathering or cherished memory. That belief continues to inspire everything we create.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!--==================================
+WHY WE STARTED
+===================================-->
+
+<section class="why-started">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>
+
+Why We Started
+
+</h2>
+
+<p>
+
+Our purpose has always been simple—to create products that bring warmth, happiness and meaningful experiences.
+
+</p>
+
+</div>
+
+<div class="purpose-grid">
+
+<div class="purpose-content">
+
+<div class="purpose-item">
+
+<i class="fa-solid fa-heart"></i>
+
+<div>
+
+<h3>
+
+Preserve Homemade Traditions
+
+</h3>
+
+<p>
+
+Keeping authentic family recipes alive with the same care and love found in every Indian kitchen.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="purpose-item">
+
+<i class="fa-solid fa-gift"></i>
+
+<div>
+
+<h3>
+
+Create Meaningful Gifts
+
+</h3>
+
+<p>
+
+Designing personalised gifts that celebrate life's most beautiful moments and create lasting memories.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="purpose-item">
+
+<i class="fa-solid fa-palette"></i>
+
+<div>
+
+<h3>
+
+Celebrate Creativity
+
+</h3>
+
+<p>
+
+Combining craftsmanship, thoughtful design and attention to detail in every product we offer.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="purpose-item">
+
+<i class="fa-solid fa-handshake"></i>
+
+<div>
+
+<h3>
+
+Build Lasting Trust
+
+</h3>
+
+<p>
+
+Growing through honesty, quality and genuine relationships with every customer who becomes part of our journey.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="purpose-image">
+
+<img src="gifts.png"
+alt="Personalised Gifts">
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!--==================================
+MISSION & VISION
+===================================-->
+
+<section class="mission-vision">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>
+
+Our Mission & Vision
+
+</h2>
+
+<p>
+
+Driven by tradition, inspired by creativity and committed to customer happiness.
+
+</p>
+
+</div>
+
+<div class="mission-grid">
+
+<div class="mission-card">
+
+<i class="fa-solid fa-bullseye"></i>
+
+<h3>
+
+Our Mission
+
+</h3>
+
+<p>
+
+To deliver authentic homemade sweets, thoughtful personalised gifts and handcrafted creations that celebrate Indian culture while bringing joy, quality and meaningful experiences into everyday life.
+
+</p>
+
+</div>
+
+<div class="mission-card">
+
+<i class="fa-solid fa-eye"></i>
+
+<h3>
+
+Our Vision
+
+</h3>
+
+<p>
+
+To become a trusted lifestyle brand recognised for preserving tradition, encouraging creativity and creating products that people proudly share with their families and loved ones.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+<!--==================================
+WHAT WE CREATE
+===================================-->
+
+<section class="what-we-create">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>
+
+What We Create
+
+</h2>
+
+<p>
+
+Every product we offer is thoughtfully created to bring happiness, preserve traditions and make every celebration a little more special.
+
+</p>
+
+</div>
+
+<div class="create-grid">
+
+<div class="create-card">
+
+<i class="fa-solid fa-cookie-bite"></i>
+
+<h3>
+
+Traditional Sweets
+
+</h3>
+
+<p>
+
+Prepared using cherished family recipes and carefully selected ingredients, our homemade sweets deliver the authentic flavours and warmth of Indian tradition.
+
+</p>
+
+</div>
+
+<div class="create-card">
+
+<i class="fa-solid fa-gift"></i>
+
+<h3>
+
+Personalised Gifts
+
+</h3>
+
+<p>
+
+From printed mugs and tumblers to bottles, cushions and keepsakes, every personalised gift is designed to transform special moments into lifelong memories.
+
+</p>
+
+</div>
+
+<div class="create-card">
+
+<i class="fa-solid fa-gem"></i>
+
+<h3>
+
+Elegant Jewellery
+
+</h3>
+
+<p>
+
+Discover stylish imitation jewellery thoughtfully selected to add elegance, confidence and charm to every celebration and everyday outfit.
+
+</p>
+
+</div>
+
+<div class="create-card">
+
+<i class="fa-solid fa-palette"></i>
+
+<h3>
+
+Handcrafted Creations
+
+</h3>
+
+<p>
+
+Beautiful handmade creations that combine creativity, quality craftsmanship and thoughtful design to reflect your unique personality and style.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!--==================================
+OUR VALUES
+===================================-->
+
+<section class="our-values">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>
+
+Our Core Values
+
+</h2>
+
+<p>
+
+These principles inspire every product we make and every relationship we build.
+
+</p>
+
+</div>
+
+<div class="values-grid">
+
+<div class="value-card">
+
+<i class="fa-solid fa-heart"></i>
+
+<h3>
+
+Made with Love
+
+</h3>
+
+<p>
+
+Every order receives the same care and attention we would give to our own family.
+
+</p>
+
+</div>
+
+<div class="value-card">
+
+<i class="fa-solid fa-award"></i>
+
+<h3>
+
+Quality First
+
+</h3>
+
+<p>
+
+We believe quality should never be compromised, from ingredients to craftsmanship.
+
+</p>
+
+</div>
+
+<div class="value-card">
+
+<i class="fa-solid fa-seedling"></i>
+
+<h3>
+
+Authenticity
+
+</h3>
+
+<p>
+
+Honouring traditional methods while creating products that remain genuine and meaningful.
+
+</p>
+
+</div>
+
+<div class="value-card">
+
+<i class="fa-solid fa-lightbulb"></i>
+
+<h3>
+
+Creativity
+
+</h3>
+
+<p>
+
+Designing products that inspire smiles and celebrate life's beautiful moments.
+
+</p>
+
+</div>
+
+<div class="value-card">
+
+<i class="fa-solid fa-users"></i>
+
+<h3>
+
+Family Spirit
+
+</h3>
+
+<p>
+
+Building genuine relationships with every customer through honesty, warmth and trust.
+
+</p>
+
+</div>
+
+<div class="value-card">
+
+<i class="fa-solid fa-handshake"></i>
+
+<h3>
+
+Customer Happiness
+
+</h3>
+
+<p>
+
+Your satisfaction is not simply our goal—it is the greatest reward for everything we do.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!--==================================
+WHY FAMILIES CHOOSE ASHTAMI
+===================================-->
+
+<section class="why-choose">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>
+
+Why Families Choose Ashtami
+
+</h2>
+
+<p>
+
+Because every product is crafted with sincerity, tradition and genuine care.
+
+</p>
+
+</div>
+
+<div class="choose-grid">
+
+<div class="choose-card">
+
+<span>01</span>
+
+<h3>
+
+Authentic Homemade Taste
+
+</h3>
+
+<p>
+
+Traditional recipes prepared with care to deliver the comforting flavours of home.
+
+</p>
+
+</div>
+
+<div class="choose-card">
+
+<span>02</span>
+
+<h3>
+
+Meaningful Personalisation
+
+</h3>
+
+<p>
+
+Thoughtfully customised gifts that celebrate life's most precious memories.
+
+</p>
+
+</div>
+
+<div class="choose-card">
+
+<span>03</span>
+
+<h3>
+
+Premium Craftsmanship
+
+</h3>
+
+<p>
+
+Beautifully finished products created with attention to detail and lasting quality.
+
+</p>
+
+</div>
+
+<div class="choose-card">
+
+<span>04</span>
+
+<h3>
+
+Trusted Family Business
+
+</h3>
+
+<p>
+
+A growing family business built on honesty, gratitude and long-lasting customer relationships.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+<!--==================================
+OUR PROMISE
+===================================-->
+
+<section class="our-promise">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>
+
+Our Promise to You
+
+</h2>
+
+<p>
+
+Every product carries our commitment to quality, authenticity and heartfelt craftsmanship.
+
+</p>
+
+</div>
+
+<div class="promise-box">
+
+<p>
+
+At Ashtami Store, every order represents more than a product—it represents trust. Whether you're choosing our traditional sweets, personalised gifts or elegant jewellery, we promise to deliver creations prepared with sincerity, attention to detail and genuine care.
+
+</p>
+
+<p>
+
+We believe that the finest products are those made with patience, shared with love and remembered long after they are received. That's why every sweet is prepared with quality ingredients, every personalised gift is thoughtfully crafted and every collection is carefully selected to bring happiness into your life.
+
+</p>
+
+<p>
+
+As a family business, we value every customer who chooses us. Your celebrations become our celebrations, your memories become part of our journey and your satisfaction remains the greatest reward for everything we do.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!--==================================
+CALL TO ACTION
+===================================-->
+
+<section class="about-cta">
+
+<div class="container">
+
+<h2>
+
+Let's Create Beautiful Memories Together
+
+</h2>
+
+<p>
+
+Discover handcrafted products that celebrate tradition, creativity and life's most precious moments.
+
+</p>
+
+<div class="cta-buttons">
+
+<a href="category.html" class="btn btn-primary">
+
+<i class="fa-solid fa-store"></i>
+
+Explore Collections
+
+</a>
+
+<a href="contact.html" class="btn btn-secondary">
+
+<i class="fa-solid fa-envelope"></i>
+
+Contact Us
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!--==================================
+FOOTER
+===================================-->
+
+<footer>
+
+<div class="container footer-grid">
+
+<div>
+
+<h3>
+
+ASHTAMI STORE
+
+</h3>
+
+<p>
+
+Bringing together authentic homemade sweets, personalised gifts and elegant handcrafted creations that celebrate Indian tradition, creativity and heartfelt moments.
+
+</p>
+
+</div>
+
+<div>
+
+<h4>
+
+Quick Links
+
+</h4>
+
+<ul>
+
+<li><a href="index.html">Home</a></li>
+
+<li><a href="category.html">Collections</a></li>
+
+<li><a href="about.html">About Us</a></li>
+
+<li><a href="contact.html">Contact</a></li>
+
+<li><a href="cart.html">Cart</a></li>
+
+</ul>
+
+</div>
+
+<div>
+
+<h4>
+
+Our Collections
+
+</h4>
+
+<ul>
+
+<li><a href="product-sonth.html">Traditional Sweets</a></li>
+
+<li><a href="product-gift.html">Printed Gift Items</a></li>
+
+<li><a href="product-jewellery.html">Imitation Jewellery</a></li>
+
+</ul>
+
+</div>
+
+<div>
+
+<h4>
+
+Get in Touch
+
+</h4>
+
+<p>
+
+<i class="fa-solid fa-location-dot"></i>
+
+Lucknow, Uttar Pradesh
+
+</p>
+
+<p>
+
+<i class="fa-solid fa-phone"></i>
+
++91 XXXXX XXXXX
+
+</p>
+
+<p>
+
+<i class="fa-solid fa-envelope"></i>
+
+info@ashtamistore.in
+
+</p>
+
+</div>
+
+</div>
+
+<div class="copyright">
+
+<p>
+
+© 2026 Ashtami Store. All Rights Reserved.
+
+</p>
+
+</div>
+
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
