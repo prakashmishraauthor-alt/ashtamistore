@@ -399,7 +399,35 @@ gap:45px;
 }
 
 }
+.dropdown-menu{
 
+position:static;
+
+display:none;
+
+background:#2c2c2c;
+
+box-shadow:none;
+
+width:100%;
+
+}
+
+.dropdown.active .dropdown-menu{
+
+display:block;
+
+}
+
+.dropdown-menu li a{
+
+padding:14px 40px;
+
+font-size:15px;
+
+text-align:left;
+
+}
 /*==================================================
 SMALL PHONES
 ==================================================*/
@@ -532,5 +560,34 @@ font-size:14px;
 font-size:24px;
 
 }
+
+}
+.dropdown-menu{
+
+position:static;
+
+display:none;
+
+background:#2c2c2c;
+
+box-shadow:none;
+
+width:100%;
+
+}
+
+.dropdown.active .dropdown-menu{
+
+display:block;
+
+}
+
+.dropdown-menu li a{
+
+padding:14px 40px;
+
+font-size:15px;
+
+text-align:left;
 
 }
