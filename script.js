@@ -333,3 +333,118 @@ dropdown.addEventListener("click",function(e){
     }
 
 });
+    /*==================================================
+ASHTAMI STORE
+RESPONSIVE NAVBAR
+==================================================*/
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const menuToggle = document.querySelector(".menu-toggle");
+    const nav = document.querySelector("nav");
+
+    const dropdown = document.querySelector(".dropdown");
+    const dropdownToggle = document.querySelector(".dropdown-toggle");
+
+
+    /*==========================
+    HAMBURGER MENU
+    ==========================*/
+
+    if(menuToggle){
+
+        menuToggle.addEventListener("click", function(e){
+
+            e.stopPropagation();
+
+            nav.classList.toggle("show-menu");
+
+        });
+
+    }
+
+
+    /*==========================
+    MOBILE DROPDOWN
+    ==========================*/
+
+    if(dropdownToggle){
+
+        dropdownToggle.addEventListener("click", function(e){
+
+            if(window.innerWidth <= 992){
+
+                e.preventDefault();
+
+                e.stopPropagation();
+
+                dropdown.classList.toggle("show-dropdown");
+
+            }
+
+        });
+
+    }
+
+
+    /*==========================
+    CLOSE MENU WHEN LINK CLICKED
+    ==========================*/
+
+    document.querySelectorAll("nav a").forEach(function(link){
+
+        link.addEventListener("click", function(){
+
+            if(window.innerWidth <= 992){
+
+                nav.classList.remove("show-menu");
+
+                dropdown.classList.remove("show-dropdown");
+
+            }
+
+        });
+
+    });
+
+
+    /*==========================
+    CLICK OUTSIDE
+    ==========================*/
+
+    document.addEventListener("click", function(e){
+
+        if(
+
+            !nav.contains(e.target) &&
+
+            !menuToggle.contains(e.target)
+
+        ){
+
+            nav.classList.remove("show-menu");
+
+            dropdown.classList.remove("show-dropdown");
+
+        }
+
+    });
+
+
+    /*==========================
+    RESET ON DESKTOP
+    ==========================*/
+
+    window.addEventListener("resize", function(){
+
+        if(window.innerWidth > 992){
+
+            nav.classList.remove("show-menu");
+
+            dropdown.classList.remove("show-dropdown");
+
+        }
+
+    });
+
+});
