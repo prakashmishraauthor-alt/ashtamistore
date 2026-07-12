@@ -316,8 +316,7 @@ const nav = document.querySelector("nav");
 
 menuBtn.addEventListener("click",function(){
 
-    nav.classList.toggle("show-menu");
-
+  const nav = document.querySelector("nav");
 });
 
 
