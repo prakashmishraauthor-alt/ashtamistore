@@ -307,15 +307,30 @@ document.addEventListener("DOMContentLoaded", function(){
 HAMBURGER MENU
 =========================*/
 
+/*==========================
+RESPONSIVE NAVBAR
+==========================*/
+
 const menuBtn = document.querySelector(".menu-toggle");
 const nav = document.querySelector("nav");
 
-if (menuBtn && nav) {
+menuBtn.addEventListener("click",function(){
 
-    menuBtn.onclick = function () {
+    nav.classList.toggle("show-menu");
 
-        nav.classList.toggle("show-menu");
+});
 
-    };
 
-}
+const dropdown = document.querySelector(".dropdown");
+
+dropdown.addEventListener("click",function(e){
+
+    if(window.innerWidth <= 1024){
+
+        e.preventDefault();
+
+        dropdown.classList.toggle("show-dropdown");
+
+    }
+
+});
