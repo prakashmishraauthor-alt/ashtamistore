@@ -73,11 +73,11 @@ img { width: 100%; height: auto; display: block; }
 LAYOUT SYMMETRY CONTAINER (Prevents full-width stretching)
 =====================*/
 .container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
+    width: 90% !important;
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+    display: block !important;
 }
-
 section {
     padding: 100px 0;
 }
@@ -804,20 +804,45 @@ WHATSAPP FLOATER
 FIXED VIEWPORT SYSTEM (Prevents Desktop Stretching)
 ==================================================*/
 
-/* 1. Desktop Safety Net (Enforces row layouts on larger screens) */
-@media (min-width: 769px) {
+/*==================================================
+CRITICAL DESKTOP FORCE-FIX
+==================================================*/
+@media screen and (min-width: 992px) {
     .menu-toggle {
-        display: none !important; /* Forces hamburger to hide on desktop */
+        display: none !important;
     }
     nav {
-        display: block !important; /* Forces regular menu to show */
+        display: block !important;
+        position: static !important;
+        width: auto !important;
+        background: transparent !important;
+        box-shadow: none !important;
+        padding: 0 !important;
+    }
+    nav ul {
+        display: flex !important;
+        flex-direction: row !important;
+        gap: 30px !important;
     }
     .hero-content, .signature-product, .story-wrapper {
         display: grid !important;
-        grid-template-columns: 1fr 1fr !important; /* Enforces side-by-side columns */
+        grid-template-columns: 1fr 1fr !important;
+        text-align: left !important;
+    }
+    .categories {
+        display: grid !important;
+        grid-template-columns: repeat(3, 1fr) !important;
+    }
+    .why-grid, .testimonial-grid {
+        display: grid !important;
+        grid-template-columns: repeat(3, 1fr) !important;
+    }
+    .promise-grid, .stats-grid, .footer-grid {
+        display: grid !important;
+        grid-template-columns: repeat(4, 1fr) !important;
     }
     .btn {
-        width: max-content !important; /* Stops buttons from stretching */
+        width: max-content !important;
     }
 }
 
