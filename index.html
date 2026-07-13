@@ -195,6 +195,11 @@ nav ul li a:hover {
     position: relative;
 }
 
+/* Dropdown Setup Fix */
+.dropdown {
+    position: relative;
+}
+
 .dropdown-menu {
     position: absolute;
     top: 100%;
@@ -207,13 +212,33 @@ nav ul li a:hover {
     display: none;
     margin-top: 10px;
     border: 1px solid var(--border-color);
+    
+    /* ADD THESE TWO LINES TO FORCE VERTICAL ROWS */
+    flex-direction: column !important;
+    align-items: flex-start !important;
+}
+
+.dropdown-menu li {
+    width: 100%; /* Spans full width of the dropdown box */
+    display: block !important;
 }
 
 .dropdown-menu li a {
-    display: block;
-    padding: 8px 25px;
+    display: block !important;
+    width: 100%;
+    padding: 10px 25px;
     font-size: 0.85rem;
     color: var(--text-muted);
+    text-align: left !important;
+}
+
+.dropdown-menu li a:hover {
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--secondary);
+}
+
+.dropdown:hover .dropdown-menu {
+    display: flex; /* Switched from block to flex to support layout directional overrides */
 }
 
 .dropdown-menu li a:hover {
