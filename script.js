@@ -408,6 +408,38 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
     });
+    /*==================================
+MOBILE (768px and below)
+==================================*/
+
+@media (max-width:768px){
+
+    .hero-content{
+
+        display:flex;
+        flex-direction:column-reverse;
+        text-align:center;
+        gap:35px;
+
+    }
+
+    .hero-buttons{
+
+        justify-content:center;
+        flex-wrap:wrap;
+
+    }
+
+    .hero-image img{
+
+        width:100%;
+        max-width:420px;
+        margin:auto;
+        display:block;
+
+    }
+
+}
 
 
     /*==========================
