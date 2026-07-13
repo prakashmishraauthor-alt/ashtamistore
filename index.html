@@ -134,20 +134,9 @@ BUTTONS (Restrained max-width inline layout)
     box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
 }
 
-/*====================
-HEADER & NAVIGATION (Sticky on both mobile and desktop)
-=====================*/
-.top-bar {
-    background: var(--primary-dark);
-    color: var(--light);
-    padding: 10px;
-    text-align: center;
-    font-size: 0.85rem;
-    letter-spacing: 1px;
-    font-weight: 500;
-    border-bottom: 1px solid var(--border-color);
-}
-
+/*====================================
+HEADER & FIXED DROPDOWN NAVIGATION SYSTEM
+=====================================*/
 header {
     position: sticky;
     top: 0;
@@ -172,7 +161,7 @@ header {
     color: var(--secondary);
 }
 
-/* Desktop Menu styling */
+/* Base Desktop Menu Configuration */
 nav ul {
     display: flex;
     align-items: center;
@@ -190,66 +179,79 @@ nav ul li a:hover {
     color: var(--secondary);
 }
 
-/* Dropdown Setup */
+/* Dropdown Wrapper Container */
 .dropdown {
     position: relative;
 }
 
-/* Dropdown Setup Fix */
-.dropdown {
-    position: relative;
-}
-
+/* CRITICAL FIX: Explicitly hidden by default to prevent stuck open status on Edge */
 .dropdown-menu {
     position: absolute;
     top: 100%;
     left: 0;
-    background: #1d2421;
+    background: #1d2421 !important;
     box-shadow: var(--shadow);
     border-radius: 8px;
     padding: 15px 0;
     min-width: 220px;
-    display: none;
+    display: none !important; /* Forces layout closed globally until explicit hover state */
     margin-top: 10px;
     border: 1px solid var(--border-color);
-    
-    /* ADD THESE TWO LINES TO FORCE VERTICAL ROWS */
     flex-direction: column !important;
     align-items: flex-start !important;
+    z-index: 2000;
 }
 
 .dropdown-menu li {
-    width: 100%; /* Spans full width of the dropdown box */
+    width: 100% !important;
     display: block !important;
 }
 
 .dropdown-menu li a {
     display: block !important;
-    width: 100%;
-    padding: 10px 25px;
+    width: 100% !important;
+    padding: 10px 25px !important;
     font-size: 0.85rem;
-    color: var(--text-muted);
+    color: var(--text-muted) !important;
     text-align: left !important;
 }
 
 .dropdown-menu li a:hover {
-    background: rgba(255, 255, 255, 0.05);
-    color: var(--secondary);
+    background: rgba(255, 255, 255, 0.05) !important;
+    color: var(--secondary) !important;
 }
 
+/* Activate dropdown window ONLY when hovering the main link parent */
 .dropdown:hover .dropdown-menu {
-    display: flex; /* Switched from block to flex to support layout directional overrides */
+    display: flex !important;
 }
 
-.dropdown-menu li a:hover {
-    background: rgba(255, 255, 255, 0.05);
-    color: var(--secondary);
+.cart-icon {
+    position: relative;
+    font-size: 1.1rem;
 }
 
-.dropdown:hover .dropdown-menu {
-    display: block;
+.cart-count {
+    position: absolute;
+    top: -8px;
+    right: -12px;
+    background: var(--accent);
+    color: var(--light);
+    font-size: 0.7rem;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
+.menu-toggle {
+    display: none;
+    font-size: 1.4rem;
+    cursor: pointer;
+    color: var(--light);
+}
 .cart-icon {
     position: relative;
     font-size: 1.1rem;
@@ -830,9 +832,14 @@ FIXED VIEWPORT SYSTEM (Prevents Desktop Stretching)
 ==================================================*/
 
 /*==================================================
-CRITICAL DESKTOP FORCE-FIX
+CHROME & EDGE CROSS-BROWSER LAYOUT RECONCILIATION
 ==================================================*/
 @media screen and (min-width: 992px) {
+    .container {
+        width: 90% !important;
+        max-width: 1200px !important;
+        margin: 0 auto !important;
+    }
     .menu-toggle {
         display: none !important;
     }
@@ -854,11 +861,7 @@ CRITICAL DESKTOP FORCE-FIX
         grid-template-columns: 1fr 1fr !important;
         text-align: left !important;
     }
-    .categories {
-        display: grid !important;
-        grid-template-columns: repeat(3, 1fr) !important;
-    }
-    .why-grid, .testimonial-grid {
+    .categories, .why-grid, .testimonial-grid {
         display: grid !important;
         grid-template-columns: repeat(3, 1fr) !important;
     }
@@ -871,19 +874,10 @@ CRITICAL DESKTOP FORCE-FIX
     }
 }
 
-/* 2. Tablet Layouts */
-@media (max-width: 1024px) and (min-width: 769px) {
-    h1 { font-size: 2.8rem; }
-    h2 { font-size: 2.3rem; }
-    .categories, .why-grid, .testimonial-grid { grid-template-columns: repeat(2, 1fr); }
-}
-
-/* 3. Mobile Layouts (Only activates on actual mobile screens) */
-@media (max-width: 768px) {
+@media screen and (max-width: 991px) {
     .menu-toggle {
-        display: block !important; /* Shows hamburger only on mobile */
+        display: block !important;
     }
-
     nav {
         position: absolute;
         top: 100%;
@@ -892,14 +886,12 @@ CRITICAL DESKTOP FORCE-FIX
         background: #161b18;
         box-shadow: var(--shadow);
         padding: 20px 0;
-        display: none; /* Collapses menu by default */
+        display: none;
         border-bottom: 1px solid var(--border-color);
     }
-
     nav.active {
-        display: block !important; /* Opens via JS click */
+        display: block !important;
     }
-
     nav ul {
         flex-direction: column;
         gap: 20px;
@@ -907,45 +899,34 @@ CRITICAL DESKTOP FORCE-FIX
         margin: 0 auto;
         align-items: flex-start;
     }
-
     .dropdown-menu {
-        position: static;
-        box-shadow: none;
-        padding: 10px 0 0 15px;
-        display: block;
-        background: transparent;
-        border: none;
+        position: static !important;
+        box-shadow: none !important;
+        padding: 10px 0 0 15px !important;
+        display: flex !important;
+        background: transparent !important;
+        border: none !important;
     }
-
     .btn {
-        width: 100% !important; /* Mobile friendly full-width buttons */
+        width: 100% !important;
     }
-
     .hero-content, .signature-product, .story-wrapper {
-        grid-template-columns: 1fr !important; /* Stacks vertically on mobile */
-        text-align: center;
+        grid-template-columns: 1fr !important;
+        text-align: center !important;
     }
-
     .hero-image, .story-image {
         order: -1;
         max-width: 450px;
         margin: 0 auto;
     }
-
     .hero-buttons {
         flex-direction: column;
     }
-
     .signature-product.reverse {
         direction: ltr;
     }
-
-    .signature-content h2, .story-content h2 {
-        text-align: center;
-    }
-
     .categories, .why-grid, .testimonial-grid, .promise-grid, .stats-grid, .footer-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr !important;
     }
 }
     </style>
