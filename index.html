@@ -294,7 +294,68 @@
             max-width: 500px;
             margin: 0 auto;
         }
+/* ==========================
+ASHTAMI SWEETS SECTION
+========================== */
 
+.sweets-section{
+    padding:80px 20px;
+    background:linear-gradient(135deg,#fff9f0,#fff3dd);
+}
+
+.container{
+    max-width:1200px;
+    margin:auto;
+}
+
+.section-title{
+    text-align:center;
+    font-size:42px;
+    color:#8B0000;
+    margin-bottom:10px;
+    font-family:'Playfair Display', serif;
+}
+
+.section-subtitle{
+    text-align:center;
+    color:#666;
+    font-size:18px;
+    margin-bottom:50px;
+}
+
+.sweets-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:35px;
+}
+
+.sweet-card{
+    background:white;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 10px 30px rgba(0,0,0,0.12);
+    transition:0.4s;
+    text-align:center;
+}
+
+.sweet-card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 20px 40px rgba(0,0,0,0.18);
+}
+
+.sweet-card img{
+    width:100%;
+    height:320px;
+    object-fit:cover;
+    display:block;
+}
+
+.sweet-card h3{
+    padding:20px;
+    color:#8B0000;
+    font-size:24px;
+    font-family:'Playfair Display', serif;
+}
         /*====================
         COLLECTIONS (CATEGORIES)
         =====================*/
@@ -969,7 +1030,41 @@
             </div>
         </div>
     </section>
+<!-- ===========================
+ASHTAMI SWEETS SHOWCASE
+=========================== -->
 
+<section class="sweets-section">
+
+    <div class="container">
+
+        <h2 class="section-title">Our Signature Ladoos</h2>
+        <p class="section-subtitle">
+            Premium handcrafted sweets from Ashtami Store
+        </p>
+
+        <div class="sweets-grid">
+
+            <div class="sweet-card">
+                <img src="images/ladoo-box-1.png" alt="Ashtami Store Ladoo Box">
+                <h3>Special Ladoo Collection</h3>
+            </div>
+
+            <div class="sweet-card">
+                <img src="images/ladoo-box-2.png" alt="Ashtami Store Gift Box">
+                <h3>Premium Gift Box</h3>
+            </div>
+
+            <div class="sweet-card">
+                <img src="images/coconut-ladoo-box.png" alt="Ashtami Store Coconut Ladoo Box">
+                <h3>Coconut Ladoo Box</h3>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
     <!-- COLLECTIONS SECTION -->
     <section id="collections">
         <div class="container">
