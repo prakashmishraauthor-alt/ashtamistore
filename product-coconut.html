@@ -820,13 +820,13 @@
                     </div>
                     <div class="quantity">
                         <label>Quantity</label>
-                        <input type="number" value="1" min="1">
+                        <input type="number" id="productQuantity" value="1" min="1">
                     </div>
                     <div class="product-buttons">
-                        <button class="btn btn-primary" onclick="addToCart('coconut-500', 'Coconut Ladoo', 400, 'images/products/coconut-ladoo.jpg', '500 g')">
+                        <button class="btn btn-primary" onclick="addToCart('coconut-500', 'Coconut Ladoo (500g)', 400, 'images/products/coconut-ladoo.jpg', '500 g')">
                             <i class="fa-solid fa-cart-plus"></i> Add 500g
                         </button>
-                        <button class="btn btn-primary" onclick="addToCart('coconut-1000', 'Coconut Ladoo', 800, 'images/products/coconut-ladoo.jpg', '1 Kg')">
+                        <button class="btn btn-primary" onclick="addToCart('coconut-1000', 'Coconut Ladoo (1Kg)', 800, 'images/products/coconut-ladoo.jpg', '1 Kg')">
                             <i class="fa-solid fa-cart-plus"></i> Add 1 Kg
                         </button>
                         <a href="https://wa.me/916393072915" class="btn btn-secondary">
@@ -1061,7 +1061,10 @@
         </div>
     </footer>
 
-    <!-- JavaScript For Menu Toggle -->
+    <!-- Linked External JavaScript File -->
+    <script src="script.js"></script>
+
+    <!-- JavaScript For Menu Toggle & Shared Cart Handling -->
     <script>
         const menuBtn = document.getElementById('menuBtn');
         const navMenu = document.getElementById('navMenu');
@@ -1070,9 +1073,43 @@
             navMenu.classList.toggle('active');
         });
 
+        // Sync local storage on initialization
+        document.addEventListener('DOMContentLoaded', updateCartBadge);
+
         function addToCart(id, name, price, img, variant) {
-            console.log(`Added product ${name} (${variant}) to cart.`);
-            // Implement your production cart logic hook here
+            const qtyInput = document.getElementById('productQuantity');
+            const chosenQuantity = qtyInput ? parseInt(qtyInput.value) || 1 : 1;
+
+            let cart = JSON.parse(localStorage.getItem('ashtami_cart')) || [];
+            let existingItem = cart.find(item => item.id === id);
+
+            if (existingItem) {
+                existingItem.quantity += chosenQuantity;
+            } else {
+                cart.push({
+                    id: id,
+                    name: name,
+                    price: price,
+                    img: img,
+                    variant: variant,
+                    quantity: chosenQuantity
+                });
+            }
+
+            localStorage.setItem('ashtami_cart', JSON.stringify(cart));
+            updateCartBadge();
+            
+            alert(`${name} (${variant}) added to cart!`);
+        }
+
+        function updateCartBadge() {
+            let cart = JSON.parse(localStorage.getItem('ashtami_cart')) || [];
+            let totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+            
+            const cartCounts = document.querySelectorAll('.cart-count');
+            cartCounts.forEach(badge => {
+                badge.textContent = totalItems;
+            });
         }
     </script>
 </body>
