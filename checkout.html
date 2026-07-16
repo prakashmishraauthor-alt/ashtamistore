@@ -373,6 +373,13 @@
             box-shadow: var(--shadow);
         }
 
+        .checkout-items-list {
+            max-height: 240px;
+            overflow-y: auto;
+            margin-bottom: 20px;
+            padding-right: 5px;
+        }
+
         .summary-row {
             display: flex;
             justify-content: space-between;
@@ -407,6 +414,7 @@
             padding: 25px;
             text-align: center;
             margin-top: 30px;
+            display: block; /* Managed by Payment Selector Switch */
         }
 
         .upi-box img {
@@ -632,23 +640,17 @@
 
 <body>
 
-    <!--=========================
-    TOP BAR
-    ==========================-->
+    <!-- TOP BAR -->
     <div class="top-bar">
         Traditional Taste, Style and Smile Delivered
     </div>
 
-    <!--=========================
-    HEADER
-    ==========================-->
+    <!-- HEADER -->
     <header>
         <div class="container navbar">
-            <div class="logo">
-                ASHTAMI STORE
-            </div>
+            <div class="logo">ASHTAMI STORE</div>
 
-            <nav>
+            <nav id="nav-menu">
                 <ul>
                     <li><a href="index.html">Home</a></li>
                     <li class="dropdown">
@@ -666,21 +668,19 @@
                     <li>
                         <a href="cart.html" class="cart-icon">
                             <i class="fa-solid fa-cart-shopping"></i>
-                            <span class="cart-count">0</span>
+                            <span class="cart-count" id="global-cart-count">0</span>
                         </a>
                     </li>
                 </ul>
             </nav>
 
-            <div class="menu-toggle">
+            <div class="menu-toggle" id="mobile-toggle">
                 <i class="fa-solid fa-bars"></i>
             </div>
         </div>
     </header>
 
-    <!--=========================
-    PAGE BANNER
-    ==========================-->
+    <!-- PAGE BANNER -->
     <section class="page-banner">
         <div class="container">
             <h1>Secure Checkout</h1>
@@ -688,25 +688,19 @@
         </div>
     </section>
 
-    <!--=========================
-    BREADCRUMB
-    ==========================-->
+    <!-- BREADCRUMB -->
     <section class="breadcrumb">
         <div class="container">
             <a href="index.html">Home</a> &gt; <a href="cart.html">Shopping Cart</a> &gt; <strong>Checkout</strong>
         </div>
     </section>
 
-    <!--=========================
-    CHECKOUT SECTION
-    ==========================-->
+    <!-- CHECKOUT SECTION -->
     <section class="checkout-section">
         <div class="container">
             <div class="checkout-grid">
 
-                <!--====================================
-                LEFT SIDE: FORM FILL DETAILS
-                =====================================-->
+                <!-- LEFT SIDE: CUSTOMER INFO FORM -->
                 <div class="checkout-form">
                     <h2>Customer Information</h2>
                     <p>Please provide your details so we can prepare and deliver your order accurately.</p>
@@ -725,27 +719,27 @@
                     <label>Email Address</label>
                     <input type="email" id="email" placeholder="example@email.com">
 
-                    <label>House / Flat No.</label>
-                    <input type="text" id="house" placeholder="House No., Apartment">
+                    <label>House / Flat No. *</label>
+                    <input type="text" id="house" placeholder="House No., Apartment" required>
 
-                    <label>Street / Area</label>
-                    <input type="text" id="street" placeholder="Street, Locality">
+                    <label>Street / Area *</label>
+                    <input type="text" id="street" placeholder="Street, Locality" required>
 
                     <div class="form-grid">
                         <div>
-                            <label>City</label>
-                            <input type="text" id="city" placeholder="City">
+                            <label>City *</label>
+                            <input type="text" id="city" placeholder="City" required>
                         </div>
                         <div>
-                            <label>State</label>
-                            <input type="text" id="state" placeholder="State">
+                            <label>State *</label>
+                            <input type="text" id="state" placeholder="State" required>
                         </div>
                     </div>
 
                     <div class="form-grid">
                         <div>
-                            <label>PIN Code</label>
-                            <input type="text" id="pincode" placeholder="PIN Code">
+                            <label>PIN Code *</label>
+                            <input type="text" id="pincode" placeholder="PIN Code" required>
                         </div>
                         <div>
                             <label>Country</label>
@@ -754,57 +748,54 @@
                     </div>
 
                     <label>Delivery Instructions</label>
-                    <textarea rows="4" id="notes" placeholder="Example: Deliver after 5 PM, call before delivery, landmark etc."></textarea>
+                    <textarea rows="3" id="notes" placeholder="Example: Deliver after 5 PM, call before delivery, landmark etc."></textarea>
 
                     <label>Delivery Method</label>
                     <select id="delivery">
-                        <option>Standard Delivery</option>
-                        <option>Express Delivery</option>
-                        <option>Store Pickup</option>
+                        <option value="Standard Delivery">Standard Delivery (FREE)</option>
+                        <option value="Express Delivery">Express Delivery (FREE)</option>
+                        <option value="Store Pickup">Store Pickup</option>
                     </select>
 
-                    <label>Payment Method</label>
+                    <label>Payment Mode Selection *</label>
                     <div class="payment-method">
                         <label>
-                            <input type="radio" name="payment" checked> UPI Payment
+                            <input type="radio" name="paymentMode" value="UPI" checked onclick="togglePaymentInterface('UPI')"> 
+                            <span><i class="fa-solid fa-qrcode" style="color:var(--secondary);"></i> Pay instantly via UPI QR Code</span>
                         </label>
                         <label>
-                            <input type="radio" name="payment"> Cash on Delivery (If Available)
+                            <input type="radio" name="paymentMode" value="WhatsApp" onclick="togglePaymentInterface('WhatsApp')"> 
+                            <span><i class="fa-brands fa-whatsapp" style="color:#25D366;"></i> Share Order & Pay on WhatsApp Direct</span>
                         </label>
                     </div>
                 </div>
 
-                <!--====================================
-                RIGHT SIDE: ORDER SUMMARY & UPI SCREENSHOT
-                =====================================-->
+                <!-- RIGHT SIDE: ORDER SUMMARY & PAYMENT SUMMARY ELEMENT -->
                 <div class="order-summary">
                     <h2>Order Summary</h2>
 
-                    <div class="summary-row">
-                        <span>Sonth Ladoo (1 Kg)</span>
-                        <span>₹1000</span>
+                    <!-- Container handling live item injections -->
+                    <div class="checkout-items-list" id="checkoutItemsList">
+                        <!-- Populated by local data arrays -->
                     </div>
-                    <div class="summary-row">
-                        <span>Til Ladoo (500 g)</span>
-                        <span>₹300</span>
-                    </div>
+                    
                     <div class="summary-row">
                         <span>Shipping</span>
-                        <span>FREE</span>
+                        <span style="color: var(--secondary); font-weight: 500;">FREE</span>
                     </div>
 
                     <hr>
 
                     <div class="summary-row total">
                         <span>Total</span>
-                        <span id="grandTotal">₹1300</span>
+                        <span id="grandTotal">₹0</span>
                     </div>
 
-                    <!-- UPI Payment Card Block -->
-                    <div class="upi-box">
+                    <!-- UPI Dynamic Payment Visual Module -->
+                    <div class="upi-box" id="upiPaymentModule">
                         <h3>Scan &amp; Pay</h3>
                         <img src="QR.png" alt="UPI QR Code">
-                        <p>Scan the QR Code using any UPI App.</p>
+                        <p>Scan the QR Code using any UPI app to pay.</p>
                         
                         <div class="upi-id">
                             UPI ID
@@ -814,37 +805,33 @@
                         <button type="button" class="btn btn-secondary" onclick="copyUPI()">
                             <i class="fa-regular fa-copy"></i> Copy UPI ID
                         </button>
+
+                        <div class="payment-status">
+                            <label>
+                                <input type="checkbox" id="paymentDone"> I have completed the UPI payment.
+                            </label>
+                        </div>
+
+                        <div class="upload-box">
+                            <label>Upload Payment Screenshot (Optional)</label>
+                            <input type="file" id="screenshotUpload" accept="image/*">
+                        </div>
                     </div>
 
-                    <!-- Payment Confirmation Check -->
-                    <div class="payment-status">
-                        <label>
-                            <input type="checkbox" id="paymentDone"> I have completed the payment.
-                        </label>
-                    </div>
-
-                    <!-- Screenie Upload Box -->
-                    <div class="upload-box">
-                        <label>Upload Payment Screenshot (Optional)</label>
-                        <input type="file" accept="image/*">
-                    </div>
-
-                    <!-- Operational Submission Action Blocks -->
+                    <!-- Submission Flow Elements -->
                     <div class="place-order">
-                        <button class="btn btn-primary" onclick="placeOrder()">
-                            <i class="fa-brands fa-whatsapp"></i> Place Order on WhatsApp
+                        <button class="btn btn-primary" onclick="processOrderCheckout()">
+                            <i class="fa-brands fa-whatsapp"></i> Confirm &amp; Send Order via WhatsApp
                         </button>
                         <a href="cart.html" class="btn btn-secondary">
                             Back to Cart
                         </a>
                     </div>
 
-                    <!-- Brand Value Statements Card -->
                     <div class="trust-box">
-                        <p><i class="fa-solid fa-typewriter fa-shield-halved"></i> 100% Secure Ordering</p>
+                        <p><i class="fa-solid fa-shield-halved"></i> 100% Secure Transaction Routing</p>
                         <p><i class="fa-solid fa-house"></i> Fresh Homemade Products</p>
                         <p><i class="fa-solid fa-truck-fast"></i> Pan India Delivery</p>
-                        <p><i class="fa-solid fa-heart"></i> Made with Love &amp; Premium Ingredients</p>
                     </div>
                 </div>
 
@@ -852,87 +839,164 @@
         </div>
     </section>
 
-    <!--=========================
-    FOOTER
-    ==========================-->
+    <!-- FOOTER -->
     <footer>
         <div class="container">
-            <p>&copy; 2026 Ashtami. All Rights Reserved.</p>
+            <p>&copy; 2026 Ashtami Store. All Rights Reserved.</p>
         </div>
     </footer>
 
-    <!--=========================
-    JAVASCRIPT PROCESSING
-    ==========================-->
+    <!-- JAVASCRIPT LOGIC ENGINE -->
     <script>
-        // Hamburger Drawer Toggle Execution
-        const menuToggle = document.querySelector('.menu-toggle');
-        const navMenu = document.querySelector('nav');
+        let orderTotalAmount = 0;
+        let cartItemsArray = [];
 
-        if(menuToggle && navMenu) {
-            menuToggle.addEventListener('click', () => {
-                navMenu.classList.toggle('active');
-            });
-        }
+        document.addEventListener('DOMContentLoaded', () => {
+            // Hamburger Mobile Toggle Menu initialization logic
+            const mobileToggle = document.getElementById('mobile-toggle');
+            const navMenu = document.getElementById('nav-menu');
 
-        // Copy functions 
-        function copyUPI(){
-            const upi = document.getElementById("upiText").innerText;
-            navigator.clipboard.writeText(upi);
-            alert("UPI ID Copied!");
-        }
+            if (mobileToggle && navMenu) {
+                mobileToggle.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    navMenu.classList.toggle('active');
+                });
+            }
 
-        // Processing WhatsApp API Message generation
-        function placeOrder(){
-            const name = document.getElementById("name").value;
-            const mobile = document.getElementById("mobile").value;
-            const house = document.getElementById("house").value;
-            const street = document.getElementById("street").value;
-            const city = document.getElementById("city").value;
-            const state = document.getElementById("state").value;
-            const pincode = document.getElementById("pincode").value;
-            const notes = document.getElementById("notes").value;
-            const delivery = document.getElementById("delivery").value;
-            const payment = document.getElementById("paymentDone").checked ? "Completed" : "Pending";
+            // Sync dynamic calculations inside checkout space
+            loadCheckoutSummary();
+        });
 
-            if(name == "" || mobile == ""){
-                alert("Please enter your Name and Mobile Number.");
+        // Load active context from storage
+        function loadCheckoutSummary() {
+            cartItemsArray = JSON.parse(localStorage.getItem('cart')) || [];
+            const itemsListContainer = document.getElementById('checkoutItemsList');
+            
+            // Sync global menu line indicators 
+            const totalItemsCount = cartItemsArray.reduce((sum, item) => sum + parseInt(item.quantity || 1), 0);
+            const globalBadge = document.getElementById('global-cart-count');
+            if(globalBadge) globalBadge.textContent = totalItemsCount;
+
+            if (cartItemsArray.length === 0) {
+                alert('Your checkout sequence is empty! Returning to Shopping Cart.');
+                window.location.href = 'cart.html';
                 return;
             }
 
-            const message = 
-`Hello Ashtami,
+            let htmlContent = '';
+            orderTotalAmount = 0;
 
-I would like to place an order.
--------------------------
-Customer Details
-Name : ${name}
-Mobile : ${mobile}
+            cartItemsArray.forEach(item => {
+                const itemPrice = parseFloat(item.price || 0);
+                const itemQty = parseInt(item.quantity || 1);
+                const itemSubtotal = itemPrice * itemQty;
+                orderTotalAmount += itemSubtotal;
 
-Address :
-${house}
-${street}
-${city}
-${state}
-${pincode}
--------------------------
-Products
-• Sonth Ladoo (1 Kg)
-  ₹1000
-• Til Ladoo (500 g)
-  ₹300
--------------------------
-Total : ₹1300
-Delivery : ${delivery}
-Payment : ${payment}
+                htmlContent += `
+                    <div class="summary-row" style="margin-bottom: 12px;">
+                        <span style="max-width: 70%; text-align: left;">
+                            ${item.name} <small style="display:block; color:var(--text-muted);">Qty: ${itemQty} (${item.variant || 'Standard'})</small>
+                        </span>
+                        <span>₹${itemSubtotal}</span>
+                    </div>`;
+            });
 
-Additional Notes :
-${notes}
+            itemsListContainer.innerHTML = htmlContent;
+            document.getElementById('grandTotal').textContent = `₹${orderTotalAmount}`;
+        }
 
-Thank You.`;
+        // Toggle visibility based on mode selection
+        function togglePaymentInterface(mode) {
+            const upiModule = document.getElementById('upiPaymentModule');
+            if (mode === 'UPI') {
+                upiModule.style.display = 'block';
+            } else {
+                upiModule.style.display = 'none';
+            }
+        }
 
-            const url = "https://wa.me/916393072915?text=" + encodeURIComponent(message);
-            window.open(url, "_blank");
+        // Action Trigger: Clipboard operation
+        function copyUPI() {
+            const upiText = document.getElementById("upiText").innerText;
+            navigator.clipboard.writeText(upiText).then(() => {
+                alert("UPI ID successfully copied to clipboard!");
+            }).catch(() => {
+                alert("Failed to copy text. Please clear manual tracking.");
+            });
+        }
+
+        // Primary Event Processor: Order execution pipeline
+        function processOrderCheckout() {
+            // Mandatory Validation checks
+            const name = document.getElementById("name").value.trim();
+            const mobile = document.getElementById("mobile").value.trim();
+            const house = document.getElementById("house").value.trim();
+            const street = document.getElementById("street").value.trim();
+            const city = document.getElementById("city").value.trim();
+            const state = document.getElementById("state").value.trim();
+            const pincode = document.getElementById("pincode").value.trim();
+            const notes = document.getElementById("notes").value.trim();
+            const delivery = document.getElementById("delivery").value;
+            
+            // Gather configured variables
+            const selectedPaymentMethod = document.querySelector('input[name="paymentMode"]:checked').value;
+            const isUpiPaid = document.getElementById("paymentDone").checked;
+
+            if (!name || !mobile || !house || !street || !city || !state || !pincode) {
+                alert("Please fill in all mandatory field parameters flagged with (*).");
+                return;
+            }
+
+            // Verify status if option explicitly flagged 
+            if (selectedPaymentMethod === 'UPI' && !isUpiPaid) {
+                alert("Please check the tracking confirmation box verifying your UPI QR Code transaction was cleared.");
+                return;
+            }
+
+            // Formulate descriptive line segments out of cart records array
+            let productSummaryString = '';
+            cartItemsArray.forEach((item, index) => {
+                productSummaryString += `${index + 1}. ${item.name} [x${item.quantity}]\n`;
+                productSummaryString += `   Variant: ${item.variant || 'Standard Pack'}\n`;
+                productSummaryString += `   Subtotal: ₹${parseFloat(item.price) * parseInt(item.quantity)}\n\n`;
+            });
+
+            const paymentStatusString = selectedPaymentMethod === 'UPI' ? 'Paid via UPI QR Code' : 'Discuss Payment Option on WhatsApp';
+
+            // Construct fully encoded message body
+            const messagePayload = 
+`Hello Ashtami Store,
+
+I would like to place an order! Here are my checkout details:
+-----------------------------------------
+CUSTOMER PROFILE:
+Name: ${name}
+Mobile: ${mobile}
+Email: ${document.getElementById("email").value.trim() || 'N/A'}
+
+DELIVERY ADDRESS:
+${house}, ${street}
+${city}, ${state} - ${pincode}
+Country: India
+
+ORDER DETAILS:
+-----------------------------------------
+${productSummaryString}-----------------------------------------
+TOTAL PAYABLE: ₹${orderTotalAmount}
+Delivery Type: ${delivery}
+Payment Mode: ${paymentStatusString}
+
+SPECIAL INSTRUCTIONS:
+${notes || 'None'}
+
+Please confirm my tracking context parameters. Thank you!`;
+
+            // Open secure link target window
+            const targetWhatsAppURL = "https://wa.me/916393072915?text=" + encodeURIComponent(messagePayload);
+            window.open(targetWhatsAppURL, "_blank");
+            
+            // Optional: Flush parameters clean upon success
+            // localStorage.removeItem('cart');
         }
     </script>
 </body>
