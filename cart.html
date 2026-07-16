@@ -183,7 +183,6 @@
             color: var(--text-muted);
         }
 
-        /* Quantity Input Fix Controls */
         .qty-input {
             width: 70px;
             padding: 8px;
@@ -213,15 +212,14 @@
             transform: scale(1.1);
         }
 
-        /* Summary Footer Area */
+        /* Summary Footer Area with Flex Columns */
         .cart-summary-box {
             display: flex;
-            justify-content: flex-end;
+            justify-content: space-between;
             align-items: center;
-            gap: 40px;
             background: var(--card-bg);
             border: 1px solid var(--border-color);
-            padding: 25px 40px;
+            padding: 30px 40px;
             border-radius: 12px;
             box-shadow: var(--shadow);
         }
@@ -237,17 +235,25 @@
             font-weight: 700;
         }
 
+        /* Group actions alignment */
+        .cart-actions {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
         .btn {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: 14px 35px;
+            padding: 14px 30px;
             border-radius: 50px;
             font-weight: 600;
             cursor: pointer;
             text-decoration: none;
             transition: var(--transition);
             border: none;
+            font-size: 0.95rem;
         }
 
         .btn-primary {
@@ -257,6 +263,18 @@
 
         .btn-primary:hover {
             background: #bd9a2d;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-main);
+            border: 2px solid var(--border-color);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: var(--secondary);
             transform: translateY(-2px);
         }
 
@@ -293,7 +311,20 @@
             }
             nav.active { display: block; }
             nav ul { flex-direction: column; width: 90%; margin: 0 auto; align-items: flex-start; }
-            .cart-summary-box { flex-direction: column; align-items: center; text-align: center; gap: 20px; }
+            
+            .cart-summary-box { 
+                flex-direction: column; 
+                align-items: stretch; 
+                text-align: center; 
+                gap: 20px; 
+                padding: 25px 20px;
+            }
+            
+            .cart-actions {
+                flex-direction: column;
+                width: 100%;
+            }
+
             .btn { width: 100%; }
         }
     </style>
@@ -391,7 +422,6 @@
                         </td>
                         <td>₹${itemUnitPrice}</td>
                         <td>
-                            <!-- The fix: target layout triggers updateCartQuantity immediately on change -->
                             <input 
                                 type="number" 
                                 class="qty-input" 
@@ -402,7 +432,6 @@
                                 oninput="updateCartQuantity(${index}, this.value)"
                             >
                         </td>
-                        <!-- Displays dynamically updated individual product totals -->
                         <td style="font-weight: 600; color: #f4f7f5;">₹${lineSubtotal}</td>
                         <td style="text-align: right;">
                             <button class="remove-btn" onclick="removeItemFromCart(${index})">
@@ -413,7 +442,7 @@
                 `;
             });
 
-            // Re-render complete parent framework structure
+            // Re-render complete parent framework structure with Secure Checkout + WhatsApp options
             workspace.innerHTML = `
                 <div class="cart-table-wrapper">
                     <table class="cart-table">
@@ -436,9 +465,16 @@
                     <div class="grand-total-text">
                         Grand Total: <span class="grand-total-amount">₹${checkoutGrandTotal}</span>
                     </div>
-                    <a href="https://wa.me/916393072915" target="_blank" class="btn btn-primary">
-                        <i class="fa-brands fa-whatsapp"></i> Proceed to Checkout via WhatsApp
-                    </a>
+                    <div class="cart-actions">
+                        <!-- Direct Link to checkout.html -->
+                        <a href="checkout.html" class="btn btn-primary">
+                            <i class="fa-solid fa-lock"></i> Secure Checkout
+                        </a>
+                        <!-- WhatsApp Option -->
+                        <a href="https://wa.me/916393072915" target="_blank" class="btn btn-secondary">
+                            <i class="fa-brands fa-whatsapp"></i> Order via WhatsApp
+                        </a>
+                    </div>
                 </div>
             `;
         }
@@ -448,7 +484,7 @@
             let cartItems = JSON.parse(localStorage.getItem('cart')) || [];
             let parsedQty = parseInt(newQuantityValue);
 
-            // Keep configuration range clean between 1 and a maximum fallback check
+            // Keep configuration range clean between 1 and 20
             if (isNaN(parsedQty) || parsedQty < 1) {
                 parsedQty = 1;
             }
