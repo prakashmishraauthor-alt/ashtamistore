@@ -143,7 +143,7 @@
 
         .navbar {
             display: flex;
-            justify-content: space-between;
+            justify-between: space-between;
             align-items: center;
             height: auto;
         }
@@ -830,14 +830,13 @@
                     </div>
                     <div class="quantity">
                         <label>Quantity</label>
-                        <input type="number" value="1" min="1">
+                        <input type="number" id="productQuantity" value="1" min="1">
                     </div>
                     <div class="product-buttons">
-                        <button class="btn btn-primary" onclick="addToCart('til-500', 'Til Ladoo', 300, 'images/products/til-ladoo.jpg', '500 g')">
+                        <button class="btn btn-primary" onclick="addToCart('til-500', 'Til Ladoo (500g)', 300, 'images/products/til-ladoo.jpg', '500 g')">
                             <i class="fa-solid fa-cart-plus"></i> Add 500g
                         </button>
-                        <div class="product-action-container">
-                        <button class="btn btn-primary" onclick="addToCart('Til Ladoo', 1000,  'Til Ladoo', 600,'Til-ladoo.png', ' 1 Kg')">
+                        <button class="btn btn-primary" onclick="addToCart('til-1000', 'Til Ladoo (1Kg)', 600, 'til-ladoo.png', '1 Kg')">
                             <i class="fa-solid fa-cart-plus"></i> Add to Cart
                         </button>
                         <a href="https://wa.me/916393072915" class="btn btn-secondary">
@@ -1071,7 +1070,10 @@
         </div>
     </footer>
 
-    <!-- JavaScript For Menu Toggle -->
+    <!-- Linked External JavaScript File -->
+    <script src="script.js"></script>
+
+    <!-- Exclusive Integrated Add To Cart Logic -->
     <script>
         const menuBtn = document.getElementById('menuBtn');
         const navMenu = document.getElementById('navMenu');
@@ -1080,9 +1082,51 @@
             navMenu.classList.toggle('active');
         });
 
+        // Initialize cart counts from storage on load
+        document.addEventListener('DOMContentLoaded', updateCartBadge);
+
         function addToCart(id, name, price, img, variant) {
-            console.log(`Added product ${name} (${variant}) to cart.`);
-            // Implement your production cart logic hook here
+            // Read input quantity value safely
+            const qtyInput = document.getElementById('productQuantity');
+            const chosenQuantity = qtyInput ? parseInt(qtyInput.value) || 1 : 1;
+
+            // Retrieve current cart from local storage or set empty array
+            let cart = JSON.parse(localStorage.getItem('ashtami_cart')) || [];
+
+            // Find if item variant already exists in the cart array
+            let existingItem = cart.find(item => item.id === id);
+
+            if (existingItem) {
+                existingItem.quantity += chosenQuantity;
+            } else {
+                cart.push({
+                    id: id,
+                    name: name,
+                    price: price,
+                    img: img,
+                    variant: variant,
+                    quantity: chosenQuantity
+                });
+            }
+
+            // Save cart tracking list back into localStorage
+            localStorage.setItem('ashtami_cart', JSON.stringify(cart));
+            
+            // Re-render UI top badge count
+            updateCartBadge();
+            
+            alert(`${name} (${variant}) added to cart!`);
+        }
+
+        function updateCartBadge() {
+            let cart = JSON.parse(localStorage.getItem('ashtami_cart')) || [];
+            let totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+            
+            // Map counts to DOM element indicators
+            const cartCounts = document.querySelectorAll('.cart-count');
+            cartCounts.forEach(badge => {
+                badge.textContent = totalItems;
+            });
         }
     </script>
 </body>
