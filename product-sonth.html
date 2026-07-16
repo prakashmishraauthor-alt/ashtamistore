@@ -991,7 +991,7 @@
                     <li>
                         <a href="cart.html" class="cart-icon">
                             <i class="fa-solid fa-cart-shopping"></i>
-                            <span class="cart-count">0</span>
+                            <span class="cart-count" id="global-cart-count">0</span>
                         </a>
                     </li>
                 </ul>
@@ -1016,7 +1016,6 @@
         <div class="container">
             <div class="single-product-grid">
                 <div class="product-gallery">
-                    <!-- Adjusted responsive explicit element placeholder fallback images safe structure -->
                     <img src="sonth-ladoo.png" alt="Sonth Ladoo" width="540" height="540">
                 </div>
                 <div class="product-details">
@@ -1279,12 +1278,14 @@
             const dropdownParent = document.getElementById('dropdown-parent');
             const dropdownBtn = document.getElementById('dropdown-btn');
 
+            // Synchronize UI header count badge with localStorage
+            updateGlobalCartCountDisplay();
+
             // Hamburger toggle logic
             mobileToggle.addEventListener('click', (e) => {
                 e.stopPropagation();
                 navMenu.classList.toggle('active');
                 
-                // Toggle between dynamic hamburger and cross marks
                 const icon = mobileToggle.querySelector('i');
                 if(navMenu.classList.contains('active')) {
                     icon.className = 'fa-solid fa-xmark';
@@ -1309,15 +1310,59 @@
             document.addEventListener('click', (e) => {
                 if(!navMenu.contains(e.target) && !mobileToggle.contains(e.target)) {
                     navMenu.classList.remove('active');
-                    mobileToggle.querySelector('i').className = 'fa-solid fa-bars';
+                    const icon = mobileToggle.querySelector('i');
+                    if (icon) icon.className = 'fa-solid fa-bars';
                     dropdownParent.classList.remove('open-active');
                 }
             });
         });
+
+        function updateGlobalCartCountDisplay() {
+            try {
+                const cart = JSON.parse(localStorage.getItem('cart')) || [];
+                const totalCount = cart.reduce((sum, item) => sum + parseInt(item.quantity || 1), 0);
+                const countBadge = document.getElementById('global-cart-count');
+                if (countBadge) {
+                    countBadge.textContent = totalCount;
+                }
+            } catch (error) {
+                console.error("Error reading cart from storage:", error);
+            }
+        }
         
         function addToCart(id, name, price, img, variant) {
-            console.log(`Item added: ${name} (${variant}) - ₹${price}`);
-            alert(`${name} (${variant}) has been added to your cart!`);
+            try {
+                let cart = JSON.parse(localStorage.getItem('cart')) || [];
+                
+                const qtyInput = document.getElementById('prod-qty');
+                const quantityToAdd = qtyInput ? parseInt(qtyInput.value) || 1 : 1;
+                
+                // Create unique key signature based on variant
+                const itemUniqueId = `${id}-${variant.replace(/\s+/g, '-').toLowerCase()}`;
+                
+                const existingItemIndex = cart.findIndex(item => item.id === itemUniqueId);
+                
+                if (existingItemIndex > -1) {
+                    cart[existingItemIndex].quantity += quantityToAdd;
+                } else {
+                    cart.push({
+                        id: itemUniqueId,
+                        name: name,
+                        price: price,
+                        image: img,
+                        variant: variant,
+                        quantity: quantityToAdd
+                    });
+                }
+                
+                localStorage.setItem('cart', JSON.stringify(cart));
+                updateGlobalCartCountDisplay();
+                
+                alert(`${name} (${variant}) has been added to your cart!`);
+            } catch (error) {
+                console.error("Could not complete add operation:", error);
+                alert("An error occurred while adding the item to the cart.");
+            }
         }
     </script>
 </body>
