@@ -973,6 +973,71 @@
             .category-card img { height: 200px; }
             .whatsapp { width: 50px; height: 50px; font-size: 1.5rem; right: 15px; bottom: 15px; }
         }
+        /*=========================================================
+MODERN SOCIAL MEDIA ICONS CONTAINER
+=========================================================*/
+.social-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 30px 0;
+    background: transparent;
+}
+
+/* Base Icon Styling */
+.social-icon {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    background: #1a201c; /* Matches your --card-bg variable */
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 50%;
+    color: #a0aba4; /* Matches your --text-muted variable */
+    font-size: 20px;
+    text-decoration: none;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Smooth bouncy pop effect */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Global Hover Upward Shift */
+.social-icon:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Brand Colors Custom Hover System */
+.social-icon.whatsapp:hover {
+    background: #25D366;
+    color: #ffffff;
+    border-color: #25D366;
+}
+
+.social-icon.instagram:hover {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    color: #ffffff;
+    border-color: transparent;
+}
+
+.social-icon.facebook:hover {
+    background: #1877F2;
+    color: #ffffff;
+    border-color: #1877F2;
+}
+
+.social-icon.youtube:hover {
+    background: #FF0000;
+    color: #ffffff;
+    border-color: #FF0000;
+}
+
+/* Accessibility Focus Fixes */
+.social-icon:focus-visible {
+    outline: 2px solid #d4af37; /* Matches your --secondary golden variable */
+    outline-offset: 3px;
+}
     </style>
 </head>
 
@@ -1408,6 +1473,26 @@
             <p>&copy; 2026 Ashtami Store. All Rights Reserved. Crafted with Tradition.</p>
         </div>
     </footer>
+    </section> <!-- This is the end of your cart-section -->
+
+    <!-- Paste the Social Icons container right here -->
+    <div class="social-container">
+        <a href="https://wa.me/916393072915" target="_blank" class="social-icon whatsapp" aria-label="WhatsApp">
+            <i class="fa-brands fa-whatsapp"></i>
+        </a>
+        <a href="https://instagram.com/yourprofile" target="_blank" class="social-icon instagram" aria-label="Instagram">
+            <i class="fa-brands fa-instagram"></i>
+        </a>
+        <a href="https://facebook.com/yourprofile" target="_blank" class="social-icon facebook" aria-label="Facebook">
+            <i class="fa-brands fa-facebook-f"></i>
+        </a>
+        <a href="https://youtube.com/yourprofile" target="_blank" class="social-icon youtube" aria-label="YouTube">
+            <i class="fa-brands fa-youtube"></i>
+        </a>
+    </div>
+
+    <script>
+        // Your existing script blocks remain down here...
 
     <!-- WHATSAPP FLOATER -->
     <a href="https://wa.me/916393072915?text=Hello%20Ashtami,%20I%20would%20like%20to%20place%20an%20order." class="whatsapp" target="_blank">
