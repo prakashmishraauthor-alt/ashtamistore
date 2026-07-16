@@ -1,6 +1,4 @@
-
-
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -11,7 +9,7 @@
     <!-- Fonts & Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght=500;600;700&family=Poppins:wght=300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 
     <style>
@@ -71,10 +69,6 @@
         ul { list-style: none; }
         img { width: 100%; height: auto; display: block; }
 
-        /*====================================
-        FIX: DESKTOP SYMMETRY CONTAINER
-        Forces content to sit in a centered box
-        =====================================*/
         .container {
             width: 90%;
             max-width: 1200px;
@@ -97,9 +91,6 @@
             color: var(--text-muted);
         }
 
-        /*====================================
-        FIX: BUTTON STRETCH PREVENTION
-        =====================================*/
         .btn {
             display: inline-flex;
             align-items: center;
@@ -112,7 +103,7 @@
             transition: var(--transition);
             cursor: pointer;
             border: none;
-            width: max-content; /* Prevents stretching to full width */
+            width: max-content;
         }
 
         .btn-primary {
@@ -175,7 +166,6 @@
             color: var(--secondary);
         }
 
-        /* Desktop Menu Rules */
         nav ul {
             display: flex;
             align-items: center;
@@ -193,7 +183,6 @@
             color: var(--secondary);
         }
 
-        /* Dropdown Setup */
         .dropdown {
             position: relative;
         }
@@ -249,7 +238,6 @@
             font-family: 'Poppins', sans-serif;
         }
 
-        /* FIX: Hidden on Desktop explicitly */
         .menu-toggle {
             display: none;
             font-size: 1.4rem;
@@ -294,103 +282,77 @@
             max-width: 500px;
             margin: 0 auto;
         }
-/* ==========================
-ASHTAMI SWEETS SECTION
-========================== */
 
-/* ==========================
-ASHTAMI SWEETS SECTION
-DARK THEME
-========================== */
+        /* ==========================
+        ASHTAMI SWEETS SECTION
+        ========================== */
+        .sweets-section {
+            padding: 100px 20px;
+            background: linear-gradient(135deg,#050505,#121212,#1a1208);
+        }
 
-.sweets-section{
-    padding: 100px 20px;
-    background: linear-gradient(135deg,#050505,#121212,#1a1208);
-}
+        .section-subtitle {
+            text-align: center;
+            color: #cfcfcf;
+            font-size: 18px;
+            margin-bottom: 60px;
+            line-height: 1.6;
+        }
 
-.container{
-    max-width:1200px;
-    margin:auto;
-}
+        .sweets-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit,minmax(320px,1fr));
+            gap: 35px;
+        }
 
-.section-title{
-    text-align:center;
-    font-size:48px;
-    color:#FFD86A;
-    margin-bottom:15px;
-    font-family:'Cinzel', serif;
-    letter-spacing:2px;
-}
+        .sweet-card {
+            background: linear-gradient(145deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+            border: 1px solid rgba(212,175,55,0.25);
+            border-radius: 22px;
+            overflow: hidden;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            transition: all 0.4s ease;
+            text-align: center;
+        }
 
-.section-subtitle{
-    text-align:center;
-    color:#cfcfcf;
-    font-size:18px;
-    margin-bottom:60px;
-    line-height:1.6;
-}
+        .sweet-card:hover {
+            transform: translateY(-12px);
+            border-color: #D4AF37;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.7), 0 0 25px rgba(212,175,55,0.25);
+        }
 
-.sweets-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-    gap:35px;
-}
+        .sweet-card img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            display: block;
+        }
 
-.sweet-card{
-    background:linear-gradient(
-        145deg,
-        rgba(255,255,255,0.05),
-        rgba(255,255,255,0.02)
-    );
-    border:1px solid rgba(212,175,55,0.25);
-    border-radius:22px;
-    overflow:hidden;
-    backdrop-filter:blur(12px);
-    box-shadow:0 10px 30px rgba(0,0,0,0.5);
-    transition:all 0.4s ease;
-    text-align:center;
-}
+        .sweet-card h3 {
+            padding: 25px 20px 10px;
+            color: #FFD86A;
+            font-size: 26px;
+            font-family: 'Playfair Display', serif;
+        }
 
-.sweet-card:hover{
-    transform:translateY(-12px);
-    border-color:#D4AF37;
-    box-shadow:
-        0 20px 50px rgba(0,0,0,0.7),
-        0 0 25px rgba(212,175,55,0.25);
-}
+        .sweet-card p {
+            color: #b5b5b5;
+            padding: 0 20px 25px;
+            font-size: 15px;
+            line-height: 1.6;
+        }
 
-.sweet-card img{
-    width:100%;
-    height:350px;
-    object-fit:cover;
-    display:block;
-}
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(to right,#D4AF37,#FFD86A,#D4AF37);
+            margin: 20px auto 0;
+            border-radius: 10px;
+        }
 
-.sweet-card h3{
-    padding:25px 20px 10px;
-    color:#FFD86A;
-    font-size:26px;
-    font-family:'Playfair Display', serif;
-}
-
-.sweet-card p{
-    color:#b5b5b5;
-    padding:0 20px 25px;
-    font-size:15px;
-    line-height:1.6;
-}
-
-/* Optional golden line below title */
-
-.section-title::after{
-    content:'';
-    display:block;
-    width:100px;
-    height:3px;
-    background:linear-gradient(to right,#D4AF37,#FFD86A,#D4AF37);
-    margin:20px auto 0;
-    border-radius:10px;
-}
         /*====================
         COLLECTIONS (CATEGORIES)
         =====================*/
@@ -468,19 +430,19 @@ DARK THEME
             direction: ltr;
         }
 
-       .signature-image img {
-    width: 100%;
-    max-width: 500px;
-    height: auto;
-    display: block;
-    object-fit: cover;
+        .signature-image img {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            display: block;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid var(--border-color);
+            margin: 0 auto;
+        }
 
-    border-radius: 20px;
-    box-shadow: var(--shadow);
-    transition: var(--transition);
-    border: 1px solid var(--border-color);
-    margin: 0 auto;
-}
         .signature-image img:hover {
             transform: scale(1.02);
         }
@@ -894,7 +856,7 @@ DARK THEME
         }
 
         /*==================================================
-        FIX: MOBILE & BREAKPOINT RESPONSIVELOUT DESIGN
+        RESPONSIVE DESIGN BREAKPOINTS
         ==================================================*/
         @media (max-width: 1024px) {
             h1 { font-size: 2.8rem; }
@@ -906,10 +868,11 @@ DARK THEME
             .footer-grid { grid-template-columns: repeat(2, 1fr); gap: 40px; }
         }
 
-        /* Rules activate ONLY below 991px screen widths */
         @media (max-width: 991px) {
+            /* FIXED: Re-enabled hamburger toggle icon layout visibility & engagement actions */
             .menu-toggle {
-                display: block; /* Hamburger only builds on mobile screens */
+                display: block !important;
+                pointer-events: auto !important;
             }
 
             nav {
@@ -920,12 +883,12 @@ DARK THEME
                 background: #161b18;
                 box-shadow: var(--shadow);
                 padding: 20px 0;
-                display: none; /* Keeps menu hidden until toggled */
+                display: none;
                 border-bottom: 1px solid var(--border-color);
             }
 
             nav.active {
-                display: block; /* Expands logically on user interaction tap */
+                display: block;
             }
 
             nav ul {
@@ -946,7 +909,7 @@ DARK THEME
             }
 
             .btn {
-                width: 100%; /* Stretches intentionally to assist thumb tapping only on mobile */
+                width: 100%;
             }
 
             .hero-content {
@@ -1040,7 +1003,7 @@ DARK THEME
                     <li>
                         <a href="cart.html" class="cart-icon">
                             <i class="fa-solid fa-cart-shopping"></i>
-                            <span class="cart-count">0</span>
+                            <span class="cart-count" id="global-cart-count">0</span>
                         </a>
                     </li>
                 </ul>
@@ -1069,41 +1032,29 @@ DARK THEME
             </div>
         </div>
     </section>
-<!-- ===========================
-ASHTAMI SWEETS SHOWCASE
-=========================== -->
 
-<section class="sweets-section">
-
-    <div class="container">
-
-        <h2 class="section-title">Our Signature Ladoos</h2>
-        <p class="section-subtitle">
-            Premium handcrafted sweets from Ashtami Store
-        </p>
-
-        <div class="sweets-grid">
-
-            <div class="sweet-card">
-                <img src="sweet-page.png" alt="Ashtami Store Ladoo Box">
-                <h3>Special Ladoo Collection</h3>
+    <!-- ASHTAMI SWEETS SHOWCASE -->
+    <section class="sweets-section">
+        <div class="container">
+            <h2 class="section-title">Our Signature Ladoos</h2>
+            <p class="section-subtitle">Premium handcrafted sweets from Ashtami Store</p>
+            <div class="sweets-grid">
+                <div class="sweet-card">
+                    <img src="sweet-page.png" alt="Ashtami Store Ladoo Box">
+                    <h3>Special Ladoo Collection</h3>
+                </div>
+                <div class="sweet-card">
+                    <img src="box.png" alt="Ashtami Store Gift Box">
+                    <h3>Premium Gift Box</h3>
+                </div>
+                <div class="sweet-card">
+                    <img src="coconut-ladoo.png" alt="Ashtami Store Coconut Ladoo Box">
+                    <h3>Coconut Ladoo Box</h3>
+                </div>
             </div>
-
-            <div class="sweet-card">
-                <img src="box.png" alt="Ashtami Store Gift Box">
-                <h3>Premium Gift Box</h3>
-            </div>
-
-            <div class="sweet-card">
-                <img src="coconut-ladoo.png" alt="Ashtami Store Coconut Ladoo Box">
-                <h3>Coconut Ladoo Box</h3>
-            </div>
-
         </div>
+    </section>
 
-    </div>
-
-</section>
     <!-- COLLECTIONS SECTION -->
     <section id="collections">
         <div class="container">
@@ -1170,7 +1121,7 @@ ASHTAMI SWEETS SHOWCASE
                         <p><b>Sugar (1 Kg)</b> <span>₹1000</span></p>
                     </div>
                     <div class="signature-action-btns">
-                        <button class="btn btn-secondary" onclick="addToCart('sonth-sugar', 'Sonth Ladoo', 1000, 'images/products/sonth-ladoo.jpg', 'Sugar 1 Kg')">
+                        <button class="btn btn-secondary" onclick="addToCart('sonth-sugar', 'Sonth Ladoo', 1000, 'sonth-ladoo.png', 'Sugar 1 Kg')">
                             <i class="fa-solid fa-cart-plus"></i> Add to Cart
                         </button>
                         <a href="product-sonth.html" class="btn btn-primary">View Details</a>
@@ -1200,18 +1151,18 @@ ASHTAMI SWEETS SHOWCASE
                         <p><b>1 Kg</b> <span>₹600</span></p>
                     </div>
                     <div class="signature-action-btns">
-                        <button class="btn btn-secondary" onclick="addToCart('til-500', 'Til Ladoo', 300, 'images/products/til-ladoo.jpg', '500 g')">
+                        <button class="btn btn-secondary" onclick="addToCart('til-500', 'Til Ladoo', 300, 'til-ladoo.png', '500 g')">
                             <i class="fa-solid fa-cart-plus"></i> Add to Cart
                         </button>
                        <a href="product-til.html" class="btn btn-primary">View Details</a>
                     </div>
                 </div>
             </div>
-        </div>
-       <!-- Coconut Ladoo -->
+
+            <!-- Coconut Ladoo -->
             <div class="signature-product reverse">
                 <div class="signature-image">
-                    <img src="coconut1.png" alt=coconut Ladoo">
+                    <img src="coconut1.png" alt="Coconut Ladoo">
                 </div>
                 <div class="signature-content">
                     <span class="badge">Traditional Energy Sweet</span>
@@ -1463,14 +1414,81 @@ ASHTAMI SWEETS SHOWCASE
         <i class="fa-brands fa-whatsapp"></i>
     </a>
 
-    <!-- RESPONSIVE NAVBAR INTERACTION SCRIPT -->
+    <!-- ENGINE CODE ACTION INTERACTIONS -->
     <script>
-        const mobileToggle = document.getElementById('mobile-toggle');
-        const navMenu = document.getElementById('nav-menu');
-        
-        mobileToggle.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileToggle = document.getElementById('mobile-toggle');
+            const navMenu = document.getElementById('nav-menu');
+
+            // Synchronize UI header count badge with localStorage
+            updateGlobalCartCountDisplay();
+
+            // Mobile specific hamburger logic
+            if (mobileToggle) {
+                mobileToggle.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    navMenu.classList.toggle('active');
+                    
+                    const icon = mobileToggle.querySelector('i');
+                    if(navMenu.classList.contains('active')) {
+                        if (icon) icon.className = 'fa-solid fa-xmark';
+                    } else {
+                        if (icon) icon.className = 'fa-solid fa-bars';
+                    }
+                });
+            }
+
+            // Close responsive drawer window on click-out context
+            document.addEventListener('click', (e) => {
+                if(!navMenu.contains(e.target) && !mobileToggle.contains(e.target)) {
+                    navMenu.classList.remove('active');
+                    const icon = mobileToggle.querySelector('i');
+                    if (icon) icon.className = 'fa-solid fa-bars';
+                }
+            });
         });
-        <script src="script.js?clear-cache-v2"></script>
+
+        function updateGlobalCartCountDisplay() {
+            try {
+                const cart = JSON.parse(localStorage.getItem('cart')) || [];
+                const totalCount = cart.reduce((sum, item) => sum + parseInt(item.quantity || 1), 0);
+                const countBadge = document.getElementById('global-cart-count');
+                if (countBadge) {
+                    countBadge.textContent = totalCount;
+                }
+            } catch (error) {
+                console.error("Error reading cart from storage:", error);
+            }
+        }
+        
+        function addToCart(id, name, price, img, variant) {
+            try {
+                let cart = JSON.parse(localStorage.getItem('cart')) || [];
+                const itemUniqueId = `${id}-${variant.replace(/\s+/g, '-').toLowerCase()}`;
+                const existingItemIndex = cart.findIndex(item => item.id === itemUniqueId);
+                
+                if (existingItemIndex > -1) {
+                    cart[existingItemIndex].quantity += 1;
+                } else {
+                    cart.push({
+                        id: itemUniqueId,
+                        name: name,
+                        price: price,
+                        image: img,
+                        variant: variant,
+                        quantity: 1
+                    });
+                }
+                
+                localStorage.setItem('cart', JSON.stringify(cart));
+                updateGlobalCartCountDisplay();
+                
+                alert(`${name} (${variant}) has been added to your cart!`);
+            } catch (error) {
+                console.error("Could not complete add operation:", error);
+            }
+        }
+    </script>
+    <script src="script.js?clear-cache-v2"></script>
 </body>
 </html>
