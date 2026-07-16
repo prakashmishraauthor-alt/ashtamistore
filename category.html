@@ -409,7 +409,6 @@
             color: var(--secondary);
         }
 
-        /* Updated Functional Selection Styling */
         .purchase-controls {
             display: flex;
             flex-direction: column;
@@ -794,6 +793,50 @@
         </div>
     </section>
 
+    <!-- NEW PRODUCT: COCONUT LADOO -->
+    <section class="product-showcase">
+        <div class="container">
+            <div class="product-showcase-grid">
+                <div class="product-image">
+                    <img src="coconut-ladoo.png" alt="Coconut Ladoo">
+                </div>
+                <div class="product-info">
+                    <span class="product-badge">FESTIVE FAVORITE</span>
+                    <h2>Coconut Ladoo</h2>
+                    <p>Made with freshly grated coconut, condensed milk, and cardamom. Delightfully soft, aromatic, and melts in your mouth—bringing classic celebratory sweetness to your home.</p>
+                    <ul>
+                        <li><i class="fa-solid fa-check"></i> Super Soft &amp; Juicy</li>
+                        <li><i class="fa-solid fa-check"></i> Freshly Grated Coconut</li>
+                        <li><i class="fa-solid fa-check"></i> 100% Preservative Free</li>
+                        <li><i class="fa-solid fa-check"></i> Traditional Festive Recipe</li>
+                    </ul>
+                    
+                    <div class="purchase-controls">
+                        <div class="control-group">
+                            <label for="coconut-variant">Select Pack Size</label>
+                            <select id="coconut-variant" onchange="updateProductPrice('coconut')">
+                                <option value="500 g" data-price="400">500 g Pack (₹400)</option>
+                                <option value="1 Kg" data-price="800">1 Kg Pack (₹800)</option>
+                            </select>
+                        </div>
+                        <div class="control-group">
+                            <label for="coconut-qty">Quantity</label>
+                            <input type="number" id="coconut-qty" value="1" min="1" max="10">
+                        </div>
+                        <div class="live-price-tag" id="coconut-price-tag">₹400</div>
+                    </div>
+
+                    <div class="product-buttons">
+                        <a href="product.html" class="btn btn-primary">View Details</a>
+                        <button class="btn btn-secondary" onclick="addToCart('Coconut Ladoo', 'coconut')">
+                            <i class="fa-solid fa-cart-plus"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="coming-soon">
         <div class="container">
             <div class="section-title">
@@ -865,6 +908,7 @@
             // Set initial state price tags
             updateProductPrice('sonth');
             updateProductPrice('til');
+            updateProductPrice('coconut');
         });
 
         // Computes dynamic user pricing selections
