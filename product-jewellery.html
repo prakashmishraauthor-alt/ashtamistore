@@ -4,13 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Imitation Jewellery Collection | Ashtami Store</title>
-    <meta name="description" content="Explore our exquisite hand-crafted imitation jewellery collection. Premium quality temple, kundan, pearl, and antique pieces perfect for weddings and festive occasions.">
+
+    <title>Imitation Jewellery | Ashtami Store</title>
+    <meta name="description" content="Discover elegant oxidized lotus pearl drop earrings and handcrafted imitation jewellery pieces designed to elevate your everyday and festive style.">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght=500;600;700&family=Poppins:wght=300;400;500;600;700&display=swap" rel="stylesheet">
 
+    <link rel="stylesheet" href="responsive.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 
     <style>
@@ -29,7 +31,7 @@
 
         body {
             font-family: 'Poppins', sans-serif;
-            background: #111412;
+            background: #111412; /* Premium Dark Theme Match */
             color: #c9d1cc;
             line-height: 1.7;
             overflow-x: hidden;
@@ -38,9 +40,7 @@
 
         img {
             width: 100%;
-            height: 100%;
             display: block;
-            object-fit: cover;
         }
 
         a {
@@ -87,12 +87,12 @@
         }
 
         section {
-            padding: 80px 0;
+            padding: 100px 0;
         }
 
         .section-title {
             text-align: center;
-            margin-bottom: 50px;
+            margin-bottom: 60px;
         }
 
         .section-title h2 {
@@ -115,8 +115,13 @@
             font-weight: 700;
         }
 
+        h1 { font-size: 64px; }
+        h2 { font-size: 48px; }
+        h3 { font-size: 30px; }
+        p { font-size: 17px; color: var(--text-muted); }
+
         /*=========================================================
-        HEADER & NAV SYSTEM
+        HEADER & CROSS-BROWSER NAV SYSTEM
         =========================================================*/
         .top-bar {
             background: #090c0a;
@@ -180,6 +185,7 @@
             color: var(--text-muted);
         }
 
+        /* Dropdown Box Structural Fix */
         .dropdown-menu {
             position: absolute;
             top: 100%;
@@ -248,21 +254,20 @@
         }
 
         /*=========================================================
-        GLOBAL BUTTONS
+        GLOBAL BUTTONS & COMPONENTS
         =========================================================*/
         .btn {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: 12px 24px;
+            padding: 14px 30px;
             border-radius: 50px;
             font-weight: 600;
             transition: var(--transition);
             gap: 10px;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             border: none;
             cursor: pointer;
-            width: 100%;
         }
 
         .btn-primary {
@@ -278,17 +283,42 @@
         .btn-secondary {
             background: transparent;
             color: var(--text-main);
-            border: 1px solid var(--border-color);
+            border: 2px solid var(--border-color);
         }
 
         .btn-secondary:hover {
             background: rgba(255, 255, 255, 0.05);
             border-color: var(--secondary);
+            transform: translateY(-2px);
         }
 
         /*=========================================================
-        JEWELLERY GALLERY GRID STYLES
+        CATEGORY TEMPLATE UI & SECTIONS
         =========================================================*/
+        .category-banner {
+            min-height: 50vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(rgba(17, 20, 18, 0.75), rgba(17, 20, 18, 0.85)), url("images/banner/jewellery-banner.jpg");
+            background-size: cover;
+            background-position: center;
+            padding: 80px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .category-banner h1 {
+            color: var(--text-main);
+            margin-bottom: 20px;
+        }
+
+        .category-banner p {
+            max-width: 700px;
+            margin: 0 auto 30px;
+            font-size: 19px;
+        }
+
         .breadcrumb {
             background: #161b18;
             padding: 15px 0;
@@ -305,152 +335,220 @@
 
         .breadcrumb a {
             color: var(--secondary);
-        }
-
-        .jewellery-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 40px;
-        }
-
-        .jewellery-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 16px;
-            padding: 25px;
-            box-shadow: var(--shadow);
             transition: var(--transition);
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .category-intro {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .category-intro h2 {
+            margin-bottom: 20px;
+        }
+
+        .category-intro p {
+            max-width: 850px;
+            margin: auto;
+        }
+
+        /* Product Grids Structure */
+        .product-showcase {
+            padding: 80px 0;
+        }
+
+        .product-showcase-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .product-image img {
+            width: 100%;
+            border-radius: 16px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            border: 1px solid var(--border-color);
+        }
+
+        .product-badge {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--text-main);
+            padding: 6px 16px;
+            border-radius: 40px;
+            margin-bottom: 18px;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .product-info h2 {
+            margin-bottom: 20px;
+            font-size: 42px;
+        }
+
+        .product-info p {
+            margin-bottom: 20px;
+        }
+
+        .product-info ul li {
+            margin-bottom: 12px;
+            font-size: 16px;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .product-info ul li i {
+            color: var(--secondary);
+        }
+
+        .purchase-controls {
             display: flex;
             flex-direction: column;
+            gap: 15px;
+            margin: 25px 0;
         }
 
-        .jewellery-card:hover {
+        .control-group {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .control-group label {
+            font-size: 14px;
+            color: var(--text-muted);
+            min-width: 100px;
+            font-weight: 500;
+        }
+
+        .purchase-controls select,
+        .purchase-controls input[type="number"] {
+            padding: 10px 15px;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--text-main);
+            font-size: 14px;
+            outline: none;
+            transition: var(--transition);
+        }
+
+        .purchase-controls select:focus,
+        .purchase-controls input[type="number"]:focus {
+            border-color: var(--secondary);
+        }
+
+        .live-price-tag {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-top: 10px;
+        }
+
+        .product-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        /* Structural Grid Inversion For Alternate Cards */
+        .reverse-grid .product-info { order: 1; }
+        .reverse-grid .product-image { order: 2; }
+
+        /* Coming Soon Section Component */
+        .coming-soon {
+            background: #141916;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .coming-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .coming-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 45px 30px;
+            border-radius: 16px;
+            text-align: center;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+        }
+
+        .coming-card:hover {
             transform: translateY(-5px);
             border-color: var(--secondary);
         }
 
-        .product-img-holder {
-            width: 100%;
-            height: 320px;
-            border-radius: 12px;
-            overflow: hidden;
-            margin-bottom: 20px;
-            border: 1px solid var(--border-color);
-            position: relative;
-        }
-
-        .product-img-holder img {
-            transition: var(--transition);
-        }
-
-        .jewellery-card:hover .product-img-holder img {
-            transform: scale(1.05);
-        }
-
-        .product-badge {
-            position: absolute;
-            top: 15px;
-            left: 15px;
-            background: var(--accent);
-            color: var(--text-main);
-            padding: 4px 12px;
-            border-radius: 30px;
-            font-size: 12px;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-        }
-
-        .product-info h3 {
-            font-size: 28px;
-            margin-bottom: 10px;
-            color: var(--text-main);
-        }
-
-        .product-info p {
-            font-size: 14px;
-            margin-bottom: 20px;
-            color: var(--text-muted);
-            min-height: 60px;
-        }
-
-        .price-row {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 20px;
-            padding-top: 15px;
-            border-top: 1px solid var(--border-color);
-        }
-
-        .price-tag {
-            font-size: 24px;
-            font-weight: 700;
+        .coming-card i {
+            font-size: 40px;
             color: var(--secondary);
+            margin-bottom: 20px;
         }
 
-        .price-tag span {
-            font-size: 14px;
-            color: var(--text-muted);
-            text-decoration: line-through;
-            margin-left: 8px;
-            font-weight: 400;
-        }
-
-        .rating-stars {
-            color: var(--secondary);
-            font-size: 13px;
-        }
-
-        .card-actions {
-            display: flex;
-            gap: 12px;
-            margin-top: auto;
-        }
-
-        footer {
-            background: #090c0a;
-            padding: 80px 0 40px;
-            border-top: 1px solid var(--border-color);
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 2fr repeat(3, 1fr);
-            gap: 40px;
-            margin-bottom: 40px !important;
-        }
-
-        .footer-column h4 {
+        .coming-card h3 {
             font-size: 22px;
-            margin-bottom: 25px;
-            color: var(--text-main);
         }
 
-        .footer-column ul li {
-            margin-bottom: 12px;
+        /* Feature Values Component */
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
         }
 
-        .footer-column ul li a {
-            color: var(--text-muted);
-            transition: var(--transition);
-            font-size: 15px;
-        }
-
-        .footer-column ul li a:hover {
-            color: var(--secondary);
-            padding-left: 5px;
-        }
-
-        .footer-bottom {
+        .why-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 40px 30px;
             text-align: center;
-            padding-top: 40px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .why-card h3 {
+            margin-top: 15px;
+            font-size: 22px;
+        }
+
+        .why-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--secondary);
+        }
+
+        /* Final Call To Action Component */
+        .premium-cta {
+            background: linear-gradient(rgba(17, 20, 18, 0.85), rgba(17, 20, 18, 0.9)), url("images/banner/cta-bg.jpg");
+            background-size: cover;
+            background-position: center;
+            text-align: center;
             border-top: 1px solid var(--border-color);
-            font-size: 14px;
-            color: var(--text-muted);
+        }
+
+        .premium-cta p {
+            max-width: 600px;
+            margin: 20px auto 40px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
         }
 
         /*=========================================================
-        RESPONSIVE ENGINE
+        RESPONSIVE ENGINE RECONCILIATION & MEDIA QUERIES
         =========================================================*/
         @media screen and (min-width: 992px) {
             .menu-toggle {
@@ -497,40 +595,69 @@
                 margin: 0 auto;
                 align-items: flex-start;
             }
-            .jewellery-grid, .footer-grid {
-                grid-template-columns: 1fr !important;
-                gap: 30px;
+            .dropdown-menu {
+                position: static !important;
+                box-shadow: none !important;
+                padding: 10px 0 0 15px !important;
+                display: flex !important;
+                background: transparent !important;
+                border: none !important;
             }
-            .card-actions {
+            
+            /* Responsive Grid Flattening */
+            .product-showcase-grid,
+            .reverse-grid,
+            .coming-grid,
+            .why-grid {
+                grid-template-columns: 1fr !important;
+                gap: 40px;
+            }
+            .reverse-grid .product-image { order: 1; }
+            .reverse-grid .product-info { order: 2; }
+            
+            .product-buttons, .purchase-controls, .hero-buttons {
                 flex-direction: column;
             }
+            .btn {
+                width: 100% !important;
+            }
+            .control-group {
+                justify-content: space-between;
+                width: 100%;
+            }
+            .live-price-tag {
+                text-align: center;
+            }
+            .product-info h2 {
+                font-size: 32px;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            section { padding: 60px 0; }
+            h1 { font-size: 40px; }
+            h2 { font-size: 34px; }
+            .category-banner { min-height: 35vh; }
         }
     </style>
 </head>
 
 <body>
-
-    <!--==================================
-    TOP BAR
-    ===================================-->
     <div class="top-bar">
-        Traditional Taste, Style and Smile Delivered
+        Timeless Elegance, Style and Grace Delivered
     </div>
 
-    <!--==================================
-    HEADER
-    ===================================-->
     <header>
         <div class="container navbar">
             <div class="logo">
                 ASHTAMI STORE
             </div>
 
-            <nav id="navMenu">
+            <nav id="nav-menu">
                 <ul>
                     <li><a href="index.html">Home</a></li>
                     <li class="dropdown">
-                        <a href="category.html">
+                        <a href="product-jewellery.html">
                             Collections <i class="fa-solid fa-chevron-down dropdown-toggle"></i>
                         </a>
                         <ul class="dropdown-menu">
@@ -544,221 +671,359 @@
                     <li>
                         <a href="cart.html" class="cart-icon">
                             <i class="fa-solid fa-cart-shopping"></i>
-                            <span class="cart-count">0</span>
+                            <span class="cart-count" id="global-cart-count">0</span>
                         </a>
                     </li>
                 </ul>
             </nav>
 
-            <div class="menu-toggle" id="menuBtn">
+            <div class="menu-toggle" id="mobile-toggle">
                 <i class="fa-solid fa-bars"></i>
             </div>
         </div>
     </header>
 
-    <!--==================================
-    BREADCRUMB
-    ===================================-->
+    <section class="category-banner">
+        <div class="container">
+            <h1>Imitation Jewellery</h1>
+            <p>Handcrafted oxidized and contemporary jewellery pieces designed to blend traditional charm with modern aesthetic grace.</p>
+            <br>
+            <a href="#products" class="btn btn-primary">Explore Products</a>
+        </div>
+    </section>
+
     <section class="breadcrumb">
         <div class="container">
-            <a href="index.html">Home</a> &gt; <a href="category.html">Collections</a> &gt; <strong>Imitation Jewellery</strong>
+            <a href="index.html">Home</a> &gt; Collections &gt; <strong>Imitation Jewellery</strong>
         </div>
     </section>
 
-    <!--==================================
-    JEWELLERY COLLECTION
-    ===================================-->
-    <section class="jewellery-collection">
+    <section class="category-intro">
+        <div class="container">
+            <h2>Handcrafted Elegance &amp; Grace</h2>
+            <p>Every piece in our imitation jewellery collection is intricately crafted to perfection. Highlighting traditional craftsmanship, rich color stones, and timeless pearl drops, our jewellery enhances every outfit with effortless sophistication.</p>
+        </div>
+    </section>
+
+    <!-- PRODUCT 1: OXIDISED LOTUS PEARL DROP EARRINGS -->
+    <section class="product-showcase" id="products">
+        <div class="container">
+            <div class="product-showcase-grid">
+                <div class="product-image">
+                    <img src="lotus-earrings.png" alt="Oxidised Lotus pearl drop earrings">
+                </div>
+                <div class="product-info">
+                    <span class="product-badge">NEW ARRIVAL</span>
+                    <h2>Oxidised Lotus Pearl Drop Earrings</h2>
+                    <p>Features intricate lotus motif carvings with elegant hanging pearl drops. Lightweight, hypoallergenic finish ideal for both festive and daily statement styling.</p>
+                    <ul>
+                        <li><i class="fa-solid fa-check"></i> Dimensions: W: 40 mm | H: 80 mm</li>
+                        <li><i class="fa-solid fa-check"></i> Premium Oxidised Finish</li>
+                        <li><i class="fa-solid fa-check"></i> Light &amp; Comfortable Wear</li>
+                        <li><i class="fa-solid fa-check"></i> High Quality Faux Pearls</li>
+                    </ul>
+                    
+                    <div class="purchase-controls">
+                        <div class="control-group">
+                            <label for="p1-color">Select Colour</label>
+                            <select id="p1-color" onchange="updateProductPrice('p1')">
+                                <option value="Ruby Red" data-price="450">❤️ Ruby Red - Rich, warm red</option>
+                                <option value="Aqua Blue" data-price="450">🩵 Aqua Blue - Soft turquoise</option>
+                                <option value="Dusty Rose Pink" data-price="450">🩷 Dusty Rose Pink - Muted blush</option>
+                                <option value="Lavender Purple" data-price="450">💜 Lavender Purple - Soft pastel</option>
+                                <option value="Golden Mustard Yellow" data-price="450">💛 Golden Mustard Yellow - Warm yellow</option>
+                            </select>
+                        </div>
+                        <div class="control-group">
+                            <label for="p1-qty">Quantity</label>
+                            <input type="number" id="p1-qty" value="1" min="1" max="10" onchange="updateProductPrice('p1')">
+                        </div>
+                        <div class="live-price-tag" id="p1-price-tag">₹450</div>
+                    </div>
+
+                    <div class="product-buttons">
+                        <a href="product-lotus-earrings.html" class="btn btn-primary">View Details</a>
+                        <button class="btn btn-secondary" onclick="addToCart('Oxidised Lotus pearl drop earrings', 'p1')">
+                            <i class="fa-solid fa-cart-plus"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRODUCT 2: OXIDISED JHUMKA EARRINGS -->
+    <section class="product-showcase reverse">
+        <div class="container">
+            <div class="product-showcase-grid reverse-grid">
+                <div class="product-info">
+                    <span class="product-badge">BEST SELLER</span>
+                    <h2>Classic Oxidised Floral Jhumka</h2>
+                    <p>Traditional silver-toned oxidised jhumkas featuring detailed floral engravings and delicate hanging beads for a regal ethnic look.</p>
+                    <ul>
+                        <li><i class="fa-solid fa-check"></i> Height: 65 mm | Width: 30 mm</li>
+                        <li><i class="fa-solid fa-check"></i> Traditional Silver Polish</li>
+                        <li><i class="fa-solid fa-check"></i> Premium Alloy Metal</li>
+                        <li><i class="fa-solid fa-check"></i> Skin-Friendly Coating</li>
+                    </ul>
+                    
+                    <div class="purchase-controls">
+                        <div class="control-group">
+                            <label for="p2-variant">Select Finish</label>
+                            <select id="p2-variant" onchange="updateProductPrice('p2')">
+                                <option value="Antique Silver" data-price="399">Antique Silver Polish (₹399)</option>
+                                <option value="Oxidised Gold" data-price="429">Oxidised Gold Finish (₹429)</option>
+                            </select>
+                        </div>
+                        <div class="control-group">
+                            <label for="p2-qty">Quantity</label>
+                            <input type="number" id="p2-qty" value="1" min="1" max="10" onchange="updateProductPrice('p2')">
+                        </div>
+                        <div class="live-price-tag" id="p2-price-tag">₹399</div>
+                    </div>
+
+                    <div class="product-buttons">
+                        <a href="product-jhumka.html" class="btn btn-primary">View Details</a>
+                        <button class="btn btn-secondary" onclick="addToCart('Classic Oxidised Floral Jhumka', 'p2')">
+                            <i class="fa-solid fa-cart-plus"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+                <div class="product-image">
+                    <img src="oxidised-jhumka.png" alt="Classic Oxidised Floral Jhumka">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRODUCT 3: KUNDAN CHOKER SET -->
+    <section class="product-showcase">
+        <div class="container">
+            <div class="product-showcase-grid">
+                <div class="product-image">
+                    <img src="kundan-set.png" alt="Royal Kundan Choker Necklace Set">
+                </div>
+                <div class="product-info">
+                    <span class="product-badge">ROYAL COLLECTION</span>
+                    <h2>Royal Kundan Choker Necklace Set</h2>
+                    <p>Exquisite Kundan choker studded with high-grade faux stones and paired with matching drop earrings for weddings and celebrations.</p>
+                    <ul>
+                        <li><i class="fa-solid fa-check"></i> Adjustable Dori Closure</li>
+                        <li><i class="fa-solid fa-check"></i> Includes Matching Earrings</li>
+                        <li><i class="fa-solid fa-check"></i> Handcrafted Stone Setting</li>
+                        <li><i class="fa-solid fa-check"></i> Tarnish Resistant Polish</li>
+                    </ul>
+                    
+                    <div class="purchase-controls">
+                        <div class="control-group">
+                            <label for="p3-variant">Select Gemstone</label>
+                            <select id="p3-variant" onchange="updateProductPrice('p3')">
+                                <option value="Emerald Green" data-price="899">Emerald Green Stones (₹899)</option>
+                                <option value="Ruby Red" data-price="899">Ruby Red Stones (₹899)</option>
+                                <option value="Pearl White" data-price="849">Classic Pearl White (₹849)</option>
+                            </select>
+                        </div>
+                        <div class="control-group">
+                            <label for="p3-qty">Quantity</label>
+                            <input type="number" id="p3-qty" value="1" min="1" max="10" onchange="updateProductPrice('p3')">
+                        </div>
+                        <div class="live-price-tag" id="p3-price-tag">₹899</div>
+                    </div>
+
+                    <div class="product-buttons">
+                        <a href="product-kundan-set.html" class="btn btn-primary">View Details</a>
+                        <button class="btn btn-secondary" onclick="addToCart('Royal Kundan Choker Necklace Set', 'p3')">
+                            <i class="fa-solid fa-cart-plus"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRODUCT 4: STATEMENT BRASS BANGLES -->
+    <section class="product-showcase reverse">
+        <div class="container">
+            <div class="product-showcase-grid reverse-grid">
+                <div class="product-info">
+                    <span class="product-badge">FEATURED</span>
+                    <h2>Handcarved Oxidised Brass Bangles</h2>
+                    <p>Pair of statement openable brass bangles with detailed tribal carving and high-luster antique oxidised plating.</p>
+                    <ul>
+                        <li><i class="fa-solid fa-check"></i> Set of 2 Bangles</li>
+                        <li><i class="fa-solid fa-check"></i> Openable Lock Mechanism</li>
+                        <li><i class="fa-solid fa-check"></i> Durable Solid Brass Base</li>
+                        <li><i class="fa-solid fa-check"></i> Fits Sizes 2.4 to 2.8</li>
+                    </ul>
+                    
+                    <div class="purchase-controls">
+                        <div class="control-group">
+                            <label for="p4-variant">Select Size</label>
+                            <select id="p4-variant" onchange="updateProductPrice('p4')">
+                                <option value="Size 2.4" data-price="550">Size 2.4 (Small - ₹550)</option>
+                                <option value="Size 2.6" data-price="550">Size 2.6 (Medium - ₹550)</option>
+                                <option value="Size 2.8" data-price="550">Size 2.8 (Large - ₹550)</option>
+                            </select>
+                        </div>
+                        <div class="control-group">
+                            <label for="p4-qty">Quantity</label>
+                            <input type="number" id="p4-qty" value="1" min="1" max="10" onchange="updateProductPrice('p4')">
+                        </div>
+                        <div class="live-price-tag" id="p4-price-tag">₹550</div>
+                    </div>
+
+                    <div class="product-buttons">
+                        <a href="product-bangles.html" class="btn btn-primary">View Details</a>
+                        <button class="btn btn-secondary" onclick="addToCart('Handcarved Oxidised Brass Bangles', 'p4')">
+                            <i class="fa-solid fa-cart-plus"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+                <div class="product-image">
+                    <img src="brass-bangles.png" alt="Handcarved Oxidised Brass Bangles">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="coming-soon">
         <div class="container">
             <div class="section-title">
-                <h2>Royal Imitation Jewellery Collection</h2>
-                <p>Elegantly designed handcrafted pieces made to bring royal elegance and radiance to every bridal and festive occasion.</p>
+                <h2>More Jewellery Designs Coming Soon</h2>
+                <p>We are expanding our handcrafted jewellery collection. Stay tuned for new temple jewellery, designer anklets, and bridal sets.</p>
             </div>
-
-            <div class="jewellery-grid">
-                <!-- Product Item 1 -->
-                <div class="jewellery-card">
-                    <div class="product-img-holder">
-                        <span class="product-badge">BESTSELLER</span>
-                        <img src="images/temple-necklace-set.jpg" alt="Antique Gold Temple Necklace Set">
-                    </div>
-                    <div class="product-info">
-                        <h3>Antique Gold Temple Necklace Set</h3>
-                        <p>Intricately crafted divine temple design featuring Goddess motifs, encrusted with ruby-red stones and hanging pearl drops.</p>
-                        <div class="price-row">
-                            <div class="price-tag">₹1,850 <span>₹2,499</span></div>
-                            <div class="rating-stars">★★★★★ (48)</div>
-                        </div>
-                    </div>
-                    <div class="card-actions">
-                        <button class="btn btn-primary" onclick="addToCart('jewel-temple-01', 'Antique Gold Temple Necklace Set', 1850, 'images/temple-necklace-set.jpg', 'One Size')">
-                            <i class="fa-solid fa-cart-plus"></i> Add to Cart
-                        </button>
-                        <a href="https://wa.me/916393072915" class="btn btn-secondary">
-                            <i class="fa-brands fa-whatsapp"></i> Order
-                        </a>
-                    </div>
+            <div class="coming-grid">
+                <div class="coming-card">
+                    <i class="fa-solid fa-gem"></i>
+                    <h3>Temple Jewellery</h3>
                 </div>
-
-                <!-- Product Item 2 -->
-                <div class="jewellery-card">
-                    <div class="product-img-holder">
-                        <span class="product-badge">BRIDAL FAVOURITE</span>
-                        <img src="images/kundan-choker-set.jpg" alt="Royal Kundan & Pearl Choker Set">
-                    </div>
-                    <div class="product-info">
-                        <h3>Royal Kundan &amp; Pearl Choker Set</h3>
-                        <p>A regal Kundan choker set crafted with polished glass stones, emerald green accent drops, and matching statement earrings.</p>
-                        <div class="price-row">
-                            <div class="price-tag">₹2,200 <span>₹2,999</span></div>
-                            <div class="rating-stars">★★★★★ (35)</div>
-                        </div>
-                    </div>
-                    <div class="card-actions">
-                        <button class="btn btn-primary" onclick="addToCart('jewel-kundan-02', 'Royal Kundan & Pearl Choker Set', 2200, 'images/kundan-choker-set.jpg', 'One Size')">
-                            <i class="fa-solid fa-cart-plus"></i> Add to Cart
-                        </button>
-                        <a href="https://wa.me/916393072915" class="btn btn-secondary">
-                            <i class="fa-brands fa-whatsapp"></i> Order
-                        </a>
-                    </div>
+                <div class="coming-card">
+                    <i class="fa-solid fa-ring"></i>
+                    <h3>Designer Rings</h3>
                 </div>
-
-                <!-- Product Item 3 -->
-                <div class="jewellery-card">
-                    <div class="product-img-holder">
-                        <span class="product-badge">TRENDING</span>
-                        <img src="images/peacock-jhumka-earrings.jpg" alt="Traditional Peacock Gold Jhumka Earrings">
-                    </div>
-                    <div class="product-info">
-                        <h3>Peacock Gold Jhumka Earrings</h3>
-                        <p>Exquisite dome-shaped traditional jhumkas featuring detailed peacock carving, matte gold finish, and delicate ghungroo accents.</p>
-                        <div class="price-row">
-                            <div class="price-tag">₹799 <span>₹1,199</span></div>
-                            <div class="rating-stars">★★★★★ (62)</div>
-                        </div>
-                    </div>
-                    <div class="card-actions">
-                        <button class="btn btn-primary" onclick="addToCart('jewel-jhumka-03', 'Peacock Gold Jhumka Earrings', 799, 'images/peacock-jhumka-earrings.jpg', 'One Pair')">
-                            <i class="fa-solid fa-cart-plus"></i> Add to Cart
-                        </button>
-                        <a href="https://wa.me/916393072915" class="btn btn-secondary">
-                            <i class="fa-brands fa-whatsapp"></i> Order
-                        </a>
-                    </div>
+                <div class="coming-card">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i>
+                    <h3>Oxidised Anklets</h3>
                 </div>
-
-                <!-- Product Item 4 -->
-                <div class="jewellery-card">
-                    <div class="product-img-holder">
-                        <span class="product-badge">CLASSIC HANDCRAFTED</span>
-                        <img src="images/cz-bangles-set.jpg" alt="Classic American Diamond Bangles Set">
-                    </div>
-                    <div class="product-info">
-                        <h3>American Diamond Bangles Set</h3>
-                        <p>Set of 4 high-shine cubic zirconia diamond-studded bangles with smooth micro-gold plating, ideal for wedding guest outfits.</p>
-                        <div class="price-row">
-                            <div class="price-tag">₹1,250 <span>₹1,699</span></div>
-                            <div class="rating-stars">★★★★★ (29)</div>
-                        </div>
-                    </div>
-                    <div class="card-actions">
-                        <button class="btn btn-primary" onclick="addToCart('jewel-bangles-04', 'American Diamond Bangles Set', 1250, 'images/cz-bangles-set.jpg', '2.6 Size')">
-                            <i class="fa-solid fa-cart-plus"></i> Add to Cart
-                        </button>
-                        <a href="https://wa.me/916393072915" class="btn btn-secondary">
-                            <i class="fa-brands fa-whatsapp"></i> Order
-                        </a>
-                    </div>
-                </div>
-
             </div>
         </div>
     </section>
 
-    <!--==================================
-    FOOTER
-    ===================================-->
-    <footer>
-        <div class="container footer-grid">
-            <div class="footer-column">
-                <h4>ASHTAMI STORE</h4>
-                <p>Delivering authentic traditional sweets, pristine gifts, and stunning jewellery directly to your doorstep.</p>
+    <section class="why-sweets">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Choose Our Jewellery?</h2>
             </div>
-            <div class="footer-column">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="category.html">Collections</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h4>Categories</h4>
-                <ul>
-                    <li><a href="category.html">Sweets &amp; Savouries</a></li>
-                    <li><a href="product-gift.html">Printed Gifts</a></li>
-                    <li><a href="product-jewellery.html">Jewellery</a></li>
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h4>Customer Support</h4>
-                <ul>
-                    <li><a href="cart.html">Shopping Cart</a></li>
-                    <li><a href="https://wa.me/916393072915">WhatsApp Support</a></li>
-                </ul>
+            <div class="why-grid">
+                <div class="why-card">✨<h3>Handcrafted Details</h3></div>
+                <div class="why-card">💎<h3>Premium Finishes</h3></div>
+                <div class="why-card">🌿<h3>Skin-Friendly Alloys</h3></div>
+                <div class="why-card">🌸<h3>Lightweight &amp; Comfort</h3></div>
+                <div class="why-card">📦<h3>Safe Box Packaging</h3></div>
+                <div class="why-card">🚚<h3>Pan India Shipping</h3></div>
             </div>
         </div>
-        <div class="footer-bottom">
-            &copy; 2026 Ashtami Store. All Rights Reserved.
-        </div>
-    </footer>
+    </section>
 
-    <!--==================================
-    CART LOGIC & SCRIPT
-    ===================================-->
+    <section class="premium-cta">
+        <div class="container">
+            <div class="section-title">
+                <h2>Adorn Yourself with Elegance</h2>
+                <p>Explore our beautiful collections or connect with us directly for custom orders and styling advice.</p>
+            </div>
+            <div class="hero-buttons">
+                <a href="cart.html" class="btn btn-primary">View Cart</a>
+                <a href="https://wa.me/916393072915" target="_blank" class="btn btn-secondary">
+                    <i class="fa-brands fa-whatsapp"></i> Order on WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+
     <script>
-        const menuBtn = document.getElementById('menuBtn');
-        const navMenu = document.getElementById('navMenu');
-        if (menuBtn && navMenu) {
-            menuBtn.addEventListener('click', () => {
-                navMenu.classList.toggle('active');
-            });
-        }
+        document.addEventListener('DOMContentLoaded', () => {
+            // Mobile Navigation logic
+            const mobileToggle = document.getElementById('mobile-toggle');
+            const navMenu = document.getElementById('nav-menu');
 
-        function addToCart(id, name, price, image, size) {
-            let cart = JSON.parse(localStorage.getItem('cart')) || [];
-            const existingIndex = cart.findIndex(item => item.id === id);
-
-            if (existingIndex > -1) {
-                cart[existingIndex].quantity += 1;
-            } else {
-                cart.push({
-                    id: id,
-                    name: name,
-                    price: price,
-                    image: image,
-                    size: size,
-                    quantity: 1
+            if (mobileToggle && navMenu) {
+                mobileToggle.addEventListener('click', () => {
+                    navMenu.classList.toggle('active');
                 });
             }
 
-            localStorage.setItem('cart', JSON.stringify(cart));
+            // Initialize global cart count and prices
             updateCartCount();
-            window.location.href = 'cart.html';
-        }
+            updateProductPrice('p1');
+            updateProductPrice('p2');
+            updateProductPrice('p3');
+            updateProductPrice('p4');
+        });
 
-        function updateCartCount() {
-            const cart = JSON.parse(localStorage.getItem('cart')) || [];
-            const count = cart.reduce((total, item) => total + item.quantity, 0);
-            const countElement = document.querySelector('.cart-count');
-            if (countElement) {
-                countElement.innerText = count;
+        // Price calculation based on variant selection and quantity
+        function updateProductPrice(productId) {
+            const variantSelect = document.getElementById(`${productId}-variant`) || document.getElementById(`${productId}-color`);
+            const qtyInput = document.getElementById(`${productId}-qty`);
+            const priceTag = document.getElementById(`${productId}-price-tag`);
+
+            if (variantSelect && qtyInput && priceTag) {
+                const selectedOption = variantSelect.options[variantSelect.selectedIndex];
+                const unitPrice = parseFloat(selectedOption.getAttribute('data-price')) || 0;
+                const quantity = parseInt(qtyInput.value) || 1;
+                const totalPrice = unitPrice * quantity;
+
+                priceTag.textContent = `₹${totalPrice}`;
             }
         }
 
-        document.addEventListener('DOMContentLoaded', updateCartCount);
+        // Cart functions using localStorage
+        function getCart() {
+            return JSON.parse(localStorage.getItem('ashtami_cart')) || [];
+        }
+
+        function saveCart(cart) {
+            localStorage.setItem('ashtami_cart', JSON.stringify(cart));
+            updateCartCount();
+        }
+
+        function updateCartCount() {
+            const cart = getCart();
+            const totalCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+            const cartBadge = document.getElementById('global-cart-count');
+            if (cartBadge) {
+                cartBadge.textContent = totalCount;
+            }
+        }
+
+        function addToCart(productName, productId) {
+            const variantSelect = document.getElementById(`${productId}-variant`) || document.getElementById(`${productId}-color`);
+            const qtyInput = document.getElementById(`${productId}-qty`);
+
+            if (!variantSelect || !qtyInput) return;
+
+            const selectedOption = variantSelect.options[variantSelect.selectedIndex];
+            const variantValue = selectedOption.value;
+            const unitPrice = parseFloat(selectedOption.getAttribute('data-price')) || 0;
+            const quantity = parseInt(qtyInput.value) || 1;
+
+            const cart = getCart();
+            const existingIndex = cart.findIndex(item => item.id === productId && item.variant === variantValue);
+
+            if (existingIndex > -1) {
+                cart[existingIndex].quantity += quantity;
+            } else {
+                cart.push({
+                    id: productId,
+                    name: productName,
+                    variant: variantValue,
+                    price: unitPrice,
+                    quantity: quantity
+                });
+            }
+
+            saveCart(cart);
+            alert(`${quantity} x ${productName} (${variantValue}) added to cart!`);
+        }
     </script>
 </body>
 
