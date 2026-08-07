@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Premium Imitation Jewellery Collection | Ashtami Store</title>
-    <meta name="description" content="Discover elegant handcrafted imitation jewellery including bridal sets, necklaces, designer earrings, bangles, and festive accessories for every celebration.">
+    <meta name="description" content="Discover elegant handcrafted imitation jewellery including oxidised drop earrings, western korean earrings, bridal sets, and festive accessories.">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -291,6 +291,11 @@
             transform: translateY(-2px);
         }
 
+        .btn-sm {
+            padding: 10px 20px;
+            font-size: 0.85rem;
+        }
+
         /*=========================================================
         BREADCRUMB
         =========================================================*/
@@ -424,6 +429,87 @@
         .product-details .btn {
             margin-right: 15px;
             margin-bottom: 15px;
+        }
+
+        /*=========================================================
+        PRODUCT CATALOGUE GRID & CARDS
+        =========================================================*/
+        .catalogue-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .product-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .product-card:hover {
+            border-color: var(--secondary);
+            transform: translateY(-5px);
+        }
+
+        .product-card h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: var(--text-main);
+        }
+
+        .product-card .price-tag {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 15px;
+        }
+
+        .product-card .specs {
+            margin-bottom: 15px;
+            font-size: 14px;
+            background: rgba(255, 255, 255, 0.03);
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: 1px dashed var(--border-color);
+        }
+
+        .product-card .color-list {
+            margin-bottom: 20px;
+        }
+
+        .product-card .color-list p {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-main);
+            margin-bottom: 8px;
+        }
+
+        .color-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .color-chip {
+            background: rgba(212, 175, 55, 0.1);
+            color: var(--secondary);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .product-card .card-actions {
+            display: flex;
+            gap: 12px;
+            margin-top: 20px;
         }
 
         /*=========================================================
@@ -573,47 +659,6 @@
 
         .love-card p {
             font-size: 15px;
-        }
-
-        /* Related Products Structure */
-        .related-products {
-            background: #141916;
-            border-top: 1px solid var(--border-color);
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .related-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 16px;
-            padding: 35px;
-            max-width: 450px;
-            margin: 0 auto;
-            text-align: center;
-            box-shadow: var(--shadow);
-        }
-
-        .related-card img {
-            border-radius: 12px;
-            margin-bottom: 25px;
-            border: 1px solid var(--border-color);
-        }
-
-        .related-card h3 {
-            margin-bottom: 10px;
-            font-size: 24px;
-        }
-
-        .related-card p {
-            margin-bottom: 20px;
-            font-size: 15px;
-        }
-
-        .related-card .price {
-            font-size: 18px;
-            color: var(--secondary);
-            font-weight: 600;
-            margin-bottom: 25px;
         }
 
         /* Delivery Blocks Info Module */
@@ -774,6 +819,7 @@
             }
             
             .single-product-grid,
+            .catalogue-grid,
             .benefit-grid,
             .ingredient-grid,
             .love-grid,
@@ -786,10 +832,10 @@
                 grid-template-columns: 1fr !important;
             }
             
-            .product-price, .hero-buttons {
+            .product-price, .hero-buttons, .product-card .card-actions {
                 flex-direction: column;
             }
-            .product-details .btn, .hero-buttons .btn {
+            .product-details .btn, .hero-buttons .btn, .product-card .btn {
                 width: 100% !important;
                 margin-right: 0;
             }
@@ -882,25 +928,152 @@
                     <span class="product-badge">NEW ARRIVAL</span>
                     <h1>Premium Imitation Jewellery Collection</h1>
                     <p class="product-short">
-                        Elevate your style with our stunning collection of handcrafted imitation jewellery. From royal bridal sets and timeless statement necklaces to elegant designer earrings, statement rings, and traditional bangles, each piece is intricately crafted to complement your festive, bridal, and casual attire.
+                        Elevate your style with our stunning collection of handcrafted imitation jewellery. From royal oxidised drop earrings and minimal western Korean styles to traditional sets and heritage accessories, each piece is intricately crafted to complement your attire.
                     </p>
                     <div class="rating">
                         ★★★★★ <span>(Premium Artistry)</span>
                     </div>
                     <div class="product-price">
-                        <div><strong>Starting From</strong>₹299</div>
+                        <div><strong>Starting From</strong>₹99</div>
                         <div><strong>Festive Offers</strong>Exclusive Designs</div>
                     </div>
                     <div class="quantity">
                         <label>Quantity</label>
                         <input type="number" value="1" min="1">
                     </div>
-                    <button class="btn btn-primary" onclick="addToCart('jewellery-collection', 'Premium Imitation Jewellery Collection', 299, 'images/products/imitation-jewellery.jpg', 'Standard')">
+                    <button class="btn btn-primary" onclick="addToCart('jewellery-collection', 'Premium Imitation Jewellery Collection', 99, 'jewellery.png', 'Standard')">
                         <i class="fa-solid fa-cart-plus"></i> Add to Cart
                     </button>
-                    <a href="https://wa.me/91XXXXXXXXXX" class="btn btn-secondary">
+                    <a href="https://wa.me/916393072915" class="btn btn-secondary" target="_blank">
                         <i class="fa-brands fa-whatsapp"></i> Order on WhatsApp
                     </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--==================================
+    FEATURED PRODUCTS CATALOGUE
+    ===================================-->
+    <section class="featured-products">
+        <div class="container">
+            <div class="section-title">
+                <h2>Featured Earring Collections</h2>
+                <p>Discover our latest handpicked earring arrivals available in vibrant custom color options.</p>
+            </div>
+
+            <div class="catalogue-grid">
+                <!-- Product 1 -->
+                <div class="product-card">
+                    <div>
+                        <h3>Oxidised Lotus Pearl Drop Earrings</h3>
+                        <div class="price-tag">₹219 /- each</div>
+                        <div class="specs">
+                            <strong>Dimensions:</strong> Width 40 mm | Height 80 mm
+                        </div>
+                        <div class="color-list">
+                            <p>Available Colours:</p>
+                            <div class="color-tags">
+                                <span class="color-chip">❤️ Ruby Red</span>
+                                <span class="color-chip">🩵 Aqua Blue</span>
+                                <span class="color-chip">🩷 Dusty Rose Pink</span>
+                                <span class="color-chip">💜 Lavender Purple</span>
+                                <span class="color-chip">💛 Golden Mustard Yellow</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-primary btn-sm" onclick="addToCart('p1-lotus-earrings', 'Oxidised Lotus Pearl Drop Earrings', 219, 'jewellery.png', 'Default')">
+                            <i class="fa-solid fa-cart-plus"></i> Add to Cart
+                        </button>
+                        <a href="https://wa.me/916393072915?text=Hi%2C%20I%20want%20to%20order%20Oxidised%20Lotus%20pearl%20drop%20earrings%20(Rs%20219)" class="btn btn-secondary btn-sm" target="_blank">
+                            <i class="fa-brands fa-whatsapp"></i> Order
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="product-card">
+                    <div>
+                        <h3>Silver Oxidised Finish Camel Drop Earrings</h3>
+                        <div class="price-tag">₹250 /- each</div>
+                        <div class="specs">
+                            <strong>Style:</strong> Premium Silver Oxidised Finish for Women
+                        </div>
+                        <div class="color-list">
+                            <p>Available Colours:</p>
+                            <div class="color-tags">
+                                <span class="color-chip">🩷 Blush Pink</span>
+                                <span class="color-chip">🩵 Turquoise Blue</span>
+                                <span class="color-chip">❤️ Ruby Red</span>
+                                <span class="color-chip">💛 Golden Yellow</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-primary btn-sm" onclick="addToCart('p2-camel-earrings', 'Silver Oxidised Finish Camel Drop Earrings', 250, 'jewellery.png', 'Default')">
+                            <i class="fa-solid fa-cart-plus"></i> Add to Cart
+                        </button>
+                        <a href="https://wa.me/916393072915?text=Hi%2C%20I%20want%20to%20order%20Silver%20oxidised%20finish%20camel%20Drop%20earrings%20(Rs%20250)" class="btn btn-secondary btn-sm" target="_blank">
+                            <i class="fa-brands fa-whatsapp"></i> Order
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="product-card">
+                    <div>
+                        <h3>Animal Shaped Drop Earrings</h3>
+                        <div class="price-tag">₹199 /- each</div>
+                        <div class="specs">
+                            <strong>Style:</strong> Cute &amp; Quirky Handcrafted Animal Motif Drops
+                        </div>
+                        <div class="color-list">
+                            <p>Available Colours:</p>
+                            <div class="color-tags">
+                                <span class="color-chip">🌸 Blush Pink</span>
+                                <span class="color-chip">💜 Lavender Purple</span>
+                                <span class="color-chip">🩵 Aqua Blue</span>
+                                <span class="color-chip">💚 Emerald Green</span>
+                                <span class="color-chip">❤️ Ruby Red</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-primary btn-sm" onclick="addToCart('p3-animal-earrings', 'Animal Shaped Drop Earrings', 199, 'jewellery.png', 'Default')">
+                            <i class="fa-solid fa-cart-plus"></i> Add to Cart
+                        </button>
+                        <a href="https://wa.me/916393072915?text=Hi%2C%20I%20want%20to%20order%20Animal%20shaped%20drop%20earrings%20(Rs%20199)" class="btn btn-secondary btn-sm" target="_blank">
+                            <i class="fa-brands fa-whatsapp"></i> Order
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="product-card">
+                    <div>
+                        <h3>Melted Heart Western Korean Earrings</h3>
+                        <div class="price-tag">₹99 /- each</div>
+                        <div class="specs">
+                            <strong>Style:</strong> Modern Aesthetic Korean Fashion Drops
+                        </div>
+                        <div class="color-list">
+                            <p>Available Colours:</p>
+                            <div class="color-tags">
+                                <span class="color-chip">🤍 Off-White</span>
+                                <span class="color-chip">🌸 Blush Pink</span>
+                                <span class="color-chip">💜 Lavender Purple</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-primary btn-sm" onclick="addToCart('p4-heart-earrings', 'Melted Heart Western Korean Earrings', 99, 'jewellery.png', 'Default')">
+                            <i class="fa-solid fa-cart-plus"></i> Add to Cart
+                        </button>
+                        <a href="https://wa.me/916393072915?text=Hi%2C%20I%20want%20to%20order%20Melted%20Heart%20Western%20Korean%20Earrings%20(Rs%2099)" class="btn btn-secondary btn-sm" target="_blank">
+                            <i class="fa-brands fa-whatsapp"></i> Order
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -918,7 +1091,7 @@
                 At Ashtami Store, we believe that beautiful jewellery is an extension of your personality. Our exclusive imitation jewellery collection features traditional heritage aesthetics blended seamlessly with modern designs. Crafted by skilled artisans, each piece features high-grade polishing, realistic gemstone settings, and durable alloys that stay flawless over time.
             </p>
             <p>
-                Whether you are a bride-to-be looking for a majestic Kundan necklace set, a festival enthusiast searching for vibrant temple jewellery, or looking for delicate daily-wear minimal earrings, our collection caters to every taste. We pay close attention to structural integrity, lightweight wearability, and accurate detailing.
+                Whether you are looking for statement Oxidised Lotus Pearl drops, unique Silver Camel motifs, cute animal-shaped earrings, or minimal Melted Heart Korean studs, our collection caters to every taste. We pay close attention to structural integrity, lightweight wearability, and accurate detailing.
             </p>
             <p>
                 Perfect for weddings, anniversaries, family events, or thoughtful gifting, our premium jewellery pieces come beautifully boxed and safely packaged to prevent transit damage, ensuring you always shine at your next celebration.
@@ -938,7 +1111,7 @@
                 <div class="benefit-card">
                     <i class="fa-solid fa-wand-magic-sparkles"></i>
                     <h3>Fine Craftsmanship</h3>
-                    <p>Intricately designed by master artisans to replicate the exact allure and heavy detail of real gold ornaments.</p>
+                    <p>Intricately designed by master artisans to replicate the exact allure and heavy detail of real gold and silver ornaments.</p>
                 </div>
                 <div class="benefit-card">
                     <i class="fa-solid fa-feather"></i>
@@ -978,130 +1151,59 @@
                 <h2>Our Exquisite Range</h2>
             </div>
             <div class="ingredient-grid">
+                <div><i class="fa-solid fa-check"></i> Oxidised Lotus Pearl Drop Earrings (₹219)</div>
+                <div><i class="fa-solid fa-check"></i> Silver Finish Camel Drop Earrings (₹250)</div>
+                <div><i class="fa-solid fa-check"></i> Animal Shaped Drop Earrings (₹199)</div>
+                <div><i class="fa-solid fa-check"></i> Melted Heart Korean Earrings (₹99)</div>
                 <div><i class="fa-solid fa-check"></i> Traditional Bridal Choker Sets</div>
                 <div><i class="fa-solid fa-check"></i> Kundan &amp; Polki Necklaces</div>
                 <div><i class="fa-solid fa-check"></i> Heritage Temple Jewellery</div>
                 <div><i class="fa-solid fa-check"></i> Jhumkas &amp; Chandbalis</div>
-                <div><i class="fa-solid fa-check"></i> Minimalist Daily Studs</div>
-                <div><i class="fa-solid fa-check"></i> Antique Finish Bangles</div>
-                <div><i class="fa-solid fa-check"></i> Adjustable Statement Rings</div>
-                <div><i class="fa-solid fa-check"></i> Elegant Anklets &amp; Payals</div>
-                <div><i class="fa-solid fa-check"></i> Designer Maang Tikas</div>
-                <div><i class="fa-solid fa-check"></i> Festive Custom Combos</div>
             </div>
         </div>
     </section>
 
     <!--==================================
-    JEWELLERY CARE INSTRUCTIONS
-    ===================================-->
-    <section class="storage">
-        <div class="container">
-            <div class="section-title">
-                <h2>Jewellery Care Instructions</h2>
-            </div>
-            <div class="storage-box">
-                <ul>
-                    <li>Avoid direct contact with perfumes, hairsprays, or body lotions.</li>
-                    <li>Put on your jewellery last after completing makeup and hair prep.</li>
-                    <li>Wipe gently with a soft cotton cloth after every single use.</li>
-                    <li>Store in airtight zip-lock pouches or our original padded box.</li>
-                    <li>Keep separated from other metallic jewellery pieces to avoid scratches.</li>
-                    <li>Do not clean with harsh chemical solvents or liquid soap mixes.</li>
-                    <li>Remove before swimming, exercising, or heading into hot showers.</li>
-                    <li>Keep away from heavy direct heat and continuous humid conditions.</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <!--==================================
-    WHY CUSTOMERS LOVE OUR PIECES
-    ===================================-->
-    <section class="why-love-product">
-        <div class="container">
-            <div class="section-title">
-                <h2>Why Wear Ashtami Jewellery</h2>
-                <p>Designed to provide high-end luxury styling at an accessible price point.</p>
-            </div>
-            <div class="love-grid">
-                <div class="love-card">
-                    <i class="fa-solid fa-heart"></i>
-                    <h3>Skin Friendly</h3>
-                    <p>Nickel-free and lead-free compositions safely tailored to prevent skin irritation or reactions.</p>
-                </div>
-                <div class="love-card">
-                    <i class="fa-solid fa-star"></i>
-                    <h3>High-Gloss Luster</h3>
-                    <p>Expertly layered gold and silver electro-plating ensures your jewellery catches the ambient light flawlessly.</p>
-                </div>
-                <div class="love-card">
-                    <i class="fa-solid fa-scale-balanced"></i>
-                    <h3>Affordable Luxury</h3>
-                    <p>Achieve striking, premium traditional looks without having to worry about costly lockup storages.</p>
-                </div>
-                <div class="love-card">
-                    <i class="fa-solid fa-face-smile"></i>
-                    <h3>Trusted Quality</h3>
-                    <p>Rigorous multi-stage check processes ensure no structural gaps or missing stones arrive at your doorstep.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!--==================================
-    RELATED PRODUCT
-    ===================================-->
-    <section class="related-products">
-        <div class="container">
-            <div class="section-title">
-                <h2>Explore More Collections</h2>
-            </div>
-            <div class="related-card">
-                <img src="images/products/gift-collection.jpg" alt="Premium Printed Gift Items">
-                <h3>Printed Gift Items</h3>
-                <p>Personalized coffee mugs, vacuum bottles, custom photo frames, keychains, and festive corporate hampers.</p>
-                <div class="price">Starting From ₹199</div>
-                <a href="product-gift.html" class="btn btn-primary">View Collection</a>
-            </div>
-        </div>
-    </section>
-
-    <!--==================================
-    DELIVERY INFORMATION
+    DELIVERY INFO
     ===================================-->
     <section class="delivery-info">
         <div class="container">
             <div class="delivery-grid">
                 <div>
-                    <i class="fa-solid fa-box-open"></i>
-                    <h3>Bubble Wrapped Safe Pack</h3>
-                    <p>Thick protective layer wrapping keeps your complex pieces safe from impact distortion.</p>
+                    <i class="fa-solid fa-truck-fast"></i>
+                    <h3>Fast Dispatch</h3>
+                    <p>Orders are packaged securely and shipped within 24-48 business hours.</p>
                 </div>
                 <div>
-                    <i class="fa-solid fa-truck-fast"></i>
-                    <h3>Fast Shipping Options</h3>
-                    <p>Expedited processing choices ensure you look radiant right in time for your event.</p>
+                    <i class="fa-solid fa-box-open"></i>
+                    <h3>Damage-Proof Packing</h3>
+                    <p>Hard-box bubble packaging ensures your jewellery reaches you safely.</p>
                 </div>
                 <div>
                     <i class="fa-solid fa-headset"></i>
-                    <h3>Custom Combo Requests</h3>
-                    <p>Coordinate matching pieces or sets easily through our active support desks.</p>
+                    <h3>WhatsApp Support</h3>
+                    <p>Direct assistance for custom color choices and order inquiries.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!--==================================
-    PREMIUM CTA
+    CALL TO ACTION
     ===================================-->
     <section class="premium-cta">
         <div class="container">
-            <h2>Complete Your Heritage Look Today</h2>
-            <p>Browse our beautiful curation of fine fashion ornaments and claim the perfect centerpiece for your celebratory wear.</p>
+            <div class="section-title">
+                <h2>Elevate Your Jewellery Collection</h2>
+            </div>
+            <p>Ready to make a statement? Order directly on WhatsApp or add your favorite pieces to cart now.</p>
             <div class="hero-buttons">
-                <a href="category.html" class="btn btn-primary"><i class="fa-solid fa-gem"></i> Shop Collection</a>
-                <a href="https://wa.me/916393072915" class="btn btn-secondary"><i class="fa-brands fa-whatsapp"></i> Consult on WhatsApp</a>
+                <a href="https://wa.me/916393072915" class="btn btn-primary" target="_blank">
+                    <i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp
+                </a>
+                <a href="category.html" class="btn btn-secondary">
+                    View Full Catalogue
+                </a>
             </div>
         </div>
     </section>
@@ -1110,52 +1212,40 @@
     FOOTER
     ===================================-->
     <footer>
-        <div class="container footer-grid">
-            <div>
-                <h3>ASHTAMI STORE</h3>
-                <p>Traditional Taste, Style and Smile Delivered. Discover handcrafted sweets, elegant imitation jewellery and premium personalized gift items.</p>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h3>ASHTAMI STORE</h3>
+                    <p>Your premium destination for handcrafted imitation jewellery, festive accessories, and custom gifting solutions.</p>
+                </div>
+                <div>
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="category.html">Collections</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Categories</h4>
+                    <ul>
+                        <li><a href="product-jewellery.html">Oxidised Earrings</a></li>
+                        <li><a href="product-jewellery.html">Korean Jewellery</a></li>
+                        <li><a href="product-jewellery.html">Bridal Sets</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Contact Us</h4>
+                    <p><i class="fa-solid fa-phone"></i> +91 63930 72915</p>
+                    <p><i class="fa-solid fa-envelope"></i> info@ashtamistore.com</p>
+                </div>
             </div>
-            <div>
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="category.html">Collections</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
+            <div class="copyright">
+                &copy; 2026 Ashtami Store. All Rights Reserved.
             </div>
-            <div>
-                <h4>Collections</h4>
-                <ul>
-                    <li><a href="sonth-ladoo.html">Traditional Sweets</a></li>
-                    <li><a href="gift-item.html">Gift Collection</a></li>
-                    <li><a href="jewellery.html">Jewellery</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4>Contact</h4>
-                <p>📍 Lucknow, Uttar Pradesh</p>
-                <p>📞 +91 6393072915</p>
-                <p>✉ info@ashtami.in</p>
-            </div>
-        </div>
-        <div class="copyright">
-            &copy; 2026 Ashtami Store. All Rights Reserved.
         </div>
     </footer>
 
-    <script src="script.js"></script>
-    <script>
-        // Hamburger Activation Script
-        const menuToggle = document.querySelector('.menu-toggle');
-        const navMenu = document.querySelector('nav');
-
-        if(menuToggle && navMenu) {
-            menuToggle.addEventListener('click', () => {
-                navMenu.classList.toggle('active');
-            });
-        }
-    </script>
 </body>
-
 </html>
