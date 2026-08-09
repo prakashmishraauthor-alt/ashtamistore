@@ -1,992 +1,128 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Imitation Jewellery | Ashtami Store</title>
-    <meta name="description" content="Discover elegant oxidized lotus pearl drop earrings and handcrafted imitation jewellery pieces designed to elevate your everyday and festive style.">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght=500;600;700&family=Poppins:wght=300;400;500;600;700&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="responsive.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-
-    <style>
-        /*=========================================================
-        ASHTAMI STORE - MASTER THEME RESET & CONFIGURATION
-        =========================================================*/
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: #111412; /* Premium Dark Theme Match */
-            color: #c9d1cc;
-            line-height: 1.7;
-            overflow-x: hidden;
-            -webkit-text-size-adjust: 100%;
-        }
-
-        img {
-            width: 100%;
-            display: block;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        ul {
-            list-style: none;
-        }
-
-        button, input, textarea, select {
-            font-family: inherit;
-        }
-
-        /*=========================================================
-        DESIGN SYSTEM VARIABLES
-        =========================================================*/
-        :root {
-            --primary: #0a2e1c;
-            --secondary: #d4af37;
-            --accent: #9e2a2b;
-            --light: #f4f7f5;
-            --dark-bg: #111412;
-            --card-bg: #1a201c;
-            --border-color: rgba(255, 255, 255, 0.1);
-            --text-main: #f4f7f5;
-            --text-muted: #a0aba4;
-            --shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
-            --transition: all 0.3s ease;
-        }
-
-        /*=========================================================
-        GLOBAL CONTAINERS & TYPOGRAPHY
-        =========================================================*/
-        .container {
-            width: 90% !important;
-            max-width: 1200px !important;
-            min-width: 320px !important;
-            margin-left: auto !important;
-            margin-right: auto !important;
-            display: block !important;
-            box-sizing: border-box !important;
-        }
-
-        section {
-            padding: 100px 0;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-
-        .section-title h2 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 52px;
-            margin-bottom: 15px;
-            color: var(--text-main);
-        }
-
-        .section-title p {
-            max-width: 760px;
-            margin: auto;
-            color: var(--text-muted);
-        }
-
-        h1, h2, h3, h4, h5 {
-            font-family: 'Cormorant Garamond', serif;
-            color: var(--text-main);
-            line-height: 1.2;
-            font-weight: 700;
-        }
-
-        h1 { font-size: 64px; }
-        h2 { font-size: 48px; }
-        h3 { font-size: 30px; }
-        p { font-size: 17px; color: var(--text-muted); }
-
-        /*=========================================================
-        HEADER & CROSS-BROWSER NAV SYSTEM
-        =========================================================*/
-        .top-bar {
-            background: #090c0a;
-            color: var(--text-main);
-            padding: 12px;
-            text-align: center;
-            font-size: 15px;
-            letter-spacing: .5px;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        header {
-            position: sticky;
-            top: 0;
-            background: #161b18;
-            border-bottom: 1px solid var(--border-color);
-            z-index: 1000;
-            box-shadow: var(--shadow);
-            padding: 15px 0;
-        }
-
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: auto;
-        }
-
-        .logo {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.8rem;
-            font-weight: 700;
-            letter-spacing: 1px;
-            color: var(--secondary);
-        }
-
-        nav ul {
-            display: flex;
-            align-items: center;
-            gap: 30px;
-        }
-
-        nav ul li a {
-            font-size: 0.95rem;
-            font-weight: 500;
-            color: var(--text-main);
-            transition: var(--transition);
-        }
-
-        nav ul li a:hover {
-            color: var(--secondary);
-        }
-
-        .dropdown {
-            position: relative;
-        }
-
-        .dropdown-toggle {
-            font-size: 0.75rem;
-            margin-left: 4px;
-            color: var(--text-muted);
-        }
-
-        /* Dropdown Box Structural Fix */
-        .dropdown-menu {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background: #1d2421 !important;
-            box-shadow: var(--shadow);
-            border-radius: 8px;
-            padding: 15px 0;
-            min-width: 220px;
-            display: none !important;
-            margin-top: 10px;
-            border: 1px solid var(--border-color);
-            flex-direction: column !important;
-            align-items: flex-start !important;
-            z-index: 2000;
-        }
-
-        .dropdown-menu li {
-            width: 100% !important;
-            display: block !important;
-        }
-
-        .dropdown-menu li a {
-            display: block !important;
-            width: 100% !important;
-            padding: 10px 25px !important;
-            font-size: 0.85rem;
-            color: var(--text-muted) !important;
-            text-align: left !important;
-        }
-
-        .dropdown-menu li a:hover {
-            background: rgba(255, 255, 255, 0.05) !important;
-            color: var(--secondary) !important;
-        }
-
-        .dropdown:hover .dropdown-menu {
-            display: flex !important;
-        }
-
-        .cart-icon {
-            position: relative;
-            font-size: 1.1rem;
-        }
-
-        .cart-count {
-            position: absolute;
-            top: -8px;
-            right: -12px;
-            background: var(--accent);
-            color: var(--text-main);
-            font-size: 0.7rem;
-            width: 18px;
-            height: 18px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .menu-toggle {
-            display: none;
-            font-size: 1.4rem;
-            cursor: pointer;
-            color: var(--text-main);
-        }
-
-        /*=========================================================
-        GLOBAL BUTTONS & COMPONENTS
-        =========================================================*/
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 14px 30px;
-            border-radius: 50px;
-            font-weight: 600;
-            transition: var(--transition);
-            gap: 10px;
-            font-size: 0.95rem;
-            border: none;
-            cursor: pointer;
-        }
-
-        .btn-primary {
-            background: var(--secondary);
-            color: #111412;
-        }
-
-        .btn-primary:hover {
-            background: #bd9a2d;
-            transform: translateY(-2px);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: var(--text-main);
-            border: 2px solid var(--border-color);
-        }
-
-        .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.05);
-            border-color: var(--secondary);
-            transform: translateY(-2px);
-        }
-
-        /*=========================================================
-        CATEGORY TEMPLATE UI & SECTIONS
-        =========================================================*/
-        .category-banner {
-            min-height: 50vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            background: linear-gradient(rgba(17, 20, 18, 0.75), rgba(17, 20, 18, 0.85)), url("images/banner/jewellery-banner.jpg");
-            background-size: cover;
-            background-position: center;
-            padding: 80px 0;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .category-banner h1 {
-            color: var(--text-main);
-            margin-bottom: 20px;
-        }
-
-        .category-banner p {
-            max-width: 700px;
-            margin: 0 auto 30px;
-            font-size: 19px;
-        }
-
-        .breadcrumb {
-            background: #161b18;
-            padding: 15px 0;
-            border-bottom: 1px solid var(--border-color);
-            font-size: 14px;
-        }
-
-        .breadcrumb .container {
-            display: flex;
-            gap: 10px;
-            align-items: center;
-            color: var(--text-muted);
-        }
-
-        .breadcrumb a {
-            color: var(--secondary);
-            transition: var(--transition);
-        }
-
-        .breadcrumb a:hover {
-            text-decoration: underline;
-        }
-
-        .category-intro {
-            padding: 80px 0;
-            text-align: center;
-        }
-
-        .category-intro h2 {
-            margin-bottom: 20px;
-        }
-
-        .category-intro p {
-            max-width: 850px;
-            margin: auto;
-        }
-
-        /* Product Grids Structure */
-        .product-showcase {
-            padding: 80px 0;
-        }
-
-        .product-showcase-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            align-items: center;
-        }
-
-        .product-image img {
-            width: 100%;
-            border-radius: 16px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
-            border: 1px solid var(--border-color);
-        }
-
-        .product-badge {
-            display: inline-block;
-            background: var(--accent);
-            color: var(--text-main);
-            padding: 6px 16px;
-            border-radius: 40px;
-            margin-bottom: 18px;
-            font-size: 13px;
-            font-weight: 600;
-            letter-spacing: 1px;
-        }
-
-        .product-info h2 {
-            margin-bottom: 20px;
-            font-size: 42px;
-        }
-
-        .product-info p {
-            margin-bottom: 20px;
-        }
-
-        .product-info ul li {
-            margin-bottom: 12px;
-            font-size: 16px;
-            color: var(--text-main);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .product-info ul li i {
-            color: var(--secondary);
-        }
-
-        .purchase-controls {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            margin: 25px 0;
-        }
-
-        .control-group {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .control-group label {
-            font-size: 14px;
-            color: var(--text-muted);
-            min-width: 100px;
-            font-weight: 500;
-        }
-
-        .purchase-controls select,
-        .purchase-controls input[type="number"] {
-            padding: 10px 15px;
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            color: var(--text-main);
-            font-size: 14px;
-            outline: none;
-            transition: var(--transition);
-        }
-
-        .purchase-controls select:focus,
-        .purchase-controls input[type="number"]:focus {
-            border-color: var(--secondary);
-        }
-
-        .live-price-tag {
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--secondary);
-            margin-top: 10px;
-        }
-
-        .product-buttons {
-            display: flex;
-            gap: 15px;
-        }
-
-        /* Structural Grid Inversion For Alternate Cards */
-        .reverse-grid .product-info { order: 1; }
-        .reverse-grid .product-image { order: 2; }
-
-        /* Coming Soon Section Component */
-        .coming-soon {
-            background: #141916;
-            border-top: 1px solid var(--border-color);
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .coming-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-        }
-
-        .coming-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            padding: 45px 30px;
-            border-radius: 16px;
-            text-align: center;
-            transition: var(--transition);
-            box-shadow: var(--shadow);
-        }
-
-        .coming-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--secondary);
-        }
-
-        .coming-card i {
-            font-size: 40px;
-            color: var(--secondary);
-            margin-bottom: 20px;
-        }
-
-        .coming-card h3 {
-            font-size: 22px;
-        }
-
-        /* Feature Values Component */
-        .why-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-        }
-
-        .why-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 16px;
-            padding: 40px 30px;
-            text-align: center;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-        }
-
-        .why-card h3 {
-            margin-top: 15px;
-            font-size: 22px;
-        }
-
-        .why-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--secondary);
-        }
-
-        /* Final Call To Action Component */
-        .premium-cta {
-            background: linear-gradient(rgba(17, 20, 18, 0.85), rgba(17, 20, 18, 0.9)), url("images/banner/cta-bg.jpg");
-            background-size: cover;
-            background-position: center;
-            text-align: center;
-            border-top: 1px solid var(--border-color);
-        }
-
-        .premium-cta p {
-            max-width: 600px;
-            margin: 20px auto 40px;
-        }
-
-        .hero-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
-
-        /*=========================================================
-        RESPONSIVE ENGINE RECONCILIATION & MEDIA QUERIES
-        =========================================================*/
-        @media screen and (min-width: 992px) {
-            .menu-toggle {
-                display: none !important;
+<!-- ENGINE CODE ACTION INTERACTIONS -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const mobileToggle = document.getElementById('mobile-toggle');
+        const navMenu = document.getElementById('nav-menu');
+        const dropdownParent = document.getElementById('dropdown-parent');
+        const dropdownBtn = document.getElementById('dropdown-btn');
+
+        // Synchronize UI header count badge with localStorage
+        updateGlobalCartCountDisplay();
+
+        // Hamburger toggle logic
+        if (mobileToggle) {
+            mobileToggle.addEventListener('click', (e) => {
+                e.stopPropagation();
+                navMenu.classList.toggle('active');
+                
+                const icon = mobileToggle.querySelector('i');
+                if (navMenu.classList.contains('active')) {
+                    if (icon) icon.className = 'fa-solid fa-xmark';
+                } else {
+                    if (icon) icon.className = 'fa-solid fa-bars';
+                    if (dropdownParent) dropdownParent.classList.remove('open-active');
+                }
+            });
+        }
+
+        // Mobile specific subdropdown alignment interceptor
+        if (dropdownBtn && dropdownParent) {
+            dropdownBtn.addEventListener('click', (e) => {
+                if (window.innerWidth <= 991) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    dropdownParent.classList.toggle('open-active');
+                }
+            });
+        }
+
+        // Close responsive frame drawer windows safely on click-out context
+        document.addEventListener('click', (e) => {
+            if (navMenu && mobileToggle && !navMenu.contains(e.target) && !mobileToggle.contains(e.target)) {
+                navMenu.classList.remove('active');
+                const icon = mobileToggle.querySelector('i');
+                if (icon) icon.className = 'fa-solid fa-bars';
+                if (dropdownParent) dropdownParent.classList.remove('open-active');
             }
-            nav {
-                display: block !important;
-                position: static !important;
-                width: auto !important;
-                background: transparent !important;
-                box-shadow: none !important;
-                padding: 0 !important;
+        });
+
+        // Initialize product card prices dynamically
+        updateProductPrice('p1');
+        updateProductPrice('p2');
+        updateProductPrice('p3');
+        updateProductPrice('p4');
+    });
+
+    // Synchronize UI header count badge with localStorage key 'cart'
+    function updateGlobalCartCountDisplay() {
+        try {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const totalCount = cart.reduce((sum, item) => sum + parseInt(item.quantity || 1), 0);
+            const countBadge = document.getElementById('global-cart-count');
+            if (countBadge) {
+                countBadge.textContent = totalCount;
             }
-            nav ul {
-                display: flex !important;
-                flex-direction: row !important;
-                gap: 30px !important;
-            }
+        } catch (error) {
+            console.error("Error reading cart from storage:", error);
         }
+    }
 
-        @media screen and (max-width: 991px) {
-            .menu-toggle {
-                display: block !important;
-            }
-            nav {
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background: #161b18;
-                box-shadow: var(--shadow);
-                padding: 20px 0;
-                display: none;
-                border-bottom: 1px solid var(--border-color);
-                z-index: 1000;
-            }
-            nav.active {
-                display: block !important;
-            }
-            nav ul {
-                flex-direction: column;
-                gap: 20px;
-                width: 90%;
-                margin: 0 auto;
-                align-items: flex-start;
-            }
-            .dropdown-menu {
-                position: static !important;
-                box-shadow: none !important;
-                padding: 10px 0 0 15px !important;
-                display: flex !important;
-                background: transparent !important;
-                border: none !important;
-            }
-            
-            /* Responsive Grid Flattening */
-            .product-showcase-grid,
-            .reverse-grid,
-            .coming-grid,
-            .why-grid {
-                grid-template-columns: 1fr !important;
-                gap: 40px;
-            }
-            .reverse-grid .product-image { order: 1; }
-            .reverse-grid .product-info { order: 2; }
-            
-            .product-buttons, .purchase-controls, .hero-buttons {
-                flex-direction: column;
-            }
-            .btn {
-                width: 100% !important;
-            }
-            .control-group {
-                justify-content: space-between;
-                width: 100%;
-            }
-            .live-price-tag {
-                text-align: center;
-            }
-            .product-info h2 {
-                font-size: 32px;
-            }
+    // Dynamic price tags update on option or quantity selector change
+    function updateProductPrice(productId) {
+        const selectElement = document.getElementById(`${productId}-color`) || document.getElementById(`${productId}-variant`);
+        const qtyElement = document.getElementById(`${productId}-qty`);
+        const priceTag = document.getElementById(`${productId}-price-tag`);
+
+        if (selectElement && qtyElement && priceTag) {
+            const selectedOption = selectElement.options[selectElement.selectedIndex];
+            const unitPrice = parseFloat(selectedOption.getAttribute('data-price')) || 0;
+            const quantity = parseInt(qtyElement.value, 10) || 1;
+            const totalPrice = unitPrice * quantity;
+
+            priceTag.textContent = `₹${totalPrice}`;
         }
+    }
 
-        @media screen and (max-width: 768px) {
-            section { padding: 60px 0; }
-            h1 { font-size: 40px; }
-            h2 { font-size: 34px; }
-            .category-banner { min-height: 35vh; }
-        }
-    </style>
-</head>
+    // Standardized Add To Cart interaction matching your working cart system
+    function addJewelleryToCart(id, name, img) {
+        try {
+            const selectElement = document.getElementById(`${id}-color`) || document.getElementById(`${id}-variant`);
+            const qtyElement = document.getElementById(`${id}-qty`);
 
-<body>
-    <div class="top-bar">
-        Timeless Elegance, Style and Grace Delivered
-    </div>
+            if (!selectElement || !qtyElement) return;
 
-    <header>
-        <div class="container navbar">
-            <div class="logo">
-                ASHTAMI STORE
-            </div>
+            const selectedOption = selectElement.options[selectElement.selectedIndex];
+            const variant = selectElement.value;
+            const unitPrice = parseFloat(selectedOption.getAttribute('data-price')) || 0;
+            const quantityToAdd = parseInt(qtyElement.value, 10) || 1;
 
-            <nav id="nav-menu">
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li class="dropdown">
-                        <a href="product-jewellery.html">
-                            Collections <i class="fa-solid fa-chevron-down dropdown-toggle"></i>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a href="category.html">Sweets &amp; Savouries</a></li>
-                            <li><a href="product-gift.html">Printed Gift Items</a></li>
-                            <li><a href="product-jewellery.html">Imitation Jewellery</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                    <li>
-                        <a href="cart.html" class="cart-icon">
-                            <i class="fa-solid fa-cart-shopping"></i>
-                            <span class="cart-count" id="global-cart-count">0</span>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-            <div class="menu-toggle" id="mobile-toggle">
-                <i class="fa-solid fa-bars"></i>
-            </div>
-        </div>
-    </header>
+            // Unique key per item variant combination
+            const itemUniqueId = `${id}-${variant.replace(/\s+/g, '-').toLowerCase()}`;
 
-    <section class="category-banner">
-        <div class="container">
-            <h1>Imitation Jewellery</h1>
-            <p>Handcrafted oxidized and contemporary jewellery pieces designed to blend traditional charm with modern aesthetic grace.</p>
-            <br>
-            <a href="#products" class="btn btn-primary">Explore Products</a>
-        </div>
-    </section>
+            const existingItemIndex = cart.findIndex(item => item.id === itemUniqueId);
 
-    <section class="breadcrumb">
-        <div class="container">
-            <a href="index.html">Home</a> &gt; Collections &gt; <strong>Imitation Jewellery</strong>
-        </div>
-    </section>
-
-    <section class="category-intro">
-        <div class="container">
-            <h2>Handcrafted Elegance &amp; Grace</h2>
-            <p>Every piece in our imitation jewellery collection is intricately crafted to perfection. Highlighting traditional craftsmanship, rich color stones, and timeless pearl drops, our jewellery enhances every outfit with effortless sophistication.</p>
-        </div>
-    </section>
-
-    <!-- PRODUCT 1: OXIDISED LOTUS PEARL DROP EARRINGS -->
-    <section class="product-showcase" id="products">
-        <div class="container">
-            <div class="product-showcase-grid">
-                <div class="product-image">
-                    <img src="pearl.png" alt="Oxidised Lotus pearl drop earrings">
-                </div>
-                <div class="product-info">
-                    <span class="product-badge">NEW ARRIVAL</span>
-                    <h2>Oxidised Lotus Pearl Drop Earrings</h2>
-                    <p>Features intricate lotus motif carvings with elegant hanging pearl drops. Lightweight, hypoallergenic finish ideal for both festive and daily statement styling.</p>
-                    <ul>
-                        <li><i class="fa-solid fa-check"></i> Dimensions: W: 40 mm | H: 80 mm</li>
-                        <li><i class="fa-solid fa-check"></i> Premium Oxidised Finish</li>
-                        <li><i class="fa-solid fa-check"></i> Light &amp; Comfortable Wear</li>
-                        <li><i class="fa-solid fa-check"></i> High Quality Faux Pearls</li>
-                    </ul>
-                    
-                    <div class="purchase-controls">
-                        <div class="control-group">
-                            <label for="p1-color">Select Colour</label>
-                            <select id="p1-color" onchange="updateProductPrice('p1')">
-                                <option value="Ruby Red" data-price="219">❤️ Ruby Red - Rich, warm red</option>
-                                <option value="Aqua Blue" data-price="219">🩵 Aqua Blue - Soft turquoise</option>
-                                <option value="Dusty Rose Pink" data-price="219">🩷 Dusty Rose Pink - Muted blush</option>
-                                <option value="Lavender Purple" data-price="219">💜 Lavender Purple - Soft pastel</option>
-                                <option value="Golden Mustard Yellow" data-price="219">💛 Golden Mustard Yellow - Warm yellow</option>
-                            </select>
-                        </div>
-                        <div class="control-group">
-                            <label for="p1-qty">Quantity</label>
-                            <input type="number" id="p1-qty" value="1" min="1" max="10" onchange="updateProductPrice('p1')">
-                        </div>
-                        <div class="live-price-tag" id="p1-price-tag">₹219</div>
-                    </div>
-
-                    <div class="product-buttons">
-                        <a href="product-lotus-earrings.html" class="btn btn-primary">View Details</a>
-                        <button class="btn btn-secondary" onclick="addToCart('Oxidised Lotus pearl drop earrings', 'p1')">
-                            <i class="fa-solid fa-cart-plus"></i> Add to Cart
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- PRODUCT 2: Silver oxidised finish camel Drop earrings for Women-->
-    <section class="product-showcase reverse">
-        <div class="container">
-            <div class="product-showcase-grid reverse-grid">
-                <div class="product-info">
-                    <span class="product-badge">BEST SELLER</span>
-                    <h2>Silver oxidised finish camel Drop earrings for Women</h2>
-                    
-                    <ul>
-                        <li><i class="fa-solid fa-check"></i> Height: 65 mm | Width: 30 mm</li>
-                        <li><i class="fa-solid fa-check"></i> Traditional Silver Polish</li>
-                        <li><i class="fa-solid fa-check"></i> Premium Alloy Metal</li>
-                        <li><i class="fa-solid fa-check"></i> Skin-Friendly Coating</li>
-                    </ul>
-                    
-                    <div class="purchase-controls">
-                        <div class="control-group">
-                            <label for="p2-variant">Select Finish</label>
-                            <select id="p2-variant" onchange="updateProductPrice('p2')">
-                                <option value="Blush pink" data-price="250">Blush pink (₹250)</option>
-                                <option value="Turquoise Blue" data-price="250">Turquoise Blue (₹250)</option>
-                                <option value="Warm yellow" data-price="250">Warm yellow (₹250)</option>
-                                <option value="Ruby Red" data-price="250">Ruby Red (₹250)</option>
-                            </select>
-                        </div>
-                        <div class="control-group">
-                            <label for="p2-qty">Quantity</label>
-                            <input type="number" id="p2-qty" value="1" min="1" max="10" onchange="updateProductPrice('p2')">
-                        </div>
-                        <div class="live-price-tag" id="p2-price-tag">₹250</div>
-                    </div>
-
-                    <div class="product-buttons">
-                        <a href="product-jhumka.html" class="btn btn-primary">View Details</a>
-                        <button class="btn btn-secondary" onclick="addToCart('Silver oxidised finish camel Drop earrings for Women', 'p2')">
-                            <i class="fa-solid fa-cart-plus"></i> Add to Cart
-                        </button>
-                    </div>
-                </div>
-                <div class="product-image">
-                    <img src="jhumka.png" alt="Silver oxidised finish camel Drop earrings for Women">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- PRODUCT 3: Animal shaped drop earring -->
-    <section class="product-showcase">
-        <div class="container">
-            <div class="product-showcase-grid">
-                <div class="product-image">
-                    <img src="animal.png" alt="Animal shaped drop earring">
-                </div>
-                <div class="product-info">
-                    <span class="product-badge">ROYAL COLLECTION</span>
-                    <h2>Animal shaped drop earring</h2>
-                    <ul>
-                        <li><i class="fa-solid fa-check"></i> Adjustable Dori Closure</li>
-                        <li><i class="fa-solid fa-check"></i> Includes Matching Earrings</li>
-                        <li><i class="fa-solid fa-check"></i> Handcrafted Stone Setting</li>
-                        <li><i class="fa-solid fa-check"></i> Tarnish Resistant Polish</li>
-                    </ul>
-                    
-                    <div class="purchase-controls">
-                        <div class="control-group">
-                            <label for="p3-variant">Select Gemstone</label>
-                            <select id="p3-variant" onchange="updateProductPrice('p3')">
-                                <option value="Emerald Green" data-price="199">Emerald Green Stones (₹199)</option>
-                                <option value="Ruby Red" data-price="199">Ruby Red Stones (₹199)</option>
-                                <option value="Pearl White" data-price="149">Classic Pearl White (₹149)</option>
-                                <option value="Aqua Blue" data-price="149">Classic Aqua Blue (₹149)</option>
-                            </select>
-                        </div>
-                        <div class="control-group">
-                            <label for="p3-qty">Quantity</label>
-                            <input type="number" id="p3-qty" value="1" min="1" max="10" onchange="updateProductPrice('p3')">
-                        </div>
-                        <div class="live-price-tag" id="p3-price-tag">₹199</div>
-                    </div>
-
-                    <div class="product-buttons">
-                        <a href="product-kundan-set.html" class="btn btn-primary">View Details</a>
-                        <button class="btn btn-secondary" onclick="addToCart('Animal shaped drop earring', 'p3')">
-                            <i class="fa-solid fa-cart-plus"></i> Add to Cart
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- PRODUCT 4: Melted Heart Western Korean Earring-->
-    <section class="product-showcase reverse">
-        <div class="container">
-            <div class="product-showcase-grid reverse-grid">
-                <div class="product-info">
-                    <span class="product-badge">FEATURED</span>
-                    <h2>Melted Heart Western Korean Earring</h2>
-                    
-                    <div class="purchase-controls">
-                        <div class="control-group">
-                            <label for="p4-variant">Select Size</label>
-                            <select id="p4-variant" onchange="updateProductPrice('p4')">
-                                <option value="Blush Pink" data-price="99">Blush Pink (₹99)</option>
-                                <option value="Lavender Purple" data-price="99">Lavender Purple (₹99)</option>
-                                <option value="Off White" data-price="99">Off White (₹99)</option>
-                            </select>
-                        </div>
-                        <div class="control-group">
-                            <label for="p4-qty">Quantity</label>
-                            <input type="number" id="p4-qty" value="1" min="1" max="10" onchange="updateProductPrice('p4')">
-                        </div>
-                        <div class="live-price-tag" id="p4-price-tag">₹99</div>
-                    </div>
-
-                    <div class="product-buttons">
-                        <a href="product-bangles.html" class="btn btn-primary">View Details</a>
-                        <button class="btn btn-secondary" onclick="addToCart('Melted Heart Western Korean Earring', 'p4')">
-                            <i class="fa-solid fa-cart-plus"></i> Add to Cart
-                        </button>
-                    </div>
-                </div>
-                <div class="product-image">
-                    <img src="heart.png" alt="Melted Heart Western Korean Earring">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="coming-soon">
-        <div class="container">
-            <div class="section-title">
-                <h2>More Jewellery Designs Coming Soon</h2>
-                <p>We are expanding our handcrafted jewellery collection. Stay tuned for new temple jewellery, designer anklets, and bridal sets.</p>
-            </div>
-            <div class="coming-grid">
-                <div class="coming-card">
-                    <i class="fa-solid fa-gem"></i>
-                    <h3>Temple Jewellery</h3>
-                </div>
-                <div class="coming-card">
-                    <i class="fa-solid fa-ring"></i>
-                    <h3>Designer Rings</h3>
-                </div>
-                <div class="coming-card">
-                    <i class="fa-solid fa-wand-magic-sparkles"></i>
-                    <h3>Oxidised Anklets</h3>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- JAVASCRIPT FOR CART LOGIC AND PRICE UPDATES -->
-    <script>
-        // Retrieve cart items from localStorage or initialize empty array
-        function getCart() {
-            return JSON.parse(localStorage.getItem('ashtami_cart')) || [];
-        }
-
-        // Save cart array to localStorage
-        function saveCart(cart) {
-            localStorage.setItem('ashtami_cart', JSON.stringify(cart));
-            updateCartBadge();
-        }
-
-        // Update the header badge count
-        function updateCartBadge() {
-            const cart = getCart();
-            const totalCount = cart.reduce((sum, item) => sum + item.quantity, 0);
-            const badge = document.getElementById('global-cart-count');
-            if (badge) {
-                badge.textContent = totalCount;
-            }
-        }
-
-        // Dynamically calculate and update price tag on option/qty change
-        function updateProductPrice(productId) {
-            const selectElement = document.getElementById(`${productId}-color`) || document.getElementById(`${productId}-variant`);
-            const qtyElement = document.getElementById(`${productId}-qty`);
-            const priceTag = document.getElementById(`${productId}-price-tag`);
-
-            if (selectElement && qtyElement && priceTag) {
-                const selectedOption = selectElement.options[selectElement.selectedIndex];
-                const unitPrice = parseFloat(selectedOption.getAttribute('data-price')) || 0;
-                const quantity = parseInt(qtyElement.value, 10) || 1;
-                const totalPrice = unitPrice * quantity;
-
-                priceTag.textContent = `₹${totalPrice}`;
-            }
-        }
-
-        // Add item to cart and sync with localStorage
-        function addToCart(productName, productId) {
-            const selectElement = document.getElementById(`${productId}-color`) || document.getElementById(`${productId}-variant`);
-            const qtyElement = document.getElementById(`${productId}-qty`);
-
-            const variant = selectElement ? selectElement.value : 'Default';
-            const selectedOption = selectElement ? selectElement.options[selectElement.selectedIndex] : null;
-            const price = selectedOption ? parseFloat(selectedOption.getAttribute('data-price')) : 0;
-            const quantity = qtyElement ? parseInt(qtyElement.value, 10) : 1;
-
-            let cart = getCart();
-
-            // Check if exact product and variant already exist in cart
-            const existingIndex = cart.findIndex(item => item.name === productName && item.variant === variant);
-
-            if (existingIndex > -1) {
-                cart[existingIndex].quantity += quantity;
+            if (existingItemIndex > -1) {
+                cart[existingItemIndex].quantity += quantityToAdd;
             } else {
                 cart.push({
-                    id: productId,
-                    name: productName,
+                    id: itemUniqueId,
+                    name: name,
+                    price: unitPrice,
+                    image: img,
                     variant: variant,
-                    price: price,
-                    quantity: quantity
+                    quantity: quantityToAdd
                 });
             }
 
-            saveCart(cart);
-            alert(`${quantity} x "${productName}" (${variant}) added to cart!`);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateGlobalCartCountDisplay();
+
+            alert(`${quantityToAdd} x ${name} (${variant}) has been added to your cart!`);
+        } catch (error) {
+            console.error("Could not complete add operation:", error);
+            alert("An error occurred while adding the item to the cart.");
         }
-
-        // Mobile Nav Toggle functionality
-        document.getElementById('mobile-toggle').addEventListener('click', function() {
-            document.getElementById('nav-menu').classList.toggle('active');
-        });
-
-        // Initialize prices and cart count on page load
-        document.addEventListener('DOMContentLoaded', function() {
-            updateProductPrice('p1');
-            updateProductPrice('p2');
-            updateProductPrice('p3');
-            updateProductPrice('p4');
-            updateCartBadge();
-        });
-    </script>
-</body>
-</html>
+    }
+</script>
