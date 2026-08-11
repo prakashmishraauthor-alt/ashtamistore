@@ -283,21 +283,49 @@
             margin: 0 auto;
         }
 /*====================================
-PRODUCT GALLERY SECTION
+SCROLLING GALLERY SECTION
 =====================================*/
-.gallery-section {
+.scrolling-gallery-section {
     padding: 80px 0;
     background: var(--dark);
     border-bottom: 1px solid var(--border-color);
+    overflow: hidden;
 }
 
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: 30px;
+/* Horizontal Scroll Container */
+.gallery-scroll-container {
+    display: flex;
+    gap: 25px;
+    overflow-x: auto;
+    padding: 20px 5px 30px 5px;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
 }
 
-.gallery-card {
+/* Custom Scrollbar Styling */
+.gallery-scroll-container::-webkit-scrollbar {
+    height: 6px;
+}
+
+.gallery-scroll-container::-webkit-scrollbar-track {
+    background: var(--dark);
+    border-radius: 10px;
+}
+
+.gallery-scroll-container::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 10px;
+}
+
+.gallery-scroll-container::-webkit-scrollbar-thumb:hover {
+    background: var(--secondary);
+}
+
+/* Gallery Item Card */
+.scroll-card {
+    flex: 0 0 280px;
+    scroll-snap-align: start;
     background: var(--card-bg);
     border-radius: 16px;
     overflow: hidden;
@@ -308,31 +336,31 @@ PRODUCT GALLERY SECTION
     flex-direction: column;
 }
 
-.gallery-card:hover {
+.scroll-card:hover {
     transform: translateY(-8px);
     border-color: var(--secondary);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 15px rgba(212, 175, 55, 0.2);
 }
 
-.gallery-img-wrapper {
+.scroll-img-wrapper {
     position: relative;
     width: 100%;
-    height: 250px;
+    height: 240px;
     overflow: hidden;
 }
 
-.gallery-img-wrapper img {
+.scroll-img-wrapper img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.gallery-card:hover .gallery-img-wrapper img {
+.scroll-card:hover .scroll-img-wrapper img {
     transform: scale(1.08);
 }
 
-.gallery-tag {
+.scroll-tag {
     position: absolute;
     top: 15px;
     left: 15px;
@@ -346,7 +374,7 @@ PRODUCT GALLERY SECTION
     backdrop-filter: blur(4px);
 }
 
-.gallery-info {
+.scroll-info {
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -354,20 +382,27 @@ PRODUCT GALLERY SECTION
     justify-content: space-between;
 }
 
-.gallery-info h3 {
-    font-size: 1.25rem;
-    margin-bottom: 8px;
+.scroll-info h3 {
+    font-size: 1.15rem;
+    margin-bottom: 6px;
     color: var(--light);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
-.gallery-info p {
+.scroll-info p {
     font-size: 0.85rem;
     color: var(--text-muted);
     margin-bottom: 15px;
-    line-height: 1.5;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
-.gallery-footer {
+.scroll-footer {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -376,16 +411,16 @@ PRODUCT GALLERY SECTION
     border-top: 1px solid var(--border-color);
 }
 
-.gallery-price {
+.scroll-price {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 1.3rem;
+    font-size: 1.25rem;
     font-weight: 700;
     color: var(--secondary);
 }
 
-.gallery-btn {
-    padding: 8px 16px;
-    font-size: 0.85rem;
+.scroll-btn {
+    padding: 6px 14px;
+    font-size: 0.8rem;
     border-radius: 50px;
 }
         /* ==========================
@@ -1202,75 +1237,93 @@ MODERN SOCIAL MEDIA ICONS CONTAINER
             </div>
         </div>
     </section>
-    <!-- PRODUCT GALLERY SECTION -->
-<section class="gallery-section">
+    <!<!-- SCROLLING GALLERY SECTION -->
+<section class="scrolling-gallery-section">
     <div class="container">
         <div class="section-title">
-            <h2>Featured Products</h2>
-            <p>Explore our handcrafted selection of sweets, fine jewellery, and custom gifts.</p>
+            <h2>Featured Collection</h2>
+            <p>Scroll horizontally to explore our handcrafted delights, jewellery and gifts.</p>
         </div>
-        <div class="gallery-grid">
+        
+        <div class="gallery-scroll-container">
             
             <!-- Item 1 -->
-            <div class="gallery-card">
-                <div class="gallery-img-wrapper">
-                    <span class="gallery-tag">Sweets</span>
+            <div class="scroll-card">
+                <div class="scroll-img-wrapper">
+                    <span class="scroll-tag">Sweets</span>
                     <img src="sweet-page.png" alt="Handcrafted Besan Ladoo">
                 </div>
-                <div class="gallery-info">
-                    <h3>Handcrafted Besan Ladoo</h3>
-                    <p>Pure ghee traditional besan ladoos crafted with rich roasted nuts.</p>
-                    <div class="gallery-footer">
-                        <span class="gallery-price">₹450</span>
-                        <a href="category.html" class="btn btn-primary gallery-btn"><i class="fa-solid fa-cart-plus"></i> Add</a>
+                <div class="scroll-info">
+                    <h3>Handcrafted Sonth Ladoo</h3>
+                    <p>Pure ghee traditional Sonth ladoos crafted with rich roasted nuts.</p>
+                    <div class="scroll-footer">
+                        <span class="scroll-price">₹1100</span>
+                        <a href="category.html" class="btn btn-primary scroll-btn"><i class="fa-solid fa-cart-plus"></i> Add</a>
                     </div>
                 </div>
             </div>
 
             <!-- Item 2 -->
-            <div class="gallery-card">
-                <div class="gallery-img-wrapper">
-                    <span class="gallery-tag">Jewellery</span>
-                    <img src="Hero.png" alt="Traditional Kundan Necklace">
+            <div class="scroll-card">
+                <div class="scroll-img-wrapper">
+                    <span class="scroll-tag">Jewellery</span>
+                    <img src="Hero.png" alt="Royal Kundan Set">
                 </div>
-                <div class="gallery-info">
-                    <h3>Royal Kundan Set</h3>
-                    <p>Intricately designed traditional Kundan choker set for festive style.</p>
-                    <div class="gallery-footer">
-                        <span class="gallery-price">₹1,299</span>
-                        <a href="product-jewellery.html" class="btn btn-primary gallery-btn"><i class="fa-solid fa-cart-plus"></i> Add</a>
+                <div class="scroll-info">
+                    <h3>Oxidised Lotus Pearl Drop Earrings</h3>
+                    <p>Oxidised Lotus Pearl Drop Earrings.</p>
+                    <div class="scroll-footer">
+                        <span class="scroll-price">₹219</span>
+                        <a href="product-jewellery.html" class="btn btn-primary scroll-btn"><i class="fa-solid fa-cart-plus"></i> Add</a>
                     </div>
                 </div>
             </div>
 
             <!-- Item 3 -->
-            <div class="gallery-card">
-                <div class="gallery-img-wrapper">
-                    <span class="gallery-tag">Gifts</span>
-                    <img src="box.png" alt="Custom Printed Mug">
+            <div class="scroll-card">
+                <div class="scroll-img-wrapper">
+                    <span class="scroll-tag">jewellery</span>
+                    <img src="box.png" alt="Personalized Gift Box">
                 </div>
-                <div class="gallery-info">
-                    <h3>Personalized Gift Box</h3>
-                    <p>Customized festive print gift items made to bring smiles.</p>
-                    <div class="gallery-footer">
-                        <span class="gallery-price">₹799</span>
-                        <a href="product-gift.html" class="btn btn-primary gallery-btn"><i class="fa-solid fa-cart-plus"></i> Add</a>
+                <div class="scroll-info">
+                    <h3>Imitation jewellery</h3>
+                    <p>Silver oxidised finish camel Drop earrings for Women
+.</p>
+                    <div class="scroll-footer">
+                        <span class="scroll-price">₹250</span>
+                        <a href="product-gift.html" class="btn btn-primary scroll-btn"><i class="fa-solid fa-cart-plus"></i> Add</a>
                     </div>
                 </div>
             </div>
 
             <!-- Item 4 -->
-            <div class="gallery-card">
-                <div class="gallery-img-wrapper">
-                    <span class="gallery-tag">Sweets</span>
+            <div class="scroll-card">
+                <div class="scroll-img-wrapper">
+                    <span class="scroll-tag">Sweets</span>
                     <img src="coconut-ladoo.png" alt="Coconut Ladoo">
                 </div>
-                <div class="gallery-info">
+                <div class="scroll-info">
                     <h3>Fresh Coconut Ladoo</h3>
                     <p>Delicate, freshly made coconut ladoos infused with cardamom.</p>
-                    <div class="gallery-footer">
-                        <span class="gallery-price">₹380</span>
-                        <a href="category.html" class="btn btn-primary gallery-btn"><i class="fa-solid fa-cart-plus"></i> Add</a>
+                    <div class="scroll-footer">
+                        <span class="scroll-price">₹380</span>
+                        <a href="category.html" class="btn btn-primary scroll-btn"><i class="fa-solid fa-cart-plus"></i> Add</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 5 -->
+            <div class="scroll-card">
+                <div class="scroll-img-wrapper">
+                    <span class="scroll-tag">Jewellery</span>
+                    <img src="Hero.png" alt="Gold Temple Necklace">
+                </div>
+                <div class="scroll-info">
+                    <h3>Animal shaped drop earring</h3>
+                    <p>Classic style and design crafted with delicate finish .</p>
+                    <div class="scroll-footer">
+                        <span class="scroll-price">₹199</span>
+                        <a href="product-jewellery.html" class="btn btn-primary scroll-btn"><i class="fa-solid fa-cart-plus"></i> Add</a>
                     </div>
                 </div>
             </div>
@@ -1278,7 +1331,6 @@ MODERN SOCIAL MEDIA ICONS CONTAINER
         </div>
     </div>
 </section>
-
     <!-- ASHTAMI SWEETS SHOWCASE -->
     <section class="sweets-section">
         <div class="container">
