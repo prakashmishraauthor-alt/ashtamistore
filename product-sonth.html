@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sonth Ladoo | Ashtami</title>
-    <meta name="description" content="Authentic homemade Sonth Ladoo prepared with pure ghee, dry ginger, gond and premium dry fruits. Traditional winter wellness sweet from Ashtami.">
+    <meta name="description" content="Authentic homemade Sonth Ladoo prepared with pure ghee, dry ginger, gond and premium dry fruits.">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,15 +12,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     
     <style>
-        /*=========================================================
-        DESIGN SYSTEM VARIABLES
-        =========================================================*/
         :root {
             --primary: #0a2e1c;
             --secondary: #d4af37;
-            --accent: #9e2a2b;       /* Festive Deep Red */
-            --accent-bright: #cc3333;/* Festive Accent Pop */
-            --dark-bg: #111412;      /* Premium Dark Base */
+            --accent: #9e2a2b;
+            --accent-bright: #cc3333;
+            --dark-bg: #111412;
             --header-bg: #161b18;
             --card-bg: #1a201c;
             --border-color: rgba(255, 255, 255, 0.08);
@@ -30,963 +27,81 @@
             --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
 
-        /*=========================================================
-        CORE RESET & GLOBAL STYLES
-        =========================================================*/
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Poppins', sans-serif; background: var(--dark-bg); color: var(--text-muted); line-height: 1.6; }
+        .container { width: 90%; max-width: 1200px; margin: 0 auto; }
+        section { padding: 60px 0; border-bottom: 1px solid var(--border-color); }
 
-        html {
-            scroll-behavior: smooth;
-        }
+        h1, h2, h3 { font-family: 'Cormorant Garamond', serif; color: var(--text-main); font-weight: 700; }
+        h1 { font-size: clamp(2.2rem, 4vw, 3.5rem); }
+        h2 { font-size: clamp(1.8rem, 3vw, 2.5rem); }
 
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: var(--dark-bg);
-            color: var(--text-muted);
-            line-height: 1.6;
-            overflow-x: hidden;
-            -webkit-text-size-adjust: 100%;
-        }
+        a { text-decoration: none; color: inherit; }
+        img { max-width: 100%; display: block; }
 
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        section {
-            padding: 80px 0;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        /* Typography */
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Cormorant Garamond', serif;
-            color: var(--text-main);
-            font-weight: 700;
-            line-height: 1.2;
-        }
-
-        h1 { font-size: clamp(2.5rem, 5vw, 4rem); }
-        h2 { font-size: clamp(2rem, 4vw, 3rem); }
-        h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
-
-        p { font-size: 1rem; }
-
-        img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-            object-fit: cover;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-            transition: var(--transition);
-        }
-
-        /* Reusable Components */
-        .section-title {
-            text-align: center;
-            margin-bottom: 50px;
-            position: relative;
-        }
-
-        .section-title h2 {
-            margin-bottom: 15px;
-        }
-
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 3px;
-            background: var(--accent);
-            margin: 15px auto 0;
-        }
-
-        .product-badge {
-            display: inline-block;
-            background: var(--accent);
-            color: var(--text-main);
-            padding: 4px 14px;
-            border-radius: 4px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            border-left: 3px solid var(--secondary);
-        }
-
-        /* Buttons */
         .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 12px 28px;
-            border-radius: 4px;
-            font-weight: 600;
-            font-size: 0.95rem;
-            gap: 10px;
-            cursor: pointer;
-            border: 1px solid transparent;
-            width: max-content;
-        }
-
-        .btn-primary {
-            background: var(--accent);
-            color: var(--text-main);
-            border-color: var(--accent);
-        }
-
-        .btn-primary:hover {
-            background: var(--accent-bright);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(158, 42, 43, 0.4);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: var(--text-main);
-            border-color: var(--border-color);
-        }
-
-        .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.03);
-            border-color: var(--secondary);
-            color: var(--secondary);
-            transform: translateY(-2px);
-        }
-
-        /*=========================================================
-        HEADER, NAVIGATION & ANNOUNCEMENT BAR
-        =========================================================*/
-        .top-bar {
-            background: var(--accent);
-            color: var(--text-main);
-            padding: 8px 0;
-            text-align: center;
-            font-size: 0.85rem;
-            font-weight: 500;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            border-bottom: 2px solid var(--secondary);
-        }
-
-        header {
-            position: sticky;
-            top: 0;
-            background: var(--header-bg);
-            border-bottom: 1px solid var(--border-color);
-            z-index: 1000;
-            box-shadow: var(--shadow);
-            padding: 15px 0;
-        }
-
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: relative;
-        }
-
-        .logo {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.8rem;
-            font-weight: 700;
-            letter-spacing: 1px;
-            color: var(--secondary);
-        }
-
-        nav ul {
-            display: flex;
-            align-items: center;
-            gap: 30px;
-            list-style: none;
-        }
-
-        nav ul li a {
-            font-size: 0.95rem;
-            font-weight: 500;
-            color: var(--text-main);
-            padding: 8px 0;
-            position: relative;
-        }
-
-        nav ul li a:hover,
-        nav ul li.active > a {
-            color: var(--secondary);
-        }
-
-        /* Dropdown Setup */
-        .dropdown {
-            position: relative;
-        }
-
-        .dropdown-toggle {
-            font-size: 0.75rem;
-            margin-left: 4px;
-            pointer-events: none;
-        }
-
-        .dropdown-menu {
-            position: absolute;
-            top: 100%;
-            left: 50%;
-            transform: translateX(-50%) translateY(15px);
-            background: #1d2421;
-            min-width: 240px;
-            border-radius: 4px;
-            padding: 10px 0;
-            border: 1px solid var(--border-color);
-            box-shadow: var(--shadow);
-            opacity: 0;
-            visibility: hidden;
-            display: flex;
-            flex-direction: column;
-            gap: 0;
-            transition: var(--transition);
-        }
-
-        .dropdown-menu::before {
-            content: '';
-            position: absolute;
-            top: -5px;
-            left: 50%;
-            transform: translateX(-50%) rotate(45deg);
-            width: 10px;
-            height: 10px;
-            background: #1d2421;
-            border-left: 1px solid var(--border-color);
-            border-top: 1px solid var(--border-color);
-        }
-
-        .dropdown-menu li {
-            width: 100%;
-        }
-
-        .dropdown-menu li a {
-            display: block;
-            padding: 10px 20px;
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            width: 100%;
-        }
-
-        .dropdown-menu li a:hover {
-            background: rgba(255, 255, 255, 0.03);
-            color: var(--secondary);
-            padding-left: 25px;
-        }
-
-        .dropdown:hover .dropdown-menu {
-            opacity: 1;
-            visibility: visible;
-            transform: translateX(-50%) translateY(5px);
-        }
-
-        /* Cart Icon Spec */
-        .cart-icon {
-            position: relative;
-            font-size: 1.1rem;
-        }
-
-        .cart-count {
-            position: absolute;
-            top: -10px;
-            right: -14px;
-            background: var(--accent);
-            color: var(--text-main);
-            font-size: 0.65rem;
-            font-weight: 700;
-            width: 18px;
-            height: 18px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 1px solid var(--header-bg);
-        }
-
-        /* Mobile Hamburger Icon Styling */
-        .menu-toggle {
-            display: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--text-main);
-            padding: 5px;
-            transition: var(--transition);
-        }
-
-        .menu-toggle:hover {
-            color: var(--secondary);
-        }
-
-        /*=========================================================
-        BREADCRUMB SECTION
-        =========================================================*/
-        .breadcrumb {
-            background: rgba(22, 27, 24, 0.5);
-            padding: 15px 0;
-            font-size: 0.85rem;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .breadcrumb .container {
-            display: flex;
-            gap: 10px;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
-        .breadcrumb a {
-            color: var(--text-muted);
-        }
-
-        .breadcrumb a:hover {
-            color: var(--secondary);
-        }
-
-        .breadcrumb strong {
-            color: var(--secondary);
-            font-weight: 500;
-        }
-
-        /*=========================================================
-        PRODUCT DETAIL DISPLAY HERO SECTION
-        =========================================================*/
-        .single-product-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 60px;
-            align-items: center;
-        }
-
-        .product-gallery {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 20px;
-            box-shadow: var(--shadow);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .product-gallery::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 4px;
-            background: var(--accent);
-        }
-
-        .product-gallery img {
-            width: 100%;
-            border-radius: 4px;
-            transition: var(--transition);
-        }
-
-        .product-gallery:hover img {
-            transform: scale(1.02);
-        }
-
-        .product-details h1 {
-            margin: 15px 0;
-            color: var(--text-main);
-        }
-
-        .product-short {
-            font-size: 1.05rem;
-            margin-bottom: 20px;
-        }
-
-        .rating {
-            color: var(--secondary);
-            margin-bottom: 25px;
-            font-size: 0.9rem;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .rating span {
-            color: var(--text-muted);
-            font-size: 0.85rem;
-        }
-
-        /* Updated 2x3 Grid layout for 6 price options */
-        .product-price {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
-            margin-bottom: 30px;
-        }
-
-        .product-price div {
-            padding: 15px;
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 6px;
-            font-size: 1.2rem;
-            color: var(--text-main);
-            font-weight: 600;
-        }
-
-        .product-price strong {
-            display: block;
-            color: var(--secondary);
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 5px;
-        }
-
-        .quantity {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 30px;
-        }
-
-        .quantity label {
-            font-weight: 500;
-            color: var(--text-main);
-        }
-
-        .quantity input {
-            width: 70px;
-            padding: 8px;
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            color: var(--text-main);
-            border-radius: 4px;
-            text-align: center;
-            font-weight: 600;
-        }
-
-        .product-action-container {
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        /*=========================================================
-        PRODUCT DESCRIPTION & COPYWRITING SECTIONS
-        =========================================================*/
-        .product-description p {
-            max-width: 800px;
-            margin: 0 auto 20px auto;
-            text-align: center;
-            font-size: 1.1rem;
-        }
-
-        .product-description p:last-child {
-            margin-bottom: 0;
-        }
-
-        /*=========================================================
-        HEALTH BENEFITS GRID STYLING
-        =========================================================*/
-        .benefit-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-        }
-
-        .benefit-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            padding: 35px 25px;
-            border-radius: 6px;
-            text-align: center;
-            transition: var(--transition);
-            box-shadow: var(--shadow);
-            position: relative;
-        }
-
-        .benefit-card::after {
-            content: '';
-            position: absolute;
-            bottom: 0; left: 0; width: 0; height: 3px;
-            background: var(--accent);
-            transition: var(--transition);
-        }
-
-        .benefit-card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(212, 175, 55, 0.2);
-        }
-
-        .benefit-card:hover::after {
-            width: 100%;
-        }
-
-        .benefit-card i {
-            font-size: 2.2rem;
-            color: var(--secondary);
-            margin-bottom: 20px;
-        }
-
-        .benefit-card h3 {
-            margin-bottom: 12px;
-            font-size: 1.4rem;
-        }
-
-        /*=========================================================
-        INGREDIENTS & STORAGE SECTIONS
-        =========================================================*/
-        .ingredient-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .ingredient-grid div {
-            background: var(--card-bg);
-            padding: 15px 20px;
-            border-radius: 6px;
-            border: 1px solid var(--border-color);
-            color: var(--text-main);
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-size: 1rem;
-        }
-
-        .ingredient-grid div i {
-            color: var(--secondary);
-            font-size: 0.9rem;
-        }
-
-        .storage-box {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            max-width: 700px;
-            margin: 0 auto;
-            padding: 35px 40px;
-            border-radius: 6px;
-            border-left: 4px solid var(--accent);
-            box-shadow: var(--shadow);
-        }
-
-        .storage-box ul {
-            list-style: none;
-        }
-
-        .storage-box ul li {
-            position: relative;
-            padding-left: 25px;
-            margin-bottom: 15px;
-            font-size: 1.05rem;
-        }
-
-        .storage-box ul li:last-child {
-            margin-bottom: 0;
-        }
-
-        .storage-box ul li::before {
-            content: '\f0f6';
-            font-family: 'Font Awesome 6 Free';
-            font-weight: 900;
-            position: absolute;
-            left: 0;
-            top: 2px;
-            color: var(--secondary);
-            font-size: 0.85rem;
-        }
-
-        /*=========================================================
-        WHY CUSTOMERS LOVE IT GRID SECTION
-        =========================================================*/
-        .love-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 25px;
-        }
-
-        .love-card {
-            background: rgba(26, 32, 28, 0.6);
-            border: 1px solid var(--border-color);
-            padding: 30px 20px;
-            border-radius: 6px;
-            text-align: center;
-            transition: var(--transition);
-        }
-
-        .love-card:hover {
-            background: var(--card-bg);
-            border-color: var(--secondary);
-            transform: translateY(-3px);
-        }
-
-        .love-card i {
-            font-size: 2rem;
-            color: var(--accent);
-            margin-bottom: 15px;
-        }
-
-        .love-card h3 {
-            font-size: 1.25rem;
-            margin-bottom: 10px;
-        }
-
-        /*=========================================================
-        RELATED PRODUCTS SECTION
-        =========================================================*/
-        .related-products .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .related-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 25px;
-            max-width: 380px;
-            width: 100%;
-            text-align: center;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-        }
-
-        .related-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent);
-        }
-
-        .related-card img {
-            width: 100%;
-            border-radius: 4px;
-            margin-bottom: 20px;
-        }
-
-        .related-card h3 {
-            margin-bottom: 10px;
-            font-size: 1.5rem;
-        }
-
-        .related-card p {
-            font-size: 0.95rem;
-            margin-bottom: 15px;
-            height: 48px;
-            overflow: hidden;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-        }
-
-        .related-card .price {
-            font-size: 1.3rem;
-            color: var(--text-main);
-            font-weight: 700;
-            margin-bottom: 20px;
-        }
-
-        .related-card .price span {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            font-weight: 400;
-        }
-
-        .related-card .btn {
-            width: 100%;
-        }
-
-        /*=========================================================
-        DELIVERY SERVICE INFORMATION SECTION
-        =========================================================*/
-        .delivery-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 40px;
-            text-align: center;
-        }
-
-        .delivery-grid i {
-            font-size: 2.5rem;
-            color: var(--secondary);
-            margin-bottom: 15px;
-        }
-
-        .delivery-grid h3 {
-            margin-bottom: 10px;
-            font-size: 1.4rem;
-        }
-
-        /*=========================================================
-        CALL TO ACTION (CTA) SECTION BANNER
-        =========================================================*/
-        .cta {
-            background: linear-gradient(135deg, #161b18 0%, #0a2e1c 100%);
-            border: 1px solid var(--border-color);
-            border-top: 3px solid var(--accent);
-            border-radius: 8px;
-            padding: 60px 40px;
-            text-align: center;
-            box-shadow: var(--shadow);
-        }
-
-        .cta h2 {
-            margin-bottom: 15px;
-        }
-
-        .cta p {
-            max-width: 600px;
-            margin: 0 auto 30px auto;
-            font-size: 1.1rem;
-        }
-
-        /*=========================================================
-        FOOTER COMPONENT ARCHITECTURE
-        =========================================================*/
-        footer {
-            background: #090c0a;
-            padding: 70px 0 0 0;
-            font-size: 0.9rem;
-            border-top: 2px solid var(--accent);
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 2fr repeat(3, 1fr);
-            gap: 40px;
-            margin-bottom: 50px;
-        }
-
-        .footer-column h4 {
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-            color: var(--secondary);
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-        }
-
-        .footer-column p {
-            font-size: 0.9rem;
-            line-height: 1.6;
-        }
-
-        .footer-column ul {
-            list-style: none;
-        }
-
-        .footer-column ul li {
-            margin-bottom: 12px;
-        }
-
-        .footer-column ul li a {
-            color: var(--text-muted);
-        }
-
-        .footer-column ul li a:hover {
-            color: var(--secondary);
-            padding-left: 5px;
-        }
-
-        .footer-bottom {
-            border-top: 1px solid var(--border-color);
-            padding: 25px 0;
-            text-align: center;
-            font-size: 0.8rem;
-            color: rgba(255, 255, 255, 0.3);
-        }
-
-        /*=========================================================
-        FLOATING UTILITY SHIELD ELEMENT
-        =========================================================*/
-        .whatsapp {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: #25d366;
-            color: white;
-            width: 56px;
-            height: 56px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.8rem;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
-            z-index: 999;
-            transition: var(--transition);
-        }
-
-        .whatsapp:hover {
-            transform: scale(1.1) rotate(8deg);
-            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
-        }
-
-        /*=========================================================
-        MEDIA COMPRESSION RESPONSIVE QUERIES ENGINE
-        =========================================================*/
-        @media screen and (max-width: 1024px) {
-            .love-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .footer-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media screen and (max-width: 991px) {
-            section {
-                padding: 60px 0;
-            }
-            
-            .menu-toggle {
-                display: block;
-            }
-
-            /* Responsive Mobile Menu Stack Override */
-            nav {
-                position: absolute;
-                top: 100%;
-                left: -5%;
-                width: 110%;
-                background: #161b18;
-                box-shadow: var(--shadow);
-                max-height: 0;
-                overflow: hidden;
-                opacity: 0;
-                visibility: hidden;
-                transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-                border-bottom: 0 solid var(--accent);
-            }
-
-            nav.active {
-                max-height: 500px;
-                opacity: 1;
-                visibility: visible;
-                border-bottom: 3px solid var(--accent);
-                overflow-y: auto;
-            }
-
-            nav ul {
-                flex-direction: column;
-                align-items: stretch;
-                gap: 0;
-                width: 90%;
-                margin: 15px auto;
-            }
-
-            nav ul li {
-                border-bottom: 1px solid rgba(255,255,255,0.03);
-            }
-
-            nav ul li:last-child {
-                border-bottom: none;
-            }
-
-            nav ul li a {
-                display: block;
-                padding: 15px 10px;
-                font-size: 1.05rem;
-            }
-
-            /* Mobile Dropdown Configuration */
-            .dropdown-menu {
-                position: static;
-                transform: none;
-                opacity: 1;
-                visibility: visible;
-                display: none;
-                background: rgba(0, 0, 0, 0.15);
-                box-shadow: none;
-                border: none;
-                padding: 5px 0 10px 20px;
-                margin-top: 0;
-                width: 100%;
-            }
-
-            .dropdown-menu::before {
-                display: none;
-            }
-
-            .dropdown.open-active .dropdown-menu {
-                display: flex;
-            }
-
-            .dropdown-toggle {
-                float: right;
-                margin-top: 5px;
-                pointer-events: auto;
-                padding: 10px;
-                transition: transform 0.3s ease;
-            }
-
-            .dropdown.open-active .dropdown-toggle {
-                transform: rotate(180deg);
-                color: var(--secondary);
-            }
-
-            /* Layout Flattening Transforms */
-            .single-product-grid,
-            .benefit-grid,
-            .ingredient-grid,
-            .delivery-grid {
-                grid-template-columns: 1fr;
-                gap: 35px;
-            }
-
-            .product-action-container .btn {
-                width: 100%;
-            }
-        }
-
-        @media screen and (max-width: 580px) {
-            .product-price {
-                grid-template-columns: 1fr;
-                gap: 12px;
-            }
-            .love-grid,
-            .footer-grid {
-                grid-template-columns: 1fr;
-            }
-            .storage-box {
-                padding: 25px 20px;
-            }
-            .cta {
-                padding: 40px 20px;
-            }
+            display: inline-flex; align-items: center; justify-content: center;
+            padding: 12px 28px; border-radius: 4px; font-weight: 600; gap: 10px; cursor: pointer;
+            border: 1px solid transparent; width: max-content;
+        }
+        .btn-primary { background: var(--accent); color: var(--text-main); }
+        .btn-primary:hover { background: var(--accent-bright); }
+        .btn-secondary { background: transparent; color: var(--text-main); border-color: var(--border-color); }
+        .btn-secondary:hover { border-color: var(--secondary); color: var(--secondary); }
+
+        .top-bar { background: var(--accent); color: var(--text-main); padding: 8px 0; text-align: center; font-size: 0.85rem; font-weight: 500; }
+        header { position: sticky; top: 0; background: var(--header-bg); border-bottom: 1px solid var(--border-color); z-index: 1000; padding: 15px 0; }
+        .navbar { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; color: var(--secondary); font-weight: 700; }
+
+        nav ul { display: flex; align-items: center; gap: 30px; list-style: none; }
+        nav ul li a { font-size: 0.95rem; color: var(--text-main); }
+        nav ul li a:hover { color: var(--secondary); }
+
+        .cart-icon { position: relative; font-size: 1.1rem; }
+        .cart-count { position: absolute; top: -10px; right: -14px; background: var(--accent); color: var(--text-main); font-size: 0.65rem; font-weight: 700; width: 18px; height: 18px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+
+        .breadcrumb { background: rgba(22, 27, 24, 0.5); padding: 15px 0; font-size: 0.85rem; }
+        .breadcrumb a { color: var(--text-muted); }
+        .breadcrumb strong { color: var(--secondary); }
+
+        .single-product-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 50px; align-items: center; }
+        .product-gallery { background: var(--card-bg); border: 1px solid var(--border-color); padding: 20px; border-radius: 8px; }
+        
+        .variant-picker { margin: 20px 0; }
+        .variant-picker label { display: block; margin-bottom: 8px; font-weight: 600; color: var(--text-main); }
+        .options { display: flex; gap: 15px; }
+        .option-btn {
+            padding: 8px 16px; background: var(--card-bg); border: 1px solid var(--border-color);
+            color: var(--text-main); border-radius: 4px; cursor: pointer; transition: var(--transition);
+        }
+        .option-btn.active { border-color: var(--secondary); background: rgba(212, 175, 55, 0.1); color: var(--secondary); }
+
+        .price-display { font-size: 1.8rem; color: var(--secondary); font-weight: 700; margin: 20px 0; }
+        .quantity { display: flex; align-items: center; gap: 15px; margin-bottom: 25px; }
+        .quantity input { width: 70px; padding: 8px; background: var(--card-bg); border: 1px solid var(--border-color); color: var(--text-main); border-radius: 4px; text-align: center; }
+
+        footer { background: #090c0a; padding: 50px 0 20px 0; text-align: center; border-top: 2px solid var(--accent); }
+        .whatsapp { position: fixed; bottom: 30px; right: 30px; background: #25d366; color: white; width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; }
+
+        @media (max-width: 991px) {
+            .single-product-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 
 <body>
 
-    <div class="top-bar">
-        Traditional Taste, Style and Smile Delivered
-    </div>
+    <div class="top-bar">Traditional Taste, Style and Smile Delivered</div>
 
     <header>
         <div class="container navbar">
-            <div class="logo">
-                ASHTAMI STORE
-            </div>
-
-            <!-- MENU CONTAINER -->
-            <nav id="nav-menu">
+            <div class="logo">ASHTAMI STORE</div>
+            <nav>
                 <ul>
                     <li><a href="index.html">Home</a></li>
-                    <li class="dropdown" id="dropdown-parent">
-                        <a href="category.html">
-                            Collections <i class="fa-solid fa-chevron-down dropdown-toggle" id="dropdown-btn"></i>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a href="category.html">Sweets &amp; Savouries</a></li>
-                            <li><a href="product-gift.html">Printed Gift Items</a></li>
-                            <li><a href="product-jewellery.html">Imitation Jewellery</a></li>
-                        </ul>
-                    </li>
+                    <li><a href="category.html">Collections</a></li>
                     <li><a href="about.html">About</a></li>
                     <li><a href="contact.html">Contact</a></li>
                     <li>
@@ -997,77 +112,45 @@
                     </li>
                 </ul>
             </nav>
-
-            <!-- NAVIGATION TRIGGER HAMBURGER -->
-            <div class="menu-toggle" id="mobile-toggle">
-                <i class="fa-solid fa-bars"></i>
-            </div>
         </div>
     </header>
 
     <section class="breadcrumb">
         <div class="container">
-            <a href="index.html">Home</a> <i class="fa-solid fa-chevron-right" style="font-size: 0.75rem; color: var(--text-muted);"></i>
-            <a href="category.html">Sweets &amp; Savouries</a> <i class="fa-solid fa-chevron-right" style="font-size: 0.75rem; color: var(--text-muted);"></i>
-            <strong>Sonth Ladoo</strong>
+            <a href="index.html">Home</a> / <a href="category.html">Sweets &amp; Savouries</a> / <strong>Sonth Ladoo</strong>
         </div>
     </section>
 
-    <section class="single-product">
+    <section>
         <div class="container">
             <div class="single-product-grid">
                 <div class="product-gallery">
-                    <img src="sonth-ladoo.png" alt="Sonth Ladoo" width="540" height="540">
+                    <img src="sonth-ladoo.png" alt="Sonth Ladoo">
                 </div>
                 <div class="product-details">
-                    <span class="product-badge">Winter Special</span>
                     <h1>Sonth Ladoo</h1>
-                    <p class="product-short">
-                        Protein-rich traditional treat prepared with dried ginger, gond, pure ghee and premium dry fruits. Homemade with care and hygienically prepared for your family's wellness.
-                    </p>
-                    <div class="rating">
-                        <span>★★★★★</span>
-                        <span>(Traditional Favourite)</span>
-                    </div>
+                    <p>Protein-rich traditional treat prepared with dried ginger, gond, pure ghee and premium dry fruits.</p>
                     
-                    <!-- DISPLAYING ALL 6 VARIANT PRICING OPTIONS -->
-                    <div class="product-price">
-                        <div>
-                            <strong>Sugar Based (250g)</strong>
-                            <span>₹250</span>
-                        </div>
-                        <div>
-                            <strong>Jaggery Based (250g)</strong>
-                            <span>₹300</span>
-                        </div>
-                        <div>
-                            <strong>Sugar Based (500g)</strong>
-                            <span>₹500</span>
-                        </div>
-                        <div>
-                            <strong>Jaggery Based (500g)</strong>
-                            <span>₹550</span>
-                        </div>
-                        <div>
-                            <strong>Sugar Based (1 Kg)</strong>
-                            <span>₹1000</span>
-                        </div>
-                        <div>
-                            <strong>Jaggery Based (1 Kg)</strong>
-                            <span>₹1100</span>
+                    <div class="variant-picker">
+                        <label>Select Base:</label>
+                        <div class="options">
+                            <button class="option-btn active" onclick="setVariant('Sugar', 1000, this)">Sugar Based</button>
+                            <button class="option-btn" onclick="setVariant('Jaggery', 1100, this)">Jaggery Based</button>
                         </div>
                     </div>
-                    
+
+                    <div class="price-display" id="displayed-price">₹1000 / Kg</div>
+
                     <div class="quantity">
                         <label for="prod-qty">Quantity</label>
                         <input id="prod-qty" type="number" value="1" min="1">
                     </div>
-                    
-                    <div class="product-action-container">
-                        <button class="btn btn-primary" onclick="addToCart('sonth-sugar', 'Sonth Ladoo', 1000, 'sonth-ladoo.png', 'Sugar 1 Kg')">
+
+                    <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+                        <button class="btn btn-primary" onclick="handleAddToCart()">
                             <i class="fa-solid fa-cart-plus"></i> Add to Cart
                         </button>
-                        <a href="https://wa.me/916393072915?text=Hello%20Ashtami,%20I%20am%20interested%20in%20ordering%20Sonth%20Ladoo." class="btn btn-secondary" target="_blank">
+                        <a id="wa-order-btn" href="https://wa.me/916393072915?text=Hello%20Ashtami,%20I%20am%20interested%20in%20ordering%20Sonth%20Ladoo%20(Sugar%20Based)." class="btn btn-secondary" target="_blank">
                             <i class="fa-brands fa-whatsapp"></i> Order on WhatsApp
                         </a>
                     </div>
@@ -1076,312 +159,64 @@
         </div>
     </section>
 
-    <section class="product-description">
-        <div class="container">
-            <div class="section-title">
-                <h2>The Warmth of Tradition in Every Bite</h2>
-            </div>
-            <p>
-                Sonth Ladoo is one of India's most cherished traditional winter delicacies, prepared using dried ginger (sonth), pure ghee, edible gum (gond), whole wheat flour and a carefully selected blend of premium dry fruits. Every batch is handcrafted in small quantities to preserve freshness, authentic taste and nutritional value.
-            </p>
-            <p>
-                Prepared using traditional family recipes, Sonth Ladoo offers a perfect balance of flavour and wellness. The natural warmth of dried ginger combined with the richness of ghee and nuts makes it an excellent seasonal sweet enjoyed by families across generations.
-            </p>
-            <p>
-                At Ashtami, every Sonth Ladoo is prepared with premium ingredients, hygienic practices and the care that only homemade food can provide.
-            </p>
-        </div>
-    </section>
-
-    <section class="benefits">
-        <div class="container">
-            <div class="section-title">
-                <h2>Health Benefits</h2>
-            </div>
-            <div class="benefit-grid">
-                <div class="benefit-card">
-                    <i class="fa-solid fa-heart-pulse"></i>
-                    <h3>Improves Digestion</h3>
-                    <p>Dried ginger has been valued in Ayurveda for supporting healthy digestion.</p>
-                </div>
-                <div class="benefit-card">
-                    <i class="fa-solid fa-fire"></i>
-                    <h3>Keeps You Warm</h3>
-                    <p>Ideal during winter as it naturally generates warmth in the body.</p>
-                </div>
-                <div class="benefit-card">
-                    <i class="fa-solid fa-dumbbell"></i>
-                    <h3>Rich in Protein</h3>
-                    <p>Loaded with wholesome ingredients and premium dry fruits.</p>
-                </div>
-                <div class="benefit-card">
-                    <i class="fa-solid fa-bolt"></i>
-                    <h3>Natural Energy</h3>
-                    <p>Provides long-lasting energy throughout the day.</p>
-                </div>
-                <div class="benefit-card">
-                    <i class="fa-solid fa-bone"></i>
-                    <h3>Bone Strength</h3>
-                    <p>Edible gum and nuts help support stronger bones.</p>
-                </div>
-                <div class="benefit-card">
-                    <i class="fa-solid fa-seedling"></i>
-                    <h3>Homemade Goodness</h3>
-                    <p>No compromise on freshness, hygiene or quality.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="ingredients">
-        <div class="container">
-            <div class="section-title">
-                <h2>Premium Ingredients</h2>
-            </div>
-            <div class="ingredient-grid">
-                <div><i class="fa-solid fa-circle-check"></i> Dry Ginger (Sonth)</div>
-                <div><i class="fa-solid fa-circle-check"></i> Whole Wheat Flour</div>
-                <div><i class="fa-solid fa-circle-check"></i> Pure Ghee</div>
-                <div><i class="fa-solid fa-circle-check"></i> Gond (Edible Gum)</div>
-                <div><i class="fa-solid fa-circle-check"></i> Almonds</div>
-                <div><i class="fa-solid fa-circle-check"></i> Cashews</div>
-                <div><i class="fa-solid fa-circle-check"></i> Pistachios</div>
-                <div><i class="fa-solid fa-circle-check"></i> Raisins</div>
-                <div><i class="fa-solid fa-circle-check"></i> Melon Seeds</div>
-                <div><i class="fa-solid fa-circle-check"></i> Sesame Seeds</div>
-            </div>
-        </div>
-    </section>
-
-    <section class="storage">
-        <div class="container">
-            <div class="section-title">
-                <h2>Storage Instructions</h2>
-            </div>
-            <div class="storage-box">
-                <ul>
-                    <li>Store in a cool and dry place.</li>
-                    <li>Keep away from direct sunlight.</li>
-                    <li>Store in an airtight container after opening.</li>
-                    <li>Best enjoyed fresh within the recommended period.</li>
-                    <li>No refrigeration required under normal conditions.</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <section class="why-love-product">
-        <div class="container">
-            <div class="section-title">
-                <h2>Why Customers Love Our Sonth Ladoo</h2>
-            </div>
-            <div class="love-grid">
-                <div class="love-card">
-                    <i class="fa-solid fa-house"></i>
-                    <h3>100% Homemade</h3>
-                    <p>Prepared in small batches with love and care.</p>
-                </div>
-                <div class="love-card">
-                    <i class="fa-solid fa-award"></i>
-                    <h3>Premium Ingredients</h3>
-                    <p>Only carefully selected ingredients go into every laddoo.</p>
-                </div>
-                <div class="love-card">
-                    <i class="fa-solid fa-shield-heart"></i>
-                    <h3>Hygienically Prepared</h3>
-                    <p>Prepared in a clean environment with strict quality standards.</p>
-                </div>
-                <div class="love-card">
-                    <i class="fa-solid fa-leaf"></i>
-                    <h3>No Preservatives</h3>
-                    <p>Freshly prepared to preserve natural taste and goodness.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="related-products">
-        <div class="container">
-            <div class="section-title">
-                <h2>You May Also Like</h2>
-            </div>
-            <div class="related-card">
-                <img src="til-ladoo.png" alt="Til Ladoo" width="330" height="250">
-                <h3>Til Ladoo</h3>
-                <p>Traditional sesame and jaggery laddoo rich in calcium, iron and natural protein.</p>
-                <div class="price">₹300 <span>/ 500g</span></div>
-                <a href="til-ladoo.html" class="btn btn-primary">View Product</a>
-            </div>
-        </div>
-    </section>
-
-    <section class="delivery-info">
-        <div class="container">
-            <div class="delivery-grid">
-                <div>
-                    <i class="fa-solid fa-box-open"></i>
-                    <h3>Freshly Prepared</h3>
-                    <p>Made in small batches to maintain freshness and authentic taste.</p>
-                </div>
-                <div>
-                    <i class="fa-solid fa-truck-fast"></i>
-                    <h3>Pan India Delivery</h3>
-                    <p>Secure packaging ensures your sweets reach you fresh and safely.</p>
-                </div>
-                <div>
-                    <i class="fa-solid fa-headset"></i>
-                    <h3>Customer Support</h3>
-                    <p>We're happy to assist you with orders and product enquiries.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section style="border:none; padding: 60px 0 20px 0;">
-        <div class="container">
-            <div class="cta">
-                <h2>Ready to Experience the Taste of Tradition?</h2>
-                <p>Have questions or want to place an order? Connect with us directly on WhatsApp. We're always happy to help.</p>
-                <a href="https://wa.me/916393072915?text=Hello%20Ashtami,%20I%20would%20like%20to%20place%20an%20order." class="btn btn-primary" target="_blank">
-                    <i class="fa-brands fa-whatsapp"></i> Order on WhatsApp
-                </a>
-            </div>
-        </div>
-    </section>
-
     <footer>
-        <div class="container footer-grid">
-            <div class="footer-column">
-                <h4>ASHTAMI STORE</h4>
-                <p>We deliver traditions, celebrations and smiles through premium handcrafted delicacies and accessories.</p>
-            </div>
-            <div class="footer-column">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h4>Collections</h4>
-                <ul>
-                    <li><a href="category.html">Sweets &amp; Savouries</a></li>
-                    <li><a href="printed-gifts.html">Printed Gifts</a></li>
-                    <li><a href="jewellery.html">Jewellery</a></li>
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h4>Connect With Us</h4>
-                <ul>
-                    <li><a href="https://wa.me/916393072915" target="_blank"><i class="fa-brands fa-whatsapp" style="color: #25d366;"></i> WhatsApp Support</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 Ashtami Store. All Rights Reserved. Crafted with Tradition.</p>
+        <div class="container">
+            <p>&copy; 2026 Ashtami Store. All Rights Reserved.</p>
         </div>
     </footer>
 
-    <!-- WHATSAPP FLOATER -->
-    <a href="https://wa.me/916393072915?text=Hello%20Ashtami,%20I%20would%20like%20to%20place%20an%20order." class="whatsapp" target="_blank">
-        <i class="fa-brands fa-whatsapp"></i>
-    </a>
+    <a href="https://wa.me/916393072915" class="whatsapp" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
 
-    <!-- ENGINE CODE ACTION INTERACTIONS -->
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const mobileToggle = document.getElementById('mobile-toggle');
-            const navMenu = document.getElementById('nav-menu');
-            const dropdownParent = document.getElementById('dropdown-parent');
-            const dropdownBtn = document.getElementById('dropdown-btn');
+        let currentVariant = 'Sugar';
+        let currentPrice = 1000;
 
-            // Synchronize UI header count badge with localStorage
-            updateGlobalCartCountDisplay();
+        function setVariant(variant, price, btn) {
+            currentVariant = variant;
+            currentPrice = price;
+            
+            document.querySelectorAll('.option-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            
+            document.getElementById('displayed-price').textContent = `₹${price} / Kg`;
+            
+            const waBtn = document.getElementById('wa-order-btn');
+            waBtn.href = `https://wa.me/916393072915?text=Hello%20Ashtami,%20I%20am%20interested%20in%20ordering%20Sonth%20Ladoo%20(${variant}%20Based).`;
+        }
 
-            // Hamburger toggle logic
-            mobileToggle.addEventListener('click', (e) => {
-                e.stopPropagation();
-                navMenu.classList.toggle('active');
-                
-                const icon = mobileToggle.querySelector('i');
-                if(navMenu.classList.contains('active')) {
-                    icon.className = 'fa-solid fa-xmark';
-                } else {
-                    icon.className = 'fa-solid fa-bars';
-                    dropdownParent.classList.remove('open-active');
-                }
-            });
-
-            // Mobile specific subdropdown alignment interceptor
-            if(dropdownBtn) {
-                dropdownBtn.addEventListener('click', (e) => {
-                    if(window.innerWidth <= 991) {
-                        e.preventDefault();
-                        e.stopPropagation();
-                        dropdownParent.classList.toggle('open-active');
-                    }
+        function handleAddToCart() {
+            const qtyInput = document.getElementById('prod-qty');
+            const qty = parseInt(qtyInput.value) || 1;
+            
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const itemId = `sonth-${currentVariant.toLowerCase()}`;
+            
+            const existingIndex = cart.findIndex(item => item.id === itemId);
+            if (existingIndex > -1) {
+                cart[existingIndex].quantity += qty;
+            } else {
+                cart.push({
+                    id: itemId,
+                    name: 'Sonth Ladoo',
+                    price: currentPrice,
+                    image: 'sonth-ladoo.png',
+                    variant: `${currentVariant} Based (1 Kg)`,
+                    quantity: qty
                 });
             }
-
-            // Close responsive frame drawer windows safely on click-out context
-            document.addEventListener('click', (e) => {
-                if(!navMenu.contains(e.target) && !mobileToggle.contains(e.target)) {
-                    navMenu.classList.remove('active');
-                    const icon = mobileToggle.querySelector('i');
-                    if (icon) icon.className = 'fa-solid fa-bars';
-                    dropdownParent.classList.remove('open-active');
-                }
-            });
-        });
+            
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateGlobalCartCountDisplay();
+            alert(`Added ${qty} x Sonth Ladoo (${currentVariant} Based) to your cart!`);
+        }
 
         function updateGlobalCartCountDisplay() {
-            try {
-                const cart = JSON.parse(localStorage.getItem('cart')) || [];
-                const totalCount = cart.reduce((sum, item) => sum + parseInt(item.quantity || 1), 0);
-                const countBadge = document.getElementById('global-cart-count');
-                if (countBadge) {
-                    countBadge.textContent = totalCount;
-                }
-            } catch (error) {
-                console.error("Error reading cart from storage:", error);
-            }
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const countBadge = document.getElementById('global-cart-count');
+            if (countBadge) countBadge.textContent = cart.reduce((sum, item) => sum + parseInt(item.quantity || 1), 0);
         }
-        
-        function addToCart(id, name, price, img, variant) {
-            try {
-                let cart = JSON.parse(localStorage.getItem('cart')) || [];
-                
-                const qtyInput = document.getElementById('prod-qty');
-                const quantityToAdd = qtyInput ? parseInt(qtyInput.value) || 1 : 1;
-                
-                // Create unique key signature based on variant
-                const itemUniqueId = `${id}-${variant.replace(/\s+/g, '-').toLowerCase()}`;
-                
-                const existingItemIndex = cart.findIndex(item => item.id === itemUniqueId);
-                
-                if (existingItemIndex > -1) {
-                    cart[existingItemIndex].quantity += quantityToAdd;
-                } else {
-                    cart.push({
-                        id: itemUniqueId,
-                        name: name,
-                        price: price,
-                        image: img,
-                        variant: variant,
-                        quantity: quantityToAdd
-                    });
-                }
-                
-                localStorage.setItem('cart', JSON.stringify(cart));
-                updateGlobalCartCountDisplay();
-                
-                alert(`${name} (${variant}) has been added to your cart!`);
-            } catch (error) {
-                console.error("Could not complete add operation:", error);
-                alert("An error occurred while adding the item to the cart.");
-            }
-        }
+
+        document.addEventListener('DOMContentLoaded', updateGlobalCartCountDisplay);
     </script>
 </body>
 </html>
