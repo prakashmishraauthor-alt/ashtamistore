@@ -35,7 +35,6 @@
 
         h1, h2, h3 { font-family: 'Cormorant Garamond', serif; color: var(--text-main); font-weight: 700; }
         h1 { font-size: clamp(2.2rem, 4vw, 3.5rem); }
-        h2 { font-size: clamp(1.8rem, 3vw, 2.5rem); }
 
         a { text-decoration: none; color: inherit; }
         img { max-width: 100%; display: block; }
@@ -71,14 +70,14 @@
         
         .variant-picker { margin: 20px 0; }
         .variant-picker label { display: block; margin-bottom: 8px; font-weight: 600; color: var(--text-main); }
-        .options { display: flex; gap: 15px; }
+        .options { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 15px; }
         .option-btn {
-            padding: 8px 16px; background: var(--card-bg); border: 1px solid var(--border-color);
+            padding: 8px 18px; background: var(--card-bg); border: 1px solid var(--border-color);
             color: var(--text-main); border-radius: 4px; cursor: pointer; transition: var(--transition);
         }
-        .option-btn.active { border-color: var(--secondary); background: rgba(212, 175, 55, 0.1); color: var(--secondary); }
+        .option-btn.active { border-color: var(--secondary); background: rgba(212, 175, 55, 0.15); color: var(--secondary); font-weight: 600; }
 
-        .price-display { font-size: 1.8rem; color: var(--secondary); font-weight: 700; margin: 20px 0; }
+        .price-display { font-size: 2rem; color: var(--secondary); font-weight: 700; margin: 20px 0; }
         .quantity { display: flex; align-items: center; gap: 15px; margin-bottom: 25px; }
         .quantity input { width: 70px; padding: 8px; background: var(--card-bg); border: 1px solid var(--border-color); color: var(--text-main); border-radius: 4px; text-align: center; }
 
@@ -131,26 +130,37 @@
                     <h1>Sonth Ladoo</h1>
                     <p>Protein-rich traditional treat prepared with dried ginger, gond, pure ghee and premium dry fruits.</p>
                     
+                    <!-- Base Variant Picker -->
                     <div class="variant-picker">
                         <label>Select Base:</label>
                         <div class="options">
-                            <button class="option-btn active" onclick="setVariant('Sugar', 1000, this)">Sugar Based</button>
-                            <button class="option-btn" onclick="setVariant('Jaggery', 1100, this)">Jaggery Based</button>
+                            <button class="option-btn active" onclick="setBase('Sugar', this)">Sugar Based</button>
+                            <button class="option-btn" onclick="setBase('Jaggery', this)">Jaggery Based</button>
                         </div>
                     </div>
 
-                    <div class="price-display" id="displayed-price">₹1000 / Kg</div>
+                    <!-- Weight Variant Picker -->
+                    <div class="variant-picker">
+                        <label>Select Weight:</label>
+                        <div class="options">
+                            <button class="option-btn" onclick="setWeight('250g', this)">250 g</button>
+                            <button class="option-btn" onclick="setWeight('500g', this)">500 g</button>
+                            <button class="option-btn active" onclick="setWeight('1Kg', this)">1 Kg</button>
+                        </div>
+                    </div>
+
+                    <div class="price-display" id="displayed-price">₹1,000</div>
 
                     <div class="quantity">
                         <label for="prod-qty">Quantity</label>
-                        <input id="prod-qty" type="number" value="1" min="1">
+                        <input id="prod-qty" type="number" value="1" min="1" onchange="recalculatePrice()">
                     </div>
 
                     <div style="display: flex; gap: 15px; flex-wrap: wrap;">
                         <button class="btn btn-primary" onclick="handleAddToCart()">
                             <i class="fa-solid fa-cart-plus"></i> Add to Cart
                         </button>
-                        <a id="wa-order-btn" href="https://wa.me/916393072915?text=Hello%20Ashtami,%20I%20am%20interested%20in%20ordering%20Sonth%20Ladoo%20(Sugar%20Based)." class="btn btn-secondary" target="_blank">
+                        <a id="wa-order-btn" href="#" class="btn btn-secondary" target="_blank">
                             <i class="fa-brands fa-whatsapp"></i> Order on WhatsApp
                         </a>
                     </div>
@@ -168,28 +178,51 @@
     <a href="https://wa.me/916393072915" class="whatsapp" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
 
     <script>
-        let currentVariant = 'Sugar';
-        let currentPrice = 1000;
+        // Matrix of prices per base and weight
+        const pricingMatrix = {
+            'Sugar': { '250g': 250, '500g': 500, '1Kg': 1000 },
+            'Jaggery': { '250g': 275, '500g': 550, '1Kg': 1100 }
+        };
 
-        function setVariant(variant, price, btn) {
-            currentVariant = variant;
-            currentPrice = price;
-            
-            document.querySelectorAll('.option-btn').forEach(b => b.classList.remove('active'));
+        let currentBase = 'Sugar';
+        let currentWeight = '1Kg';
+
+        function setBase(base, btn) {
+            currentBase = base;
+            btn.parentElement.querySelectorAll('.option-btn').forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
+            recalculatePrice();
+        }
+
+        function setWeight(weight, btn) {
+            currentWeight = weight;
+            btn.parentElement.querySelectorAll('.option-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            recalculatePrice();
+        }
+
+        function recalculatePrice() {
+            const unitPrice = pricingMatrix[currentBase][currentWeight];
+            const qtyInput = document.getElementById('prod-qty');
+            const qty = Math.max(1, parseInt(qtyInput.value) || 1);
             
-            document.getElementById('displayed-price').textContent = `₹${price} / Kg`;
+            const totalPrice = unitPrice * qty;
             
-            const waBtn = document.getElementById('wa-order-btn');
-            waBtn.href = `https://wa.me/916393072915?text=Hello%20Ashtami,%20I%20am%20interested%20in%20ordering%20Sonth%20Ladoo%20(${variant}%20Based).`;
+            document.getElementById('displayed-price').textContent = `₹${totalPrice.toLocaleString('en-IN')}`;
+            
+            // Update WhatsApp Link Dynamic Message
+            const waMsg = encodeURIComponent(`Hello Ashtami, I am interested in ordering ${qty} x Sonth Ladoo (${currentBase} Based - ${currentWeight}). Total: ₹${totalPrice}`);
+            document.getElementById('wa-order-btn').href = `https://wa.me/916393072915?text=${waMsg}`;
         }
 
         function handleAddToCart() {
             const qtyInput = document.getElementById('prod-qty');
-            const qty = parseInt(qtyInput.value) || 1;
+            const qty = Math.max(1, parseInt(qtyInput.value) || 1);
+            const unitPrice = pricingMatrix[currentBase][currentWeight];
             
             let cart = JSON.parse(localStorage.getItem('cart')) || [];
-            const itemId = `sonth-${currentVariant.toLowerCase()}`;
+            const itemId = `sonth-${currentBase.toLowerCase()}-${currentWeight.toLowerCase()}`;
+            const variantText = `${currentBase} Based (${currentWeight})`;
             
             const existingIndex = cart.findIndex(item => item.id === itemId);
             if (existingIndex > -1) {
@@ -198,25 +231,30 @@
                 cart.push({
                     id: itemId,
                     name: 'Sonth Ladoo',
-                    price: currentPrice,
+                    price: unitPrice,
                     image: 'sonth-ladoo.png',
-                    variant: `${currentVariant} Based (1 Kg)`,
+                    variant: variantText,
                     quantity: qty
                 });
             }
             
             localStorage.setItem('cart', JSON.stringify(cart));
             updateGlobalCartCountDisplay();
-            alert(`Added ${qty} x Sonth Ladoo (${currentVariant} Based) to your cart!`);
+            alert(`Added ${qty} x Sonth Ladoo (${variantText}) to your cart!`);
         }
 
         function updateGlobalCartCountDisplay() {
             const cart = JSON.parse(localStorage.getItem('cart')) || [];
             const countBadge = document.getElementById('global-cart-count');
-            if (countBadge) countBadge.textContent = cart.reduce((sum, item) => sum + parseInt(item.quantity || 1), 0);
+            if (countBadge) {
+                countBadge.textContent = cart.reduce((sum, item) => sum + parseInt(item.quantity || 1), 0);
+            }
         }
 
-        document.addEventListener('DOMContentLoaded', updateGlobalCartCountDisplay);
+        document.addEventListener('DOMContentLoaded', () => {
+            recalculatePrice();
+            updateGlobalCartCountDisplay();
+        });
     </script>
 </body>
 </html>
