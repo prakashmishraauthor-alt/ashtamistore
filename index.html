@@ -3,36 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ashtami | Authentic Homemade Sweets & Delicacies</title>
-    <meta name="description" content="Discover handcrafted homemade sweets, savouries, gifts, and jewellery from Ashtami Store. Traditional taste delivered to your doorstep.">
-    
+    <title>Ashtami | Traditional Taste, Style and Smile Delivered</title>
+    <meta name="description" content="Discover Ashtami's handcrafted traditional sweets, savouries, jewellery and personalised gift items made with love and delivered with care.">
+
+    <!-- Fonts & Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght=500;600;700&family=Poppins:wght=300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-    
+
     <style>
-        /*=========================================================
-        DESIGN SYSTEM VARIABLES
-        =========================================================*/
+        /*====================================
+        DARK THEME DESIGN SYSTEM & RESET
+        =====================================*/
         :root {
-            --primary: #0a2e1c;
-            --secondary: #d4af37;
-            --accent: #9e2a2b;       /* Festive Deep Red */
-            --accent-bright: #cc3333;/* Festive Accent Pop */
-            --dark-bg: #111412;      /* Premium Dark Base */
-            --header-bg: #161b18;
-            --card-bg: #1a201c;
+            --primary: #117060;
+            --primary-dark: #0a4d42;
+            --secondary: #D4AF37;
+            --secondary-hover: #f1cb53;
+            --accent: #E54B4B;
+            --dark: #0f1110;
+            --light: #ffffff;
+            --background: #141816;
+            --card-bg: #1d2421;
+            --text-main: #e2e8f0;
+            --text-muted: #a0aec0;
             --border-color: rgba(255, 255, 255, 0.08);
-            --text-main: #f4f7f5;
-            --text-muted: #a0aba4;
-            --shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
-            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        /*=========================================================
-        CORE RESET & GLOBAL STYLES
-        =========================================================*/
         * {
             margin: 0;
             padding: 0;
@@ -45,12 +45,29 @@
 
         body {
             font-family: 'Poppins', sans-serif;
-            background: var(--dark-bg);
-            color: var(--text-muted);
-            line-height: 1.6;
+            background: var(--background);
+            color: var(--text-main);
             overflow-x: hidden;
-            -webkit-text-size-adjust: 100%;
+            line-height: 1.7;
         }
+
+        /*====================
+        TYPOGRAPHY
+        =====================*/
+        h1, h2, h3, h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 700;
+            color: var(--light);
+            line-height: 1.2;
+        }
+
+        h1 { font-size: 3.5rem; }
+        h2 { font-size: 2.8rem; text-align: center; margin-bottom: 15px; color: var(--secondary); }
+        h3 { font-size: 1.8rem; color: var(--light); }
+        p { font-size: 0.95rem; color: var(--text-main); }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+        img { width: 100%; height: auto; display: block; }
 
         .container {
             width: 90%;
@@ -59,116 +76,76 @@
         }
 
         section {
-            padding: 80px 0;
-            border-bottom: 1px solid var(--border-color);
+            padding: 100px 0;
         }
 
-        /* Typography */
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Cormorant Garamond', serif;
-            color: var(--text-main);
-            font-weight: 700;
-            line-height: 1.2;
-        }
-
-        h1 { font-size: clamp(2.5rem, 5vw, 4rem); }
-        h2 { font-size: clamp(2rem, 4vw, 3rem); }
-        h3 { font-size: clamp(1.4rem, 3vw, 1.8rem); }
-
-        p { font-size: 1rem; }
-
-        img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-            object-fit: cover;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-            transition: var(--transition);
-        }
-
-        /* Reusable Components */
         .section-title {
             text-align: center;
-            margin-bottom: 50px;
-            position: relative;
+            margin-bottom: 60px;
         }
 
-        .section-title h2 {
-            margin-bottom: 15px;
+        .section-title p {
+            max-width: 650px;
+            margin: 0 auto;
+            font-size: 1.05rem;
+            color: var(--text-muted);
         }
 
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 3px;
-            background: var(--accent);
-            margin: 15px auto 0;
-        }
-
-        /* Buttons */
         .btn {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: 12px 28px;
-            border-radius: 4px;
+            gap: 10px;
+            padding: 14px 32px;
+            border-radius: 50px;
             font-weight: 600;
             font-size: 0.95rem;
-            gap: 10px;
+            transition: var(--transition);
             cursor: pointer;
-            border: 1px solid transparent;
+            border: none;
             width: max-content;
         }
 
         .btn-primary {
-            background: var(--accent);
-            color: var(--text-main);
-            border-color: var(--accent);
+            background: var(--primary);
+            color: var(--light);
         }
 
         .btn-primary:hover {
-            background: var(--accent-bright);
+            background: var(--primary-dark);
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(158, 42, 43, 0.4);
+            box-shadow: 0 5px 15px rgba(17, 112, 96, 0.4);
         }
 
         .btn-secondary {
-            background: transparent;
-            color: var(--text-main);
-            border-color: var(--border-color);
+            background: var(--secondary);
+            color: var(--dark);
         }
 
         .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.03);
-            border-color: var(--secondary);
-            color: var(--secondary);
+            background: var(--secondary-hover);
             transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
         }
 
-        /*=========================================================
-        HEADER, NAVIGATION & ANNOUNCEMENT BAR
-        =========================================================*/
+        /*====================
+        STICKY HEADER & NAVBAR
+        =====================*/
         .top-bar {
-            background: var(--accent);
-            color: var(--text-main);
-            padding: 8px 0;
+            background: var(--primary-dark);
+            color: var(--light);
+            padding: 10px;
             text-align: center;
             font-size: 0.85rem;
-            font-weight: 500;
             letter-spacing: 1px;
-            text-transform: uppercase;
-            border-bottom: 2px solid var(--secondary);
+            font-weight: 500;
+            border-bottom: 1px solid var(--border-color);
         }
 
         header {
             position: sticky;
             top: 0;
-            background: var(--header-bg);
+            background: #161b18;
             border-bottom: 1px solid var(--border-color);
             z-index: 1000;
             box-shadow: var(--shadow);
@@ -179,7 +156,6 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            position: relative;
         }
 
         .logo {
@@ -194,90 +170,53 @@
             display: flex;
             align-items: center;
             gap: 30px;
-            list-style: none;
         }
 
         nav ul li a {
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             font-weight: 500;
             color: var(--text-main);
-            padding: 8px 0;
-            position: relative;
+            transition: var(--transition);
         }
 
-        nav ul li a:hover,
-        nav ul li.active > a {
+        nav ul li a:hover {
             color: var(--secondary);
         }
 
-        /* Dropdown Setup */
         .dropdown {
             position: relative;
-        }
-
-        .dropdown-toggle {
-            font-size: 0.75rem;
-            margin-left: 4px;
-            pointer-events: none;
         }
 
         .dropdown-menu {
             position: absolute;
             top: 100%;
-            left: 50%;
-            transform: translateX(-50%) translateY(15px);
+            left: 0;
             background: #1d2421;
-            min-width: 240px;
-            border-radius: 4px;
-            padding: 10px 0;
-            border: 1px solid var(--border-color);
             box-shadow: var(--shadow);
-            opacity: 0;
-            visibility: hidden;
-            display: flex;
-            flex-direction: column;
-            gap: 0;
-            transition: var(--transition);
-        }
-
-        .dropdown-menu::before {
-            content: '';
-            position: absolute;
-            top: -5px;
-            left: 50%;
-            transform: translateX(-50%) rotate(45deg);
-            width: 10px;
-            height: 10px;
-            background: #1d2421;
-            border-left: 1px solid var(--border-color);
-            border-top: 1px solid var(--border-color);
-        }
-
-        .dropdown-menu li {
-            width: 100%;
+            border-radius: 8px;
+            padding: 15px 0;
+            min-width: 220px;
+            display: none;
+            margin-top: 10px;
+            border: 1px solid var(--border-color);
         }
 
         .dropdown-menu li a {
             display: block;
-            padding: 10px 20px;
+            padding: 8px 25px;
             font-size: 0.85rem;
             color: var(--text-muted);
-            width: 100%;
         }
 
         .dropdown-menu li a:hover {
-            background: rgba(255, 255, 255, 0.03);
+            background: rgba(255, 255, 255, 0.05);
             color: var(--secondary);
-            padding-left: 25px;
         }
 
         .dropdown:hover .dropdown-menu {
-            opacity: 1;
-            visibility: visible;
-            transform: translateX(-50%) translateY(5px);
+            display: block;
         }
 
-        /* Cart Icon Spec */
         .cart-icon {
             position: relative;
             font-size: 1.1rem;
@@ -285,210 +224,728 @@
 
         .cart-count {
             position: absolute;
-            top: -10px;
-            right: -14px;
+            top: -8px;
+            right: -12px;
             background: var(--accent);
-            color: var(--text-main);
-            font-size: 0.65rem;
-            font-weight: 700;
+            color: var(--light);
+            font-size: 0.7rem;
             width: 18px;
             height: 18px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            border: 1px solid var(--header-bg);
+            font-family: 'Poppins', sans-serif;
         }
 
-        /* Mobile Hamburger Icon Styling */
         .menu-toggle {
             display: none;
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             cursor: pointer;
-            color: var(--text-main);
-            padding: 5px;
-            transition: var(--transition);
+            color: var(--light);
         }
 
-        .menu-toggle:hover {
-            color: var(--secondary);
-        }
-
-        /*=========================================================
+        /*====================
         HERO SECTION
-        =========================================================*/
+        =====================*/
         .hero {
-            background: linear-gradient(rgba(17, 20, 18, 0.82), rgba(17, 20, 18, 0.95)), url('hero-bg.jpg') center/cover no-repeat;
-            padding: 120px 0;
-            text-align: center;
-            position: relative;
+            background: #111513;
+            padding: 80px 0;
         }
 
-        .hero h1 {
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .hero-text h1 {
             margin-bottom: 20px;
-            color: var(--text-main);
         }
 
-        .hero p {
-            max-width: 750px;
-            margin: 0 auto 35px auto;
-            font-size: 1.15rem;
+        .hero-text p {
+            font-size: 1.05rem;
+            margin-bottom: 35px;
             color: var(--text-muted);
         }
 
-        .hero-btns {
+        .hero-buttons {
             display: flex;
             gap: 15px;
-            justify-content: center;
-            flex-wrap: wrap;
         }
 
-        /*=========================================================
-        FEATURED PRODUCTS GRID
-        =========================================================*/
-        .product-grid-3 {
+        .hero-image img {
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            border: 1px solid var(--border-color);
+            max-width: 500px;
+            margin: 0 auto;
+        }
+/*====================================
+SCROLLING GALLERY SECTION
+=====================================*/
+.scrolling-gallery-section {
+    padding: 80px 0;
+    background: var(--dark);
+    border-bottom: 1px solid var(--border-color);
+    overflow: hidden;
+}
+
+/* Horizontal Scroll Container */
+.gallery-scroll-container {
+    display: flex;
+    gap: 25px;
+    overflow-x: auto;
+    padding: 20px 5px 30px 5px;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+}
+
+/* Custom Scrollbar Styling */
+.gallery-scroll-container::-webkit-scrollbar {
+    height: 6px;
+}
+
+.gallery-scroll-container::-webkit-scrollbar-track {
+    background: var(--dark);
+    border-radius: 10px;
+}
+
+.gallery-scroll-container::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 10px;
+}
+
+.gallery-scroll-container::-webkit-scrollbar-thumb:hover {
+    background: var(--secondary);
+}
+
+/* Gallery Item Card */
+.scroll-card {
+    flex: 0 0 280px;
+    scroll-snap-align: start;
+    background: var(--card-bg);
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+}
+
+.scroll-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--secondary);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 15px rgba(212, 175, 55, 0.2);
+}
+
+.scroll-img-wrapper {
+    position: relative;
+    width: 100%;
+    height: 240px;
+    overflow: hidden;
+}
+
+.scroll-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.scroll-card:hover .scroll-img-wrapper img {
+    transform: scale(1.08);
+}
+
+.scroll-tag {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: rgba(15, 17, 16, 0.85);
+    color: var(--secondary);
+    border: 1px solid var(--secondary);
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 50px;
+    backdrop-filter: blur(4px);
+}
+
+.scroll-info {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: space-between;
+}
+
+.scroll-info h3 {
+    font-size: 1.15rem;
+    margin-bottom: 6px;
+    color: var(--light);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.scroll-info p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 15px;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.scroll-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: auto;
+    padding-top: 10px;
+    border-top: 1px solid var(--border-color);
+}
+
+.scroll-price {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--secondary);
+}
+
+.scroll-btn {
+    padding: 6px 14px;
+    font-size: 0.8rem;
+    border-radius: 50px;
+}
+        /* ==========================
+        ASHTAMI SWEETS SECTION
+        ========================== */
+        .sweets-section {
+            padding: 100px 20px;
+            background: linear-gradient(135deg,#050505,#121212,#1a1208);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #cfcfcf;
+            font-size: 18px;
+            margin-bottom: 60px;
+            line-height: 1.6;
+        }
+
+        .sweets-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit,minmax(320px,1fr));
+            gap: 35px;
+        }
+
+        .sweet-card {
+            background: linear-gradient(145deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+            border: 1px solid rgba(212,175,55,0.25);
+            border-radius: 22px;
+            overflow: hidden;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            transition: all 0.4s ease;
+            text-align: center;
+        }
+
+        .sweet-card:hover {
+            transform: translateY(-12px);
+            border-color: #D4AF37;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.7), 0 0 25px rgba(212,175,55,0.25);
+        }
+
+        .sweet-card img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .sweet-card h3 {
+            padding: 25px 20px 10px;
+            color: #FFD86A;
+            font-size: 26px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .sweet-card p {
+            color: #b5b5b5;
+            padding: 0 20px 25px;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(to right,#D4AF37,#FFD86A,#D4AF37);
+            margin: 20px auto 0;
+            border-radius: 10px;
+        }
+
+        /*====================
+        COLLECTIONS (CATEGORIES)
+        =====================*/
+        .categories {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 30px;
         }
 
-        .product-card {
+        .category-card {
             background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 25px;
-            text-align: center;
+            border-radius: 16px;
+            overflow: hidden;
             box-shadow: var(--shadow);
             transition: var(--transition);
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            border: 1px solid var(--border-color);
         }
 
-        .product-card:hover {
+        .category-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--secondary);
+        }
+
+        .category-card img {
+            height: 240px;
+            object-fit: cover;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .category-content {
+            padding: 30px;
+            text-align: center;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .category-content h3 {
+            margin-bottom: 10px;
+        }
+
+        .category-content p {
+            margin-bottom: 20px;
+            color: var(--text-muted);
+        }
+
+        /*====================
+        SIGNATURE PRODUCTS
+        =====================*/
+        #signature-products {
+            background: #111513;
+        }
+
+        .signature-product {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            margin-bottom: 100px;
+        }
+
+        .signature-product:last-child {
+            margin-bottom: 0;
+        }
+
+        .signature-product.reverse {
+            direction: rtl;
+        }
+
+        .signature-product.reverse .signature-content {
+            direction: ltr;
+        }
+
+        .signature-image img {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            display: block;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid var(--border-color);
+            margin: 0 auto;
+        }
+
+        .signature-image img:hover {
+            transform: scale(1.02);
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(212, 175, 55, 0.15);
+            color: var(--secondary);
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .signature-content h2 {
+            text-align: left;
+            margin-bottom: 15px;
+        }
+
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 25px 0;
+        }
+
+        .features span {
+            background: #1a221f;
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--secondary);
+            border: 1px solid var(--border-color);
+        }
+
+        .price-box {
+            background: #161c1a;
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            border-left: 4px solid var(--secondary);
+            border: 1px solid var(--border-color);
+        }
+
+        .price-box h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+
+        .price-box p {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+        }
+
+        .price-box span {
+            font-weight: 700;
+            color: var(--secondary);
+            font-size: 1.1rem;
+        }
+
+        .signature-action-btns {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        /*====================
+        WHY CHOOSE US
+        =====================*/
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .why-card {
+            background: var(--card-bg);
+            padding: 40px 30px;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid var(--border-color);
+        }
+
+        .why-card:hover {
             transform: translateY(-5px);
             border-color: var(--secondary);
         }
 
-        .product-card img {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-            border-radius: 4px;
-            margin-bottom: 20px;
-        }
-
-        .product-card h3 {
-            margin-bottom: 10px;
-            font-size: 1.5rem;
-        }
-
-        .product-card p {
-            font-size: 0.95rem;
-            margin-bottom: 15px;
-        }
-
-        .product-card .price {
-            font-size: 1.25rem;
+        .why-icon {
+            width: 70px;
+            height: 70px;
+            background: rgba(17, 112, 96, 0.15);
             color: var(--secondary);
-            font-weight: 700;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.6rem;
+            margin: 0 auto 20px;
+            transition: var(--transition);
+            border: 1px solid rgba(17, 112, 96, 0.3);
+        }
+
+        .why-card:hover .why-icon {
+            background: var(--primary);
+            color: var(--light);
+            transform: scale(1.05);
+        }
+
+        .why-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+        }
+
+        .why-card p {
+            color: var(--text-muted);
+        }
+
+        /*====================
+        OUR STORY
+        =====================*/
+        #our-story {
+            background: #111513;
+        }
+
+        .story-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        .story-image img {
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .story-tag {
+            display: inline-block;
+            background: rgba(212, 175, 55, 0.15);
+            color: var(--secondary);
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .story-content h2 {
+            text-align: left;
             margin-bottom: 20px;
         }
 
-        .product-card .btn {
-            width: 100%;
+        .story-content p {
+            margin-bottom: 15px;
+            font-size: 1rem;
+            color: var(--text-main);
         }
 
-        /*=========================================================
-        WHY CHOOSE US GRID
-        =========================================================*/
-        .features-grid {
+        /*====================
+        PROMISE
+        =====================*/
+        .promise-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 25px;
         }
 
-        .feature-card {
-            background: rgba(26, 32, 28, 0.6);
-            border: 1px solid var(--border-color);
-            padding: 30px 20px;
-            border-radius: 6px;
-            text-align: center;
-            transition: var(--transition);
-        }
-
-        .feature-card:hover {
+        .promise-item {
             background: var(--card-bg);
-            border-color: var(--secondary);
-            transform: translateY(-3px);
+            padding: 35px 25px;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid var(--border-color);
         }
 
-        .feature-card i {
-            font-size: 2rem;
+        .promise-item:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+        }
+
+        .promise-item h3 {
+            font-size: 2.2rem;
             color: var(--secondary);
+            margin-bottom: 8px;
+        }
+
+        .promise-item p {
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        /*====================
+        TESTIMONIALS
+        =====================*/
+        #testimonials {
+            background: #111513;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background: var(--card-bg);
+            padding: 35px;
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+        }
+
+        .stars {
+            color: var(--secondary);
+            font-size: 1.1rem;
             margin-bottom: 15px;
         }
 
-        .feature-card h3 {
-            font-size: 1.25rem;
-            margin-bottom: 10px;
+        .testimonial-card p {
+            font-style: italic;
+            margin-bottom: 20px;
+            color: var(--text-main);
         }
 
-        /*=========================================================
-        CTA BANNER
-        =========================================================*/
-        .cta {
-            background: linear-gradient(135deg, #161b18 0%, #0a2e1c 100%);
-            border: 1px solid var(--border-color);
-            border-top: 3px solid var(--accent);
-            border-radius: 8px;
-            padding: 60px 40px;
+        .testimonial-card h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--light);
+        }
+
+        .testimonial-card span {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        /*====================
+        STATS
+        =====================*/
+        #stats {
+            background: var(--primary-dark);
+            color: var(--light);
+            padding: 60px 0;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
             text-align: center;
+            gap: 30px;
+        }
+
+        .stats-grid h2 {
+            font-size: 3rem;
+            color: var(--secondary);
+            margin-bottom: 5px;
+        }
+
+        .stats-grid p {
+            color: var(--text-main);
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        /*====================
+        FAQ
+        =====================*/
+        .faq-box {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--card-bg);
+            padding: 25px;
+            margin-bottom: 15px;
+            border-radius: 12px;
             box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+        }
+
+        .faq-item h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--secondary);
+        }
+
+        .faq-item p {
+            color: var(--text-muted);
+        }
+
+        /*====================
+        CTA SECTION
+        =====================*/
+        .cta {
+            background: linear-gradient(rgba(15, 17, 16, 0.9), rgba(15, 17, 16, 0.9)), url('Hero.png');
+            background-size: cover;
+            background-position: center;
+            color: var(--light);
+            text-align: center;
+            padding: 80px 20px;
+            border-radius: 24px;
+            margin-bottom: -60px;
+            position: relative;
+            z-index: 2;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
         }
 
         .cta h2 {
+            color: var(--secondary);
             margin-bottom: 15px;
         }
 
         .cta p {
+            color: rgba(255, 255, 255, 0.8);
             max-width: 600px;
-            margin: 0 auto 30px auto;
-            font-size: 1.1rem;
+            margin: 0 auto 30px;
+            font-size: 1.05rem;
         }
 
-        /*=========================================================
-        FOOTER COMPONENT ARCHITECTURE
-        =========================================================*/
+        /*====================
+        FOOTER
+        =====================*/
         footer {
-            background: #090c0a;
-            padding: 70px 0 0 0;
-            font-size: 0.9rem;
-            border-top: 2px solid var(--accent);
+            background: #0b0d0c;
+            color: var(--text-muted);
+            padding: 120px 0 40px;
+            border-top: 1px solid var(--border-color);
         }
 
         .footer-grid {
             display: grid;
-            grid-template-columns: 2fr repeat(3, 1fr);
-            gap: 40px;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 50px;
             margin-bottom: 50px;
         }
 
         .footer-column h4 {
-            font-size: 1.2rem;
+            color: var(--light);
             margin-bottom: 20px;
-            color: var(--secondary);
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
+            font-size: 1.3rem;
         }
 
         .footer-column p {
-            font-size: 0.9rem;
-            line-height: 1.6;
-        }
-
-        .footer-column ul {
-            list-style: none;
+            color: var(--text-muted);
         }
 
         .footer-column ul li {
@@ -496,6 +953,8 @@
         }
 
         .footer-column ul li a {
+            transition: var(--transition);
+            font-size: 0.9rem;
             color: var(--text-muted);
         }
 
@@ -505,178 +964,239 @@
         }
 
         .footer-bottom {
-            border-top: 1px solid var(--border-color);
-            padding: 25px 0;
             text-align: center;
-            font-size: 0.8rem;
-            color: rgba(255, 255, 255, 0.3);
+            padding-top: 30px;
+            border-top: 1px solid var(--border-color);
+            font-size: 0.85rem;
         }
 
-        /*=========================================================
-        FLOATING UTILITY SHIELD ELEMENT
-        =========================================================*/
+        /*====================
+        WHATSAPP FLOATER
+        =====================*/
         .whatsapp {
             position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: #25d366;
-            color: white;
-            width: 56px;
-            height: 56px;
+            right: 25px;
+            bottom: 25px;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            color: var(--light);
             border-radius: 50%;
             display: flex;
-            align-items: center;
             justify-content: center;
+            align-items: center;
             font-size: 1.8rem;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+            box-shadow: 0 8px 25px rgba(37,211,102,0.4);
             z-index: 999;
             transition: var(--transition);
         }
 
         .whatsapp:hover {
-            transform: scale(1.1) rotate(8deg);
-            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
+            transform: scale(1.1) rotate(5deg);
         }
 
-        /*=========================================================
-        MEDIA QUERIES ENGINE
-        =========================================================*/
-        @media screen and (max-width: 1024px) {
-            .features-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .footer-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
+        /*==================================================
+        RESPONSIVE DESIGN BREAKPOINTS
+        ==================================================*/
+        @media (max-width: 1024px) {
+            h1 { font-size: 2.8rem; }
+            h2 { font-size: 2.3rem; }
+            section { padding: 80px 0; }
+            .hero-content, .signature-product, .story-wrapper { gap: 40px; }
+            .categories, .why-grid, .testimonial-grid { grid-template-columns: repeat(2, 1fr); }
+            .promise-grid, .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+            .footer-grid { grid-template-columns: repeat(2, 1fr); gap: 40px; }
         }
 
-        @media screen and (max-width: 991px) {
-            section {
-                padding: 60px 0;
-            }
-            
+        @media (max-width: 991px) {
+            /* FIXED: Re-enabled hamburger toggle icon layout visibility & engagement actions */
             .menu-toggle {
-                display: block;
+                display: block !important;
+                pointer-events: auto !important;
             }
 
             nav {
                 position: absolute;
                 top: 100%;
-                left: -5%;
-                width: 110%;
+                left: 0;
+                width: 100%;
                 background: #161b18;
                 box-shadow: var(--shadow);
-                max-height: 0;
-                overflow: hidden;
-                opacity: 0;
-                visibility: hidden;
-                transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-                border-bottom: 0 solid var(--accent);
+                padding: 20px 0;
+                display: none;
+                border-bottom: 1px solid var(--border-color);
             }
 
             nav.active {
-                max-height: 500px;
-                opacity: 1;
-                visibility: visible;
-                border-bottom: 3px solid var(--accent);
-                overflow-y: auto;
+                display: block;
             }
 
             nav ul {
                 flex-direction: column;
-                align-items: stretch;
-                gap: 0;
+                gap: 20px;
                 width: 90%;
-                margin: 15px auto;
-            }
-
-            nav ul li {
-                border-bottom: 1px solid rgba(255,255,255,0.03);
-            }
-
-            nav ul li:last-child {
-                border-bottom: none;
-            }
-
-            nav ul li a {
-                display: block;
-                padding: 15px 10px;
-                font-size: 1.05rem;
+                margin: 0 auto;
+                align-items: flex-start;
             }
 
             .dropdown-menu {
                 position: static;
-                transform: none;
-                opacity: 1;
-                visibility: visible;
-                display: none;
-                background: rgba(0, 0, 0, 0.15);
                 box-shadow: none;
+                padding: 10px 0 0 15px;
+                display: block;
+                background: transparent;
                 border: none;
-                padding: 5px 0 10px 20px;
-                margin-top: 0;
+            }
+
+            .btn {
                 width: 100%;
             }
 
-            .dropdown-menu::before {
-                display: none;
-            }
-
-            .dropdown.open-active .dropdown-menu {
-                display: flex;
-            }
-
-            .dropdown-toggle {
-                float: right;
-                margin-top: 5px;
-                pointer-events: auto;
-                padding: 10px;
-                transition: transform 0.3s ease;
-            }
-
-            .dropdown.open-active .dropdown-toggle {
-                transform: rotate(180deg);
-                color: var(--secondary);
-            }
-
-            .product-grid-3 {
+            .hero-content {
                 grid-template-columns: 1fr;
-                gap: 35px;
+                text-align: center;
             }
-        }
 
-        @media screen and (max-width: 580px) {
-            .features-grid,
-            .footer-grid {
+            .hero-image {
+                order: -1;
+                max-width: 450px;
+                margin: 0 auto;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .signature-product {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .signature-product.reverse {
+                direction: ltr;
+            }
+
+            .signature-content h2, .story-content h2 {
+                text-align: center;
+            }
+
+            .story-wrapper {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 30px;
+            }
+
+            .story-image {
+                max-width: 450px;
+                margin: 0 auto;
+            }
+
+            .categories, .why-grid, .testimonial-grid, .promise-grid, .stats-grid, .footer-grid {
                 grid-template-columns: 1fr;
             }
+
             .cta {
-                padding: 40px 20px;
+                padding: 50px 20px;
+                border-radius: 16px;
+            }
+
+            footer {
+                padding-top: 100px;
             }
         }
+
+        @media (max-width: 480px) {
+            h1 { font-size: 2.2rem; }
+            h2 { font-size: 1.8rem; }
+            h3 { font-size: 1.4rem; }
+            section { padding: 60px 0; }
+            .category-card img { height: 200px; }
+            .whatsapp { width: 50px; height: 50px; font-size: 1.5rem; right: 15px; bottom: 15px; }
+        }
+        /*=========================================================
+MODERN SOCIAL MEDIA ICONS CONTAINER
+=========================================================*/
+.social-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 30px 0;
+    background: transparent;
+}
+
+/* Base Icon Styling */
+.social-icon {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    background: #1a201c; /* Matches your --card-bg variable */
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 50%;
+    color: #a0aba4; /* Matches your --text-muted variable */
+    font-size: 20px;
+    text-decoration: none;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Smooth bouncy pop effect */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Global Hover Upward Shift */
+.social-icon:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Brand Colors Custom Hover System */
+.social-icon.whatsapp:hover {
+    background: #25D366;
+    color: #ffffff;
+    border-color: #25D366;
+}
+
+.social-icon.instagram:hover {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    color: #ffffff;
+    border-color: transparent;
+}
+
+.social-icon.facebook:hover {
+    background: #1877F2;
+    color: #ffffff;
+    border-color: #1877F2;
+}
+
+.social-icon.youtube:hover {
+    background: #FF0000;
+    color: #ffffff;
+    border-color: #FF0000;
+}
+
+/* Accessibility Focus Fixes */
+.social-icon:focus-visible {
+    outline: 2px solid #d4af37; /* Matches your --secondary golden variable */
+    outline-offset: 3px;
+}
     </style>
 </head>
 
 <body>
 
+    <!-- TOP BAR -->
     <div class="top-bar">
         Traditional Taste, Style and Smile Delivered
     </div>
 
+    <!-- HEADER -->
     <header>
         <div class="container navbar">
-            <div class="logo">
-                ASHTAMI STORE
-            </div>
-
-            <!-- MENU CONTAINER -->
+            <div class="logo">ASHTAMI STORE</div>
             <nav id="nav-menu">
                 <ul>
-                    <li class="active"><a href="index.html">Home</a></li>
-                    <li class="dropdown" id="dropdown-parent">
-                        <a href="category.html">
-                            Collections <i class="fa-solid fa-chevron-down dropdown-toggle" id="dropdown-btn"></i>
-                        </a>
+                    <li><a href="index.html">Home</a></li>
+                    <li class="dropdown">
+                        <a href="category.html">Collections <i class="fa-solid fa-chevron-down" style="font-size:0.75rem;"></i></a>
                         <ul class="dropdown-menu">
                             <li><a href="category.html">Sweets &amp; Savouries</a></li>
                             <li><a href="product-gift.html">Printed Gift Items</a></li>
@@ -693,121 +1213,374 @@
                     </li>
                 </ul>
             </nav>
-
-            <!-- NAVIGATION TRIGGER HAMBURGER -->
             <div class="menu-toggle" id="mobile-toggle">
                 <i class="fa-solid fa-bars"></i>
             </div>
         </div>
     </header>
 
+    <!-- HERO SECTION -->
     <section class="hero">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <h1>Traditional Taste,<br>Style and Smile Delivered</h1>
+                <p>Experience the warmth of homemade sweets, handcrafted jewellery and personalised gifts inspired by Indian traditions. Every creation is made with care, quality and authenticity.</p>
+                <div class="hero-buttons">
+                    <a href="#collections" class="btn btn-primary">Explore Collections</a>
+                    <a href="https://wa.me/916393072915?text=Hello%20Ashtami,%20I%20would%20like%20to%20place%20an%20order." class="btn btn-secondary" target="_blank">
+                        <i class="fa-brands fa-whatsapp"></i> Order on WhatsApp
+                    </a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="Hero.png" alt="Ashtami Banner">
+            </div>
+        </div>
+    </section>
+   
+</section>
+    <!-- ASHTAMI SWEETS SHOWCASE -->
+    <section class="sweets-section">
         <div class="container">
-            <h1>Handcrafted Traditional Delicacies &amp; Lifestyle</h1>
-            <p>Experience authentic recipes prepared with pure ghee, whole wheat, and natural ingredients. Prepared with traditional warmth and delivered straight to your home.</p>
-            <div class="hero-btns">
-                <a href="category.html" class="btn btn-primary">
-                    <i class="fa-solid fa-utensils"></i> Explore Collections
-                </a>
-                <a href="https://wa.me/916393072915?text=Hello%20Ashtami,%20I%20would%20like%20to%20place%20an%20order." class="btn btn-secondary" target="_blank">
-                    <i class="fa-brands fa-whatsapp"></i> Order on WhatsApp
-                </a>
+            <h2 class="section-title">Our Signature Ladoos</h2>
+            <p class="section-subtitle">Premium handcrafted sweets from Ashtami Store</p>
+            <div class="sweets-grid">
+                <div class="sweet-card">
+                    <img src="sweet-page.png" alt="Ashtami Store Ladoo Box">
+                    <h3>Special Ladoo Collection</h3>
+                </div>
+                <div class="sweet-card">
+                    <img src="box.png" alt="Ashtami Store Gift Box">
+                    <h3>Premium Gift Box</h3>
+                </div>
+                <div class="sweet-card">
+                    <img src="coconut-ladoo.png" alt="Ashtami Store Coconut Ladoo Box">
+                    <h3>Coconut Ladoo Box</h3>
+                </div>
             </div>
         </div>
     </section>
 
-    <section class="featured">
+    <!-- COLLECTIONS SECTION -->
+    <section id="collections">
         <div class="container">
             <div class="section-title">
-                <h2>Featured Specialties</h2>
+                <h2>Explore Our Collections</h2>
+                <p>Celebrate Indian traditions through delicious homemade sweets, elegant jewellery and memorable personalised gifts.</p>
             </div>
-            <div class="product-grid-3">
-                
-                <!-- Product Card 1: Sonth Ladoo -->
-                <div class="product-card">
-                    <div>
-                        <img src="sonth-ladoo.png" alt="Sonth Ladoo">
-                        <h3>Sonth Ladoo</h3>
-                        <p>Authentic winter wellness sweet made with dry ginger, gond, pure ghee, and rich dry fruits.</p>
-                    </div>
-                    <div>
-                        <div class="price">From ₹250 <small style="font-size:0.8rem; font-weight:400; color:var(--text-muted);">/ 250g</small></div>
-                        <a href="product-sonth.html" class="btn btn-primary">View Product</a>
+            <div class="categories">
+                <div class="category-card">
+                    <img src="sweets.png" alt="Sweets & Savouries">
+                    <div class="category-content">
+                        <h3>Sweets &amp; Savouries</h3>
+                        <p>Traditional recipes prepared with premium ingredients and homemade care.</p>
+                        <a href="category.html" class="btn btn-primary">Explore Collection</a>
                     </div>
                 </div>
-
-                <!-- Product Card 2: Til Ladoo -->
-                <div class="product-card">
-                    <div>
-                        <img src="til-ladoo.png" alt="Til Ladoo">
-                        <h3>Til Ladoo</h3>
-                        <p>Traditional sesame and jaggery laddoo rich in natural calcium, iron, and protein.</p>
-                    </div>
-                    <div>
-                        <div class="price">₹300 <small style="font-size:0.8rem; font-weight:400; color:var(--text-muted);">/ 500g</small></div>
-                        <a href="til-ladoo.html" class="btn btn-primary">View Product</a>
-                    </div>
-                </div>
-
-                <!-- Product Card 3: Custom Gift Items -->
-                <div class="product-card">
-                    <div>
-                        <img src="gift-box.png" alt="Printed Gift Items">
+                <div class="category-card">
+                    <img src="gifts.png" alt="Printed Gift Items">
+                    <div class="category-content">
                         <h3>Printed Gift Items</h3>
-                        <p>Beautifully customized ceremonial and festive gift collections for your loved ones.</p>
-                    </div>
-                    <div>
-                        <div class="price">Custom Pricing</div>
-                        <a href="product-gift.html" class="btn btn-primary">Explore Gifts</a>
+                        <p>Personalised gifts designed to make every celebration more memorable.</p>
+                        <a href="product-gift.html" class="btn btn-primary">Explore Collection</a>
                     </div>
                 </div>
-
+                <div class="category-card">
+                    <img src="jewellery.png" alt="Jewellery">
+                    <div class="category-content">
+                        <h3>Jewellery</h3>
+                        <p>Elegant handcrafted jewellery inspired by timeless Indian traditions.</p>
+                        <a href="product-jewellery.html" class="btn btn-primary">Explore Collection</a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <section class="why-us">
+    <!-- SIGNATURE PRODUCTS SECTION -->
+    <section id="signature-products">
         <div class="container">
             <div class="section-title">
-                <h2>Why Choose Ashtami</h2>
+                <h2>Our Signature Delicacies</h2>
+                <p>Prepared using authentic recipes, premium ingredients and homemade care. These traditional favourites have been loved for generations.</p>
             </div>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <i class="fa-solid fa-house"></i>
-                    <h3>100% Homemade</h3>
-                    <p>Prepared in small batches with traditional recipes and love.</p>
+
+            <!-- Sonth Ladoo -->
+            <div class="signature-product">
+                <div class="signature-image">
+                    <img src="sonth-ladoo.png" alt="Sonth Ladoo">
                 </div>
-                <div class="feature-card">
-                    <i class="fa-solid fa-award"></i>
-                    <h3>Pure Ingredients</h3>
-                    <p>Only top-grade dry fruits, pure ghee, and natural sweeteners used.</p>
+                <div class="signature-content">
+                    <span class="badge">Traditional Winter Special</span>
+                    <h2>Sonth Ladoo</h2>
+                    <p>A protein-rich traditional delicacy prepared with dried ginger, premium dry fruits, edible gum (gond), whole wheat flour and pure ghee. Prepared in small batches to preserve authentic taste and freshness.</p>
+                    <div class="features">
+                        <span>✔ Homemade</span>
+                        <span>✔ Rich in Protein</span>
+                        <span>✔ Premium Dry Fruits</span>
+                        <span>✔ Pure Ghee</span>
+                        <span>✔ Hygienically Prepared</span>
+                    </div>
+                    <div class="price-box">
+                        <h3>Available Variants</h3>
+                        <p><b>Jaggery (1 Kg)</b> <span>₹1100</span></p>
+                        <p><b>Sugar (1 Kg)</b> <span>₹1000</span></p>
+                    </div>
+                    <div class="signature-action-btns">
+                        <button class="btn btn-secondary" onclick="addToCart('sonth-sugar', 'Sonth Ladoo', 1000, 'sonth-ladoo.png', 'Sugar 1 Kg')">
+                            <i class="fa-solid fa-cart-plus"></i> Add to Cart
+                        </button>
+                        <a href="product-sonth.html" class="btn btn-primary">View Details</a>
+                    </div>
                 </div>
-                <div class="feature-card">
-                    <i class="fa-solid fa-truck-fast"></i>
-                    <h3>Pan India Shipping</h3>
-                    <p>Safe, hygienic packaging that preserves taste and freshness.</p>
+            </div>
+
+            <!-- Til Ladoo -->
+            <div class="signature-product reverse">
+                <div class="signature-image">
+                    <img src="til-ladoo.png" alt="Til Ladoo">
                 </div>
-                <div class="feature-card">
-                    <i class="fa-solid fa-shield-heart"></i>
-                    <h3>No Preservatives</h3>
-                    <p>Clean preparation standards with zero added artificial preservatives.</p>
+                <div class="signature-content">
+                    <span class="badge">Traditional Energy Sweet</span>
+                    <h2>Til Ladoo</h2>
+                    <p>Prepared from roasted sesame seeds and natural jaggery, Til Ladoo is rich in calcium, iron and natural protein. A delicious homemade sweet enjoyed during festivals and winter.</p>
+                    <div class="features">
+                        <span>✔ Homemade</span>
+                        <span>✔ Rich in Calcium</span>
+                        <span>✔ Iron Source</span>
+                        <span>✔ Natural Energy</span>
+                        <span>✔ Freshly Prepared</span>
+                    </div>
+                    <div class="price-box">
+                        <h3>Available Packs</h3>
+                        <p><b>500 g</b> <span>₹300</span></p>
+                        <p><b>1 Kg</b> <span>₹600</span></p>
+                    </div>
+                    <div class="signature-action-btns">
+                        <button class="btn btn-secondary" onclick="addToCart('til-500', 'Til Ladoo', 300, 'til-ladoo.png', '500 g')">
+                            <i class="fa-solid fa-cart-plus"></i> Add to Cart
+                        </button>
+                       <a href="product-til.html" class="btn btn-primary">View Details</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Coconut Ladoo -->
+            <div class="signature-product reverse">
+                <div class="signature-image">
+                    <img src="coconut1.png" alt="Coconut Ladoo">
+                </div>
+                <div class="signature-content">
+                    <span class="badge">Traditional Energy Sweet</span>
+                    <h2>Coconut Ladoo</h2>
+                    <p>Prepared from premium coconut, Coconut Ladoo is rich in iron and magnesium. A delicious homemade sweet enjoyed during festivals and winter.</p>
+                    <div class="features">
+                        <span>✔ Homemade</span>
+                        <span>✔ Rich in magnesium</span>
+                        <span>✔ Iron Source</span>
+                        <span>✔ Natural Energy</span>
+                        <span>✔ Freshly Prepared</span>
+                    </div>
+                    <div class="price-box">
+                        <h3>Available Packs</h3>
+                        <p><b>500 g</b> <span>₹400</span></p>
+                        <p><b>1 Kg</b> <span>₹800</span></p>
+                    </div>
+                    <div class="signature-action-btns">
+                        <button class="btn btn-secondary" onclick="addToCart('coconut-500', 'Coconut Ladoo', 400, 'coconut1.png', '500 g')">
+                            <i class="fa-solid fa-cart-plus"></i> Add to Cart
+                        </button>
+                       <a href="product-coconut.html" class="btn btn-primary">View Details</a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section style="border:none; padding: 60px 0 20px 0;">
+    <!-- WHY CHOOSE US SECTION -->
+    <section id="why-us">
         <div class="container">
-            <div class="cta">
-                <h2>Ready to Experience the Taste of Tradition?</h2>
-                <p>Have questions or want to place a custom bulk order? Connect with us directly on WhatsApp. We're happy to help.</p>
-                <a href="https://wa.me/916393072915?text=Hello%20Ashtami,%20I%20would%20like%20to%20place%20an%20order." class="btn btn-primary" target="_blank">
-                    <i class="fa-brands fa-whatsapp"></i> Order on WhatsApp
-                </a>
+            <div class="section-title">
+                <h2>Why Choose Ashtami?</h2>
+                <p>Every product at Ashtami reflects our commitment to quality, authenticity and customer satisfaction.</p>
+            </div>
+            <div class="why-grid">
+                <div class="why-card">
+                    <div class="why-icon"><i class="fa-solid fa-house"></i></div>
+                    <h3>Homemade with Love</h3>
+                    <p>Prepared in small batches using traditional family recipes.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon"><i class="fa-solid fa-seedling"></i></div>
+                    <h3>Premium Ingredients</h3>
+                    <p>Only carefully selected ingredients are used to ensure authentic taste and quality.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon"><i class="fa-solid fa-shield-heart"></i></div>
+                    <h3>Quality &amp; Hygiene</h3>
+                    <p>Every product is prepared and packed with strict attention to cleanliness and freshness.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon"><i class="fa-solid fa-gift"></i></div>
+                    <h3>Perfect for Gifting</h3>
+                    <p>Thoughtfully crafted products for festivals, celebrations and memorable occasions.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon"><i class="fa-solid fa-truck-fast"></i></div>
+                    <h3>Fresh Delivery</h3>
+                    <p>Freshly prepared and delivered with care to preserve quality and flavour.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon"><i class="fa-solid fa-headset"></i></div>
+                    <h3>Personal Support</h3>
+                    <p>Need help? Simply connect with us on WhatsApp for quick assistance.</p>
+                </div>
             </div>
         </div>
     </section>
 
+    <!-- OUR STORY SECTION -->
+    <section id="our-story">
+        <div class="container">
+            <div class="story-wrapper">
+                <div class="story-image">
+                    <img src="owner.png" alt="About Ashtami">
+                </div>
+                <div class="story-content">
+                    <span class="story-tag">Our Journey</span>
+                    <h2>Every Tradition Begins With Love</h2>
+                    <p>At Ashtami, we believe traditions deserve to be celebrated, preserved and shared with the next generation.</p>
+                    <p>Our journey began with a simple dream—to bring authentic homemade sweets, elegant jewellery and meaningful gifts to every family that values quality, culture and craftsmanship.</p>
+                    <p>Every laddoo is prepared in small batches. Every jewellery piece is selected with care. Every gift is thoughtfully created. Because for us, every order is personal.</p>
+                    <p>We don't simply deliver products. <strong>We deliver traditions, celebrations and smiles.</strong></p>
+                    <a href="about.html" class="btn btn-primary">Know More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROMISE SECTION -->
+    <section id="promise">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Promise</h2>
+                <p>Every order is prepared with honesty, quality and attention to detail.</p>
+            </div>
+            <div class="promise-grid">
+                <div class="promise-item">
+                    <h3>100%</h3>
+                    <p>Homemade</p>
+                </div>
+                <div class="promise-item">
+                    <h3>Fresh</h3>
+                    <p>Made in Small Batches</p>
+                </div>
+                <div class="promise-item">
+                    <h3>Premium</h3>
+                    <p>Quality Ingredients</p>
+                </div>
+                <div class="promise-item">
+                    <h3>Safe</h3>
+                    <p>Hygienic Preparation</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS SECTION -->
+    <section id="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>What Our Customers Say</h2>
+                <p>Every smile we receive inspires us to continue delivering authentic traditions with care.</p>
+            </div>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"The Sonth Ladoo reminded me of my grandmother's recipe. Fresh, delicious and beautifully packed."</p>
+                    <h4>Priya Sharma</h4>
+                    <span>Lucknow</span>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"The Til Ladoo tasted amazing. Ordering through WhatsApp was simple and delivery was quick."</p>
+                    <h4>Rahul Verma</h4>
+                    <span>Kanpur</span>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"Excellent quality products. Looking forward to trying more traditional sweets."</p>
+                    <h4>Anjali Singh</h4>
+                    <span>Prayagraj</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATISTICS SECTION -->
+    <section id="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div>
+                    <h2>100%</h2>
+                    <p>Homemade</p>
+                </div>
+                <div>
+                    <h2>Premium</h2>
+                    <p>Ingredients</p>
+                </div>
+                <div>
+                    <h2>Fresh</h2>
+                    <p>Prepared Daily</p>
+                </div>
+                <div>
+                    <h2>24×7</h2>
+                    <p>WhatsApp Support</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section id="faq">
+        <div class="container">
+            <div class="section-title">
+                <h2>Frequently Asked Questions</h2>
+                <p>Everything you need to know before placing your order.</p>
+            </div>
+            <div class="faq-box">
+                <div class="faq-item">
+                    <h3>Do you deliver across India?</h3>
+                    <p>Yes, delivery is available to most locations across India.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>How do I place an order?</h3>
+                    <p>Add products to your cart, complete the checkout, pay using UPI and submit your order.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Are the sweets freshly prepared?</h3>
+                    <p>Yes. Our sweets are prepared in small batches to maintain freshness and quality.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Which payment methods do you accept?</h3>
+                    <p>Google Pay, PhonePe and other UPI payment apps.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <div class="container" style="padding-bottom: 40px;">
+        <section class="cta">
+            <h2>Ready to Experience the Taste of Tradition?</h2>
+            <p>Have questions or want to place an order? Connect with us directly on WhatsApp. We're always happy to help.</p>
+            <a href="https://wa.me/916393072915?text=Hello%20Ashtami,%20I%20would%20like%20to%20place%20an%20order." class="btn btn-secondary" target="_blank">
+                <i class="fa-brands fa-whatsapp"></i> Order on WhatsApp
+            </a>
+        </section>
+    </div>
+
+    <!-- FOOTER -->
     <footer>
         <div class="container footer-grid">
             <div class="footer-column">
@@ -826,14 +1599,14 @@
                 <h4>Collections</h4>
                 <ul>
                     <li><a href="category.html">Sweets &amp; Savouries</a></li>
-                    <li><a href="product-gift.html">Printed Gifts</a></li>
-                    <li><a href="product-jewellery.html">Jewellery</a></li>
+                    <li><a href="printed-gifts.html">Printed Gifts</a></li>
+                    <li><a href="jewellery.html">Jewellery</a></li>
                 </ul>
             </div>
             <div class="footer-column">
                 <h4>Connect With Us</h4>
                 <ul>
-                    <li><a href="https://wa.me/916393072915" target="_blank"><i class="fa-brands fa-whatsapp" style="color: #25d366;"></i> WhatsApp Support</a></li>
+                    <li><a href="https://wa.me/916393072915"><i class="fa-brands fa-whatsapp"></i> WhatsApp Support</a></li>
                 </ul>
             </div>
         </div>
@@ -841,6 +1614,22 @@
             <p>&copy; 2026 Ashtami Store. All Rights Reserved. Crafted with Tradition.</p>
         </div>
     </footer>
+
+    <!-- Paste the Social Icons container right here -->
+    <div class="social-container">
+        <a href="https://wa.me/916393072915" target="_blank" class="social-icon whatsapp" aria-label="WhatsApp">
+            <i class="fa-brands fa-whatsapp"></i>
+        </a>
+        <a href="https://instagram.com/yourprofile" target="_blank" class="social-icon instagram" aria-label="Instagram">
+            <i class="fa-brands fa-instagram"></i>
+        </a>
+        <a href="https://facebook.com/yourprofile" target="_blank" class="social-icon facebook" aria-label="Facebook">
+            <i class="fa-brands fa-facebook-f"></i>
+        </a>
+        <a href="https://youtube.com/yourprofile" target="_blank" class="social-icon youtube" aria-label="YouTube">
+            <i class="fa-brands fa-youtube"></i>
+        </a>
+    </div>
 
     <!-- WHATSAPP FLOATER -->
     <a href="https://wa.me/916393072915?text=Hello%20Ashtami,%20I%20would%20like%20to%20place%20an%20order." class="whatsapp" target="_blank">
@@ -852,44 +1641,31 @@
         document.addEventListener('DOMContentLoaded', () => {
             const mobileToggle = document.getElementById('mobile-toggle');
             const navMenu = document.getElementById('nav-menu');
-            const dropdownParent = document.getElementById('dropdown-parent');
-            const dropdownBtn = document.getElementById('dropdown-btn');
 
             // Synchronize UI header count badge with localStorage
             updateGlobalCartCountDisplay();
 
-            // Hamburger toggle logic
-            mobileToggle.addEventListener('click', (e) => {
-                e.stopPropagation();
-                navMenu.classList.toggle('active');
-                
-                const icon = mobileToggle.querySelector('i');
-                if(navMenu.classList.contains('active')) {
-                    icon.className = 'fa-solid fa-xmark';
-                } else {
-                    icon.className = 'fa-solid fa-bars';
-                    dropdownParent.classList.remove('open-active');
-                }
-            });
-
-            // Mobile specific subdropdown alignment interceptor
-            if(dropdownBtn) {
-                dropdownBtn.addEventListener('click', (e) => {
-                    if(window.innerWidth <= 991) {
-                        e.preventDefault();
-                        e.stopPropagation();
-                        dropdownParent.classList.toggle('open-active');
+            // Mobile specific hamburger logic
+            if (mobileToggle) {
+                mobileToggle.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    navMenu.classList.toggle('active');
+                    
+                    const icon = mobileToggle.querySelector('i');
+                    if(navMenu.classList.contains('active')) {
+                        if (icon) icon.className = 'fa-solid fa-xmark';
+                    } else {
+                        if (icon) icon.className = 'fa-solid fa-bars';
                     }
                 });
             }
 
-            // Close responsive frame drawer windows safely on click-out context
+            // Close responsive drawer window on click-out context
             document.addEventListener('click', (e) => {
                 if(!navMenu.contains(e.target) && !mobileToggle.contains(e.target)) {
                     navMenu.classList.remove('active');
                     const icon = mobileToggle.querySelector('i');
                     if (icon) icon.className = 'fa-solid fa-bars';
-                    dropdownParent.classList.remove('open-active');
                 }
             });
         });
@@ -906,6 +1682,35 @@
                 console.error("Error reading cart from storage:", error);
             }
         }
+        
+        function addToCart(id, name, price, img, variant) {
+            try {
+                let cart = JSON.parse(localStorage.getItem('cart')) || [];
+                const itemUniqueId = `${id}-${variant.replace(/\s+/g, '-').toLowerCase()}`;
+                const existingItemIndex = cart.findIndex(item => item.id === itemUniqueId);
+                
+                if (existingItemIndex > -1) {
+                    cart[existingItemIndex].quantity += 1;
+                } else {
+                    cart.push({
+                        id: itemUniqueId,
+                        name: name,
+                        price: price,
+                        image: img,
+                        variant: variant,
+                        quantity: 1
+                    });
+                }
+                
+                localStorage.setItem('cart', JSON.stringify(cart));
+                updateGlobalCartCountDisplay();
+                
+                alert(`${name} (${variant}) has been added to your cart!`);
+            } catch (error) {
+                console.error("Could not complete add operation:", error);
+            }
+        }
     </script>
+    <script src="script.js?clear-cache-v2"></script>
 </body>
 </html>
