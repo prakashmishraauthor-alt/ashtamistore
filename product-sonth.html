@@ -418,14 +418,15 @@
             font-size: 0.85rem;
         }
 
+        /* Updated 2x3 Grid layout for 6 price options */
         .product-price {
-            display: flex;
-            gap: 20px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
             margin-bottom: 30px;
         }
 
         .product-price div {
-            flex: 1;
             padding: 15px;
             background: var(--card-bg);
             border: 1px solid var(--border-color);
@@ -943,7 +944,7 @@
 
         @media screen and (max-width: 580px) {
             .product-price {
-                flex-direction: column;
+                grid-template-columns: 1fr;
                 gap: 12px;
             }
             .love-grid,
@@ -1029,14 +1030,31 @@
                         <span>(Traditional Favourite)</span>
                     </div>
                     
+                    <!-- DISPLAYING ALL 6 VARIANT PRICING OPTIONS -->
                     <div class="product-price">
                         <div>
-                            <strong>Sugar Based</strong>
-                            <span>₹1000 <small style="font-size: 0.75rem; font-weight:400; color:var(--text-muted);">/ Kg</small></span>
+                            <strong>Sugar Based (250g)</strong>
+                            <span>₹250</span>
                         </div>
                         <div>
-                            <strong>Jaggery Based</strong>
-                            <span>₹1100 <small style="font-size: 0.75rem; font-weight:400; color:var(--text-muted);">/ Kg</small></span>
+                            <strong>Jaggery Based (250g)</strong>
+                            <span>₹300</span>
+                        </div>
+                        <div>
+                            <strong>Sugar Based (500g)</strong>
+                            <span>₹500</span>
+                        </div>
+                        <div>
+                            <strong>Jaggery Based (500g)</strong>
+                            <span>₹550</span>
+                        </div>
+                        <div>
+                            <strong>Sugar Based (1 Kg)</strong>
+                            <span>₹1000</span>
+                        </div>
+                        <div>
+                            <strong>Jaggery Based (1 Kg)</strong>
+                            <span>₹1100</span>
                         </div>
                     </div>
                     
